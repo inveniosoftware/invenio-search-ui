@@ -36,6 +36,10 @@ history = open('CHANGES.rst').read()
 tests_require = [
     'check-manifest>=0.25',
     'coverage>=4.0',
+    'Flask-CLI>=0.2.1',
+    "invenio-assets>=1.0.0a1",
+    'invenio-db>=1.0.0a6',
+    'invenio-records>=1.0.0a6',
     'isort>=4.2.2',
     'pep257>=0.7.0',
     'pytest-cache>=1.0',
@@ -119,7 +123,15 @@ setup(
     zip_safe=False,
     include_package_data=True,
     platforms='any',
-    entry_points={},
+    entry_points={
+        'invenio_base.apps': [
+            'invenio_search_ui = invenio_search_ui:InvenioSearchUI'
+        ],
+        'invenio_assets.bundles': [
+            'invenio_search_ui_search_css = invenio_search_ui.bundles:css',
+            'invenio_search_ui_search_js = invenio_search_ui.bundles:js',
+        ],
+    },
     extras_require=extras_require,
     install_requires=install_requires,
     setup_requires=setup_requires,

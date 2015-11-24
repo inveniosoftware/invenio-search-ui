@@ -50,5 +50,8 @@ class InvenioSearchUI(object):
         """Initialize configuration."""
         app.config.setdefault(
             "SEARCH_UI_BASE_TEMPLATE",
-            app.config.get("BASE_TEMPLATE",
-                           "invenio_search_ui/base.html"))
+            app.config.get("BASE_TEMPLATE",  "invenio_search_ui/base.html")
+        )
+        app.config.setdefault(
+            'SEARCH_UI_SEARCH_TEMPLATE', 'invenio_search_ui/search.html'
+        )

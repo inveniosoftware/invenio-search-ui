@@ -27,16 +27,38 @@
 
 from __future__ import absolute_import, print_function
 
-from flask import Flask
-from flask_babelex import Babel
+from flask import Flask, render_template_string
 
-from invenio_search_ui import InvenioSearchUI
+from invenio_search_ui import InvenioSearchUI, bundles
+
+
+def _check_template():
+    """Check template."""
+    extended = """
+        {% extends 'invenio_search_ui/search.html' %}
+        {% block javascript %}{% endblock %}
+        {% block css %}{% endblock %}
+        {% block page_body %}{{ super() }}{% endblock %}
+    """
+    rendered = render_template_string(extended)
+    # Check if the search elements exist
+    assert 'invenio-search-bar' in rendered
+    assert 'invenio-search-results' in rendered
+    assert 'invenio-search-results-count' in rendered
+    assert 'invenio-search-results-loading' in rendered
+    assert 'invenio-search-results-pagination' in rendered
 
 
 def test_version():
     """Test version import."""
     from invenio_search_ui import __version__
     assert __version__
+
+
+def test_bundles():
+    """Test bundles."""
+    assert bundles.js
+    assert bundles.css
 
 
 def test_init():
@@ -54,9 +76,5 @@ def test_init():
 
 def test_view(app):
     """Test view."""
-    Babel(app)
-    InvenioSearchUI(app)
-    with app.test_client() as client:
-        res = client.get("/")
-        assert res.status_code == 200
-        assert 'Welcome to Invenio-Search-UI' in str(res.data)
+    with app.test_request_context():
+        _check_template()

@@ -29,6 +29,12 @@ from __future__ import absolute_import, print_function
 
 import pytest
 from flask import Flask
+from flask_babelex import Babel
+from flask_cli import FlaskCLI
+from invenio_assets import InvenioAssets
+
+from invenio_search_ui import InvenioSearchUI
+from invenio_search_ui.views import blueprint
 
 
 @pytest.fixture()
@@ -36,6 +42,19 @@ def app():
     """Flask application fixture."""
     app = Flask('testapp')
     app.config.update(
-        TESTING=True
+        TESTING=True,
+        SEARCH_UI_SEARCH_API='api'
     )
+    Babel(app)
+
+    FlaskCLI(app)
+    assets = InvenioAssets(app)
+    assets.init_cli(app.cli)
+    InvenioSearchUI(app)
+
+    @app.route('/api')
+    def api():
+        return {}
+
+    app.register_blueprint(blueprint)
     return app

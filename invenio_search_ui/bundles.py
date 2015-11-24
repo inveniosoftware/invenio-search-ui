@@ -22,35 +22,25 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
+"""UI for Invenio-Search."""
 
-# TODO: Generate this manifest file by running the following commands:
-#
-#  git init
-#  git add -A
-#  pip install -e .[all]
-#  check-manifest -u
+from flask_assets import Bundle
+from invenio_assets import NpmBundle
 
-# Check manifest will not automatically add these two files:
-include .dockerignore
-include .editorconfig
-include .tx/config
-recursive-include invenio_search_ui *.po
-recursive-include invenio_search_ui *.mo
-recursive-include invenio_search_ui *.js
-recursive-include invenio_search_ui *.scss
+css = Bundle(
+    'scss/invenio_search_ui/search.scss',
+    filters='scss, cleancss',
+    output='gen/search.%(version)s.css'
+)
 
-# added by check_manifest.py
-include *.rst
-include *.sh
-include *.txt
-include LICENSE
-include babel.ini
-include pytest.ini
-recursive-include docs *.bat
-recursive-include docs *.py
-recursive-include docs *.rst
-recursive-include docs Makefile
-recursive-include examples *.py
-recursive-include examples *.xml
-recursive-include invenio_search_ui *.html
-recursive-include tests *.py
+js = NpmBundle(
+    'node_modules/angular/angular.js',
+    'js/invenio_search_ui/app.js',
+    filters='requirejs',
+    output='gen/search.%(version)s.js',
+    npm={
+        "almond": "~0.3.1",
+        'angular': '~1.4.7',
+        'invenio-search-js': '~0.0.7'
+    },
+)

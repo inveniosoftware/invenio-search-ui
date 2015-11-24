@@ -26,8 +26,7 @@
 
 from __future__ import absolute_import, print_function
 
-from flask import Blueprint, render_template
-from flask_babelex import gettext as _
+from flask import Blueprint, current_app, render_template
 
 blueprint = Blueprint(
     'invenio_search_ui',
@@ -37,9 +36,7 @@ blueprint = Blueprint(
 )
 
 
-@blueprint.route("/")
-def index():
-    """Basic view."""
-    return render_template(
-        "invenio_search_ui/index.html",
-        module_name=_('Invenio-Search-UI'))
+@blueprint.route("/search")
+def search():
+    """Search page ui."""
+    return render_template(current_app.config['SEARCH_UI_SEARCH_TEMPLATE'])

@@ -55,3 +55,7 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# example
+examples/static
+examples/instance
