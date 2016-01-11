@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of Invenio.
-# Copyright (C) 2015 CERN.
+# Copyright (C) 2015, 2016 CERN.
 #
 # Invenio is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -42,11 +42,12 @@ def _check_template():
     """
     rendered = render_template_string(extended)
     # Check if the search elements exist
+    assert 'invenio-search' in rendered
     assert 'invenio-search-bar' in rendered
     assert 'invenio-search-results' in rendered
-    assert 'invenio-search-results-count' in rendered
-    assert 'invenio-search-results-loading' in rendered
-    assert 'invenio-search-results-pagination' in rendered
+    assert 'invenio-search-count' in rendered
+    assert 'invenio-search-loading' in rendered
+    assert 'invenio-search-pagination' in rendered
 
 
 def test_version():

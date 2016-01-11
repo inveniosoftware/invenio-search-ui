@@ -29,9 +29,7 @@ $invenio-search-grey: #eee !default;
 $invenio-search-light-grey: #fafafa !default;
 
 .invenio-search-bar {
-  margin-top: -20px;
   padding: $invenio-search-xlarge-space;
-  background: $invenio-search-light-grey;
   border-bottom: 1px solid $invenio-search-grey;
 }
 
