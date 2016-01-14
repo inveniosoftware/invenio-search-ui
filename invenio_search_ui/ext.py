@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of Invenio.
-# Copyright (C) 2015 CERN.
+# Copyright (C) 2015, 2016 CERN.
 #
 # Invenio is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -26,8 +26,6 @@
 
 from __future__ import absolute_import, print_function
 
-from flask_babelex import gettext as _
-
 from .views import blueprint
 
 
@@ -36,7 +34,6 @@ class InvenioSearchUI(object):
 
     def __init__(self, app=None):
         """Extension initialization."""
-        _('A translation string')
         if app:
             self.init_app(app)
 

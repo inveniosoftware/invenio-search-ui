@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of Invenio.
-# Copyright (C) 2015 CERN.
+# Copyright (C) 2015, 2016 CERN.
 #
 # Invenio is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -60,3 +60,14 @@ script:
 
 after_success:
   - coveralls
+
+deploy:
+  provider: pypi
+  user: jirikuncar
+  password:
+    secure: affpU/yeZPlFX4VVCa5m4WzxjfXybwp7qUIpgl9lLKJgP4KJtshF2LWd+zj3ZWYUZuNXBqY3zb871s99CJ/UOb+7eeFPPtiyh+ZiFd4dxVTuprI+tSAwk89ai2/HnnJAsA4VkjieUawPKYyFUBnK2/QixXjQYkGg0BddJA5IzKJSKUzf2M+eey21fVd0AQrbqRCBdkOyQ8NdMrMhGlM7gqN5rNMbdNbKYG8B7lU/ISa2sQwMDYEIII9SyjNSHMMybksAy8Z/4IPNUtgalaStlKE4koawJQLexRYy80AQ6O69KLR3SBrK64T1wL+aImdZ4zlp5GOagCsxopACYArqgHSDIV86Ogsxqoh1YdiaeTDB/6X4W5UQ7EE2yV5+ff1eFMM5ZOW95e0/04H5oAsTvRbHvykPb91EgUdM7mTqYy4qkghhMRGEBjJYCnu8JfvetbnxOc2Fks/zUHtPF6k1KvAtc30/kv9L/HEt4wzKfX9M3HZy3jChPynmMUJTMC9+qnVIqVt/w2XOeU5kN3/CNHSurdbYBlJlBPjP0o0oK8KEWs7CklK4lGFVL9q1qrLhD4OKmSAGG929VJupkY5wD6jvcNkOpB8+SiGJ3O+mJbjO8k2IKW76cVVc3cZQmpRA0Ai4N2us58UEPAr8ZhHC7Oz6tE3GuFftgp7d3niglls=
+  distributions: "compile_catalog sdist bdist_wheel"
+  on:
+    tags: true
+    python: "2.7"
+    condition: $REQUIREMENTS = release
