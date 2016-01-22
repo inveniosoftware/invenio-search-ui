@@ -60,19 +60,21 @@
                    message="{{ _('Error') }}">
                   </invenio-search-error>
                   <!-- LOADING -->
-                  <invenio-search-loading
-                   template="{{ url_for('static', filename='node_modules/invenio-search-js/dist/templates/loading.html') }}"
-                   message="{{ _('Loading...') }}">
-                  </invenio-search-loading>
+                  <div class="invenio-search-loading text-center">
+                    <invenio-search-loading
+                    template="{{ url_for('static', filename='node_modules/invenio-search-js/dist/templates/loading.html') }}"
+                    message="{{ _('Loading') }}">
+                    </invenio-search-loading>
+                  </div>
                   <!-- COUNT -->
-                  <center>
+                  <div class="invenio-search-count text-center">
                     <invenio-search-count
                      template="{{ url_for('static', filename='node_modules/invenio-search-js/dist/templates/count.html') }}">
                     </invenio-search-count>
-                  </center>
+                  </div>
                   <!-- RESULTS -->
                   <invenio-search-results
-                   template="{{ url_for('static', filename='node_modules/invenio-search-js/dist/templates/results.html') }}">
+                   template="{{ url_for('static', filename='templates/invenio_search_ui/marc21/default.html') }}">
                   </invenio-search-results>
                   <!-- PAGINATION -->
                   <center>
