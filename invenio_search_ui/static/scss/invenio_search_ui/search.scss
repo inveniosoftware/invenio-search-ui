@@ -28,12 +28,15 @@ $invenio-search-xlarge-space: 20px !default;
 $invenio-search-grey: #eee !default;
 $invenio-search-light-grey: #fafafa !default;
 
+.invenio-search-count {
+  margin: $invenio-search-large-space 0;
+}
+
+.invenio-search-loading{
+  margin: $invenio-search-large-space 0;
+}
+
 .invenio-search-bar {
   padding: $invenio-search-xlarge-space;
   border-bottom: 1px solid $invenio-search-grey;
-}
-
-.invenio-search-count {
-  text-align: center;
-  padding: $invenio-search-large-space 0;
 }
