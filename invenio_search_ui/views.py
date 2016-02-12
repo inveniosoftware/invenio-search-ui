@@ -28,6 +28,8 @@ from __future__ import absolute_import, print_function
 
 from flask import Blueprint, current_app, render_template
 
+from flask import json
+
 blueprint = Blueprint(
     'invenio_search_ui',
     __name__,
@@ -40,3 +42,30 @@ blueprint = Blueprint(
 def search():
     """Search page ui."""
     return render_template(current_app.config['SEARCH_UI_SEARCH_TEMPLATE'])
+
+
+def sorted_options(sort_options):
+    """Sort sort options for display."""
+    return [
+        dict(
+            title=v['title'],
+            value=('-{0}'.format(k)
+                   if v.get('default_order', 'asc') == 'desc' else k),
+        )
+        for k, v in
+        sorted(sort_options.items(), key=lambda x: x[1].get('order', 0))
+    ]
+
+
+@blueprint.app_template_filter('format_sortoptions')
+def format_sortoptions(sort_options):
+    """."""
+    return json.dumps(dict(
+        options=sorted_options(sort_options)
+    ))
+
+
+@blueprint.app_template_filter('default_sortoption')
+def default_sortoption(sort_options):
+    """."""
+    return sorted_options(sort_options)[0]['value']
