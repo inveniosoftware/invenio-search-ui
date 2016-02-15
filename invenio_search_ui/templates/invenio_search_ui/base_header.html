@@ -1,6 +1,6 @@
 {#
 # This file is part of Invenio.
-# Copyright (C) 2015, 2016 CERN.
+# Copyright (C) 2016 CERN.
 #
 # Invenio is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License as
@@ -20,18 +20,15 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 #}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <script src="{{ url_for('static', filename='node_modules/almond/almond.js') }}"></script>
-    {%- block css %}{%- endblock css %}
-    {%- block javascript %}{%- endblock javascript %}
-  </head>
-  <body>
-    {%- block page_header %}
-    {% include "invenio_search_ui/base_header.html" %}
-    {%- endblock page_header %}
-    {%- block page_body %}{%- endblock page_body %}
-  </body>
-</html>
+{%- block navbar_search %}
+<form class="navbar-form navbar-left" action="{{url_for('invenio_search_ui.search')}}" role="search">
+  <div class="form-group">
+    <div class="input-group">
+      <input type="text" class="form-control" name="q" placeholder="{{_('Search')}}">
+      <div class="input-group-btn">
+        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+  </div>
+</form>
+{%- endblock navbar_search %}

@@ -40,3 +40,9 @@ $invenio-search-light-grey: #fafafa !default;
   padding: $invenio-search-xlarge-space;
   border-bottom: 1px solid $invenio-search-grey;
 }
+
+.search-page {
+    .pagination {
+        margin: 0 0;
+    }
+}

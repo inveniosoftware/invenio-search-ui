@@ -27,9 +27,12 @@
 
 from __future__ import absolute_import, print_function
 
+import json
+
 from flask import Flask, render_template_string
 
 from invenio_search_ui import InvenioSearchUI, bundles
+from invenio_search_ui.views import format_sortoptions
 
 
 def _check_template():
@@ -79,3 +82,15 @@ def test_view(app):
     """Test view."""
     with app.test_request_context():
         _check_template()
+
+
+def test_format_sortoptions(app):
+    """Test default sort option filter."""
+    sort_options = dict(
+        test1=dict(order=2, title='Test1', default_order='desc'),
+        test2=dict(order=1, title='Test2', default_order='asc')
+    )
+    assert json.loads(format_sortoptions(sort_options)) == dict(options=[
+        dict(title='Test2', value='test2'),
+        dict(title='Test1', value='-test1'),
+    ])

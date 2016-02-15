@@ -52,6 +52,7 @@ Create demo records
 
 .. code-block:: console
 
+   $ mkdir instance
    $ flask -a app.py db init
    $ flask -a app.py db create
    $ flask -a app.py index init
@@ -61,7 +62,7 @@ Start the server
 
 .. code-block:: console
 
-   $ flask -a app.py run --debugger --reload
+   $ flask -a app.py --debug run
 
 Visit your favorite browser on `http://localhost:5000/search
 <http://localhost:5000/search>`_.
@@ -73,7 +74,7 @@ from __future__ import absolute_import, print_function
 from os.path import dirname, join
 
 import jinja2
-from flask import Flask
+from flask import Flask, render_template
 from flask_babelex import Babel
 from flask_cli import FlaskCLI
 from invenio_assets import InvenioAssets
@@ -83,7 +84,9 @@ from invenio_indexer.api import RecordIndexer
 from invenio_pidstore import InvenioPIDStore
 from invenio_records import InvenioRecords
 from invenio_records_rest import InvenioRecordsREST
+from invenio_records_rest.facets import terms_filter
 from invenio_records_ui import InvenioRecordsUI
+from invenio_rest import InvenioREST
 from invenio_search import InvenioSearch
 from invenio_theme import InvenioTheme
 
@@ -100,8 +103,77 @@ app.config.update(
     CELERY_EAGER_PROPAGATES_EXCEPTIONS=True,
     CELERY_RESULT_BACKEND="cache",
     DEBUG=True,
-    SEARCH_UI_SEARCH_API='http://localhost:5000/records',
+    SQLALCHEMY_TRACK_MODIFICATIONS=True,
+    SEARCH_UI_SEARCH_API='/api/records/',
     SEARCH_UI_BASE_TEMPLATE='invenio_theme/page.html',
+    SEARCH_UI_SEARCH_INDEX='testrecords',
+    INDEXER_DEFAULT_INDEX='testrecords-testrecord-v1.0.0',
+    INDEXER_DEFAULT_DOC_TYPE='testrecord-v1.0.0',
+    REST_ENABLE_CORS=True,
+    RECORDS_REST_ENDPOINTS=dict(
+        recid=dict(
+            pid_type='recid',
+            pid_minter='recid_minter',
+            pid_fetcher='recid_fetcher',
+            search_index='testrecords',
+            search_type=None,
+            record_serializers={
+                'application/json': ('invenio_records_rest.serializers'
+                                     ':record_to_json_serializer'),
+            },
+            search_serializers={
+                'application/json': ('invenio_records_rest.serializers'
+                                     ':search_to_json_serializer'),
+            },
+            list_route='/api/records/',
+            item_route='/api/records/<pid_value>',
+            default_media_type='application/json'
+        ),
+    ),
+    RECORDS_REST_FACETS=dict(
+        testrecords=dict(
+            aggs=dict(
+                authors=dict(terms=dict(
+                    field='added_entry_personal_name.personal_name')),
+                languages=dict(terms=dict(
+                    field='language_code.language_code_of_text_'
+                          'sound_track_or_separate_title')),
+                topic=dict(terms=dict(
+                    field='subject_added_entry_topical_term.'
+                          'topical_term_or_geographic_name_entry_element')),
+            ),
+            post_filters=dict(
+                authors=terms_filter(
+                    'added_entry_personal_name.personal_name'),
+                languages=terms_filter(
+                    'language_code.language_code_of_text_'
+                    'sound_track_or_separate_title'),
+                topic=terms_filter(
+                    'subject_added_entry_topical_term.'
+                    'topical_term_or_geographic_name_entry_element'),
+            )
+        )
+    ),
+    RECORDS_REST_SORT_OPTIONS=dict(
+        testrecords=dict(
+            bestmatch=dict(
+                title='Best match',
+                fields=['-_score'],
+                default_order='asc',
+                order=1,
+            ),
+            controlnumber=dict(
+                title='Control number',
+                fields=['control_number'],
+                default_order='desc',
+                order=2,
+            )
+        )
+    ),
+    RECORDS_REST_DEFAULT_SORT=dict(
+        testrecords=dict(query='bestmatch', noquery='-controlnumber'),
+    ),
+    RECORDS_UI_DEFAULT_PERMISSION_FACTORY=None,
 )
 
 FlaskCLI(app)
@@ -118,8 +190,9 @@ InvenioTheme(app)
 InvenioRecords(app)
 InvenioRecordsUI(app)
 search = InvenioSearch(app)
-search.register_mappings('records', 'data')
+search.register_mappings('testrecords', 'data')
 InvenioSearchUI(app)
+InvenioREST(app)
 InvenioIndexer(app)
 InvenioPIDStore(app)
 
@@ -172,20 +245,9 @@ def records():
 app.register_blueprint(blueprint)
 
 
-# Add the facets
-def facets(query, **kwargs):
-    """Enhance query with facets."""
-    query.body["aggs"] = {
-        "author": {
-            "terms": {
-                "field": "added_entry_personal_name.personal_name"
-            }
-        },
-        "title": {
-            "terms": {
-                "field": "title_statement.title"
-            }
-        }
-    }
-
-app.config['SEARCH_QUERY_ENHANCERS'] = [facets]
+@app.route("/")
+def index():
+    """Frontpage."""
+    return render_template(
+        "invenio_theme/page.html",
+        title="Invenio-Search-UI Example Application")

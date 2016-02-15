@@ -37,6 +37,7 @@ js = NpmBundle(
     'node_modules/angular/angular.js',
     'js/invenio_search_ui/app.js',
     filters='requirejs',
+    depends=('node_modules/invenio-search-js/dist/*.js', ),
     output='gen/search.%(version)s.js',
     npm={
         "almond": "~0.3.1",

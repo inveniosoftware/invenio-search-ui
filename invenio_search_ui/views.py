@@ -26,9 +26,7 @@
 
 from __future__ import absolute_import, print_function
 
-from flask import Blueprint, current_app, render_template
-
-from flask import json
+from flask import Blueprint, current_app, json, render_template
 
 blueprint = Blueprint(
     'invenio_search_ui',
@@ -59,13 +57,7 @@ def sorted_options(sort_options):
 
 @blueprint.app_template_filter('format_sortoptions')
 def format_sortoptions(sort_options):
-    """."""
+    """Create sort options JSON dump for Invenio-Search-JS."""
     return json.dumps(dict(
         options=sorted_options(sort_options)
     ))
-
-
-@blueprint.app_template_filter('default_sortoption')
-def default_sortoption(sort_options):
-    """."""
-    return sorted_options(sort_options)[0]['value']

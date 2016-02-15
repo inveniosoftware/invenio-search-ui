@@ -46,9 +46,20 @@ class InvenioSearchUI(object):
     def init_config(self, app):
         """Initialize configuration."""
         app.config.setdefault(
-            "SEARCH_UI_BASE_TEMPLATE",
-            app.config.get("BASE_TEMPLATE",  "invenio_search_ui/base.html")
+            'SEARCH_UI_BASE_TEMPLATE',
+            app.config.get('BASE_TEMPLATE', 'invenio_search_ui/base.html')
+        )
+        app.config.setdefault(
+            'SEARCH_UI_HEADER_TEMPLATE',
+            app.config.get('HEADER_TEMPLATE',
+                           'invenio_search_ui/base_header.html')
         )
         app.config.setdefault(
             'SEARCH_UI_SEARCH_TEMPLATE', 'invenio_search_ui/search.html'
+        )
+        app.config.setdefault(
+            'SEARCH_UI_SEARCH_API', '/api/records/'
+        )
+        app.config.setdefault(
+            'SEARCH_UI_SEARCH_INDEX', 'records'
         )
