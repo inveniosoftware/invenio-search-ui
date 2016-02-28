@@ -1,8 +1,8 @@
 ============================
- Invenio-Search-UI v1.0.0a1
+ Invenio-Search-UI v1.0.0a2
 ============================
 
-Invenio-Search-UI v1.0.0a1 was released on January 14, 2016.
+Invenio-Search-UI v1.0.0a2 was released on February 28, 2016.
 
 About
 -----
@@ -19,7 +19,7 @@ What's new
 Installation
 ------------
 
-   $ pip install invenio-search-ui==1.0.0a1
+   $ pip install invenio-search-ui==1.0.0a2
 
 Documentation
 -------------
