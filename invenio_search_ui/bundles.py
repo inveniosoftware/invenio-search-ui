@@ -42,6 +42,6 @@ js = NpmBundle(
     npm={
         "almond": "~0.3.1",
         'angular': '~1.4.9',
-        'invenio-search-js': '~0.1.3'
+        'invenio-search-js': '~0.1.5'
     },
 )
