@@ -1,6 +1,7 @@
 <ul>
   <li ng-repeat="record in vm.invenioSearchResults.hits.hits track by $index">
-    <h4><a target="_self" ng-href="{{ record.links.self }}">{{ record.metadata.title_statement.title }}</a></h4>
+    <!-- FIXME find a better way to set the record url -->
+    <h4><a target="_self" ng-href="/records/{{ record.id }}">{{ record.metadata.title_statement.title }}</a></h4>
     <p>{{ record.metadata.summary[0].summary }}</p>
     <div class="text-right">
       <ul class="list-inline">
