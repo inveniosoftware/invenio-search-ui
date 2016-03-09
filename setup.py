@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of Invenio.
-# Copyright (C) 2015 CERN.
+# Copyright (C) 2015, 2016 CERN.
 #
 # Invenio is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -37,7 +37,7 @@ tests_require = [
     'check-manifest>=0.25',
     'coverage>=4.0',
     'Flask-CLI>=0.2.1',
-    "invenio-assets>=1.0.0a1",
+    'invenio-assets>=1.0.0a1',
     'invenio-db>=1.0.0a6',
     'invenio-records>=1.0.0a6',
     'isort>=4.2.2',
@@ -50,7 +50,7 @@ tests_require = [
 
 extras_require = {
     'docs': [
-        "Sphinx>=1.3",
+        'Sphinx>=1.3',
     ],
     'tests': tests_require,
 }
@@ -73,7 +73,7 @@ packages = find_packages()
 class PyTest(TestCommand):
     """PyTest Test."""
 
-    user_options = [('pytest-args=', 'a', "Arguments to pass to py.test")]
+    user_options = [('pytest-args=', 'a', 'Arguments to pass to py.test')]
 
     def initialize_options(self):
         """Init pytest."""

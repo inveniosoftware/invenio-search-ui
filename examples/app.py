@@ -113,8 +113,8 @@ app.config.update(
     RECORDS_REST_ENDPOINTS=dict(
         recid=dict(
             pid_type='recid',
-            pid_minter='recid_minter',
-            pid_fetcher='recid_fetcher',
+            pid_minter='recid',
+            pid_fetcher='recid',
             search_index='testrecords',
             search_type=None,
             record_serializers={
@@ -233,7 +233,7 @@ def records():
                 # do translate
                 record = marc21.do(create_record(data))
                 # create PID
-                current_pidstore.minters['recid_minter'](
+                current_pidstore.minters['recid'](
                     rec_uuid, record
                 )
                 # create record
