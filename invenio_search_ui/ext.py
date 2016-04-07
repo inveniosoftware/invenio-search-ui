@@ -26,6 +26,7 @@
 
 from __future__ import absolute_import, print_function
 
+from . import config
 from .views import blueprint
 
 
@@ -54,12 +55,6 @@ class InvenioSearchUI(object):
             app.config.get('HEADER_TEMPLATE',
                            'invenio_search_ui/base_header.html')
         )
-        app.config.setdefault(
-            'SEARCH_UI_SEARCH_TEMPLATE', 'invenio_search_ui/search.html'
-        )
-        app.config.setdefault(
-            'SEARCH_UI_SEARCH_API', '/api/records/'
-        )
-        app.config.setdefault(
-            'SEARCH_UI_SEARCH_INDEX', 'records'
-        )
+        for k in dir(config):
+            if k.startswith('SEARCH_UI_'):
+                app.config.setdefault(k, getattr(config, k))

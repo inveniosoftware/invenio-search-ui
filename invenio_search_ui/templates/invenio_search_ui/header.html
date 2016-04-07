@@ -26,6 +26,6 @@
 {%- block navbar_search %}
 <invenio-search-bar
  template="{{ url_for('static', filename='templates/invenio_search_ui/searchbar.html') }}"
- placeholder="{{ _('Search') }}">
+ placeholder="{{ search_input_placeholder|default(_('Search')) }}">
 </invenio-search-bar>
 {%- endblock navbar_search %}
