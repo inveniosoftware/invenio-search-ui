@@ -117,13 +117,14 @@ app.config.update(
             pid_fetcher='recid',
             search_index='testrecords',
             search_type=None,
+            search_factory_imp='invenio_records_rest.query.es_search_factory',
             record_serializers={
                 'application/json': ('invenio_records_rest.serializers'
-                                     ':record_to_json_serializer'),
+                                     ':json_v1_response'),
             },
             search_serializers={
                 'application/json': ('invenio_records_rest.serializers'
-                                     ':search_to_json_serializer'),
+                                     ':json_v1_search'),
             },
             list_route='/api/records/',
             item_route='/api/records/<pid_value>',

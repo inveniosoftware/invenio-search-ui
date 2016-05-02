@@ -22,12 +22,16 @@
  */
 
 require([
-    'node_modules/invenio-search-js/dist/invenio-search-js',
-  ], function(search) {
+    'node_modules/angular/angular.js',
+    'node_modules/angular-loading-bar/build/loading-bar',
+    'node_modules/invenio-search-js/dist/invenio-search-js'
+  ], function() {
     // When the DOM is ready bootstrap the `invenio-serach-js`
     angular.element(document).ready(function() {
       angular.bootstrap(
-        document.getElementById("invenio-search"), ['invenioSearch']
+        document.getElementById("invenio-search"), [
+          'angular-loading-bar', 'invenioSearch'
+        ]
       );
     });
 });

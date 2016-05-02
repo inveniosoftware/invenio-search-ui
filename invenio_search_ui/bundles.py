@@ -28,20 +28,26 @@ from flask_assets import Bundle
 from invenio_assets import NpmBundle
 
 css = Bundle(
-    'scss/invenio_search_ui/search.scss',
-    filters='scss, cleancss',
+    Bundle(
+        'scss/invenio_search_ui/search.scss',
+        filters='scss, cleancss',
+    ),
+    Bundle(
+        'node_modules/angular-loading-bar/build/loading-bar.css',
+        filters='cleancss',
+    ),
     output='gen/search.%(version)s.css'
 )
 
 js = NpmBundle(
-    'node_modules/angular/angular.js',
     'js/invenio_search_ui/app.js',
     filters='requirejs',
     depends=('node_modules/invenio-search-js/dist/*.js', ),
     output='gen/search.%(version)s.js',
     npm={
         "almond": "~0.3.1",
-        'angular': '~1.4.9',
+        'angular': '~1.4.10',
+        'angular-loading-bar': '~0.9.0',
         'invenio-search-js': '~0.1.6'
     },
 )
