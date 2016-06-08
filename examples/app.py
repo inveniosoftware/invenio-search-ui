@@ -66,7 +66,7 @@ from invenio_indexer.api import RecordIndexer
 from invenio_pidstore import InvenioPIDStore
 from invenio_records import InvenioRecords
 from invenio_records_rest import InvenioRecordsREST
-from invenio_records_rest.facets import terms_filter
+from invenio_records_rest.facets import range_filter, terms_filter
 from invenio_records_ui import InvenioRecordsUI
 from invenio_rest import InvenioREST
 from invenio_search import InvenioSearch
@@ -124,6 +124,10 @@ app.config.update(
                 topic=dict(terms=dict(
                     field='subject_added_entry_topical_term.'
                           'topical_term_or_geographic_name_entry_element')),
+                years=dict(date_histogram=dict(
+                    field='imprint.complete_date',
+                    interval='year',
+                    format='yyyy')),
             ),
             post_filters=dict(
                 authors=terms_filter(
@@ -134,6 +138,10 @@ app.config.update(
                 topic=terms_filter(
                     'subject_added_entry_topical_term.'
                     'topical_term_or_geographic_name_entry_element'),
+                years=range_filter(
+                    'imprint.complete_date',
+                    format='yyyy',
+                    end_date_math='/y'),
             )
         )
     ),

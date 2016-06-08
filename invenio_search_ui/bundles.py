@@ -42,12 +42,13 @@ css = Bundle(
 js = NpmBundle(
     'js/invenio_search_ui/app.js',
     filters='requirejs',
-    depends=('node_modules/invenio-search-js/dist/*.js', ),
+    depends=('node_modules/invenio-search-js/dist/*.js', 'node_modules/d3/*'),
     output='gen/search.%(version)s.js',
     npm={
         "almond": "~0.3.1",
         'angular': '~1.4.10',
         'angular-loading-bar': '~0.9.0',
-        'invenio-search-js': '~0.1.6'
+        'd3': '^3.5.17',
+        'invenio-search-js': '~0.2.0',
     },
 )

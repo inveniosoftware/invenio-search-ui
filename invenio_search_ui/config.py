@@ -45,6 +45,15 @@ SEARCH_UI_JSTEMPLATE_FACETS = \
     'node_modules/invenio-search-js/dist/templates/facets.html'
 """Configure the facets template."""
 
+SEARCH_UI_JSTEMPLATE_RANGE = 'templates/invenio_search_ui/range.html'
+"""Configure the range template."""
+
+SEARCH_UI_JSTEMPLATE_RANGE_OPTIONS = {'histogramId': '#year_hist',
+                                      'selectionId': '#year_select',
+                                      'name': 'years',
+                                      'width': 180}
+"""Configure the range template options."""
+
 SEARCH_UI_JSTEMPLATE_LOADING = 'templates/invenio_search_ui/loading.html'
 """Configure the loading template."""
 
