@@ -26,22 +26,12 @@ from __future__ import print_function
 
 import os
 
-import sphinx.environment
-from docutils.utils import get_source_line
-
-
-def _warn_node(self, msg, node):
-    """Do not warn on external images."""
-    if not msg.startswith('nonlocal image URI found:'):
-        self._warnfunc(msg, '{0}:{1}'.format(get_source_line(node)))
-
-sphinx.environment.BuildEnvironment.warn_node = _warn_node
-
-
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-#needs_sphinx = '1.0'
+# needs_sphinx = '1.0'
+
+suppress_warnings = ['image.nonlocal_uri']
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
