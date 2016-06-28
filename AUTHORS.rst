@@ -27,5 +27,5 @@ Authors
 
 UI for Invenio-Search.
 
-- CERN <info@invenio-software.org>
+- CERN <info@inveniosoftware.org>
 - Jiri Kuncar <jiri.kuncar@cern.ch>
