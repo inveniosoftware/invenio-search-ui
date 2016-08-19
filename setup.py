@@ -98,6 +98,9 @@ setup(
             'invenio_search_ui_search_css = invenio_search_ui.bundles:css',
             'invenio_search_ui_search_js = invenio_search_ui.bundles:js',
         ],
+        'invenio_i18n.translations': [
+            'messages = invenio_search_ui',
+        ],
     },
     extras_require=extras_require,
     install_requires=install_requires,
