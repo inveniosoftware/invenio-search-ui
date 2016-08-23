@@ -81,9 +81,9 @@ app = Flask(__name__)
 
 app.config.update(
     CELERY_ALWAYS_EAGER=True,
-    CELERY_CACHE_BACKEND="memory",
+    CELERY_CACHE_BACKEND='memory',
     CELERY_EAGER_PROPAGATES_EXCEPTIONS=True,
-    CELERY_RESULT_BACKEND="cache",
+    CELERY_RESULT_BACKEND='cache',
     DEBUG=True,
     SQLALCHEMY_TRACK_MODIFICATIONS=True,
     SEARCH_UI_SEARCH_API='/api/records/',
@@ -163,7 +163,7 @@ Babel(app)
 
 # Set jinja loader to first grab templates from the app's folder.
 app.jinja_loader = jinja2.ChoiceLoader([
-    jinja2.FileSystemLoader(join(dirname(__file__), "templates")),
+    jinja2.FileSystemLoader(join(dirname(__file__), 'templates')),
     app.jinja_loader
 ])
 
@@ -227,9 +227,9 @@ def records():
 app.register_blueprint(blueprint)
 
 
-@app.route("/")
+@app.route('/')
 def index():
     """Frontpage."""
     return render_template(
-        "invenio_theme/page.html",
-        title="Invenio-Search-UI Example Application")
+        'invenio_theme/page.html',
+        title='Invenio-Search-UI Example Application')

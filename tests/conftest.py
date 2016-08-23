@@ -22,7 +22,6 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-
 """Pytest configuration."""
 
 from __future__ import absolute_import, print_function
@@ -42,10 +41,9 @@ def app():
     app = Flask('testapp')
     app.config.update(
         TESTING=True,
-        SEARCH_UI_SEARCH_API='api'
+        SEARCH_UI_SEARCH_API='api',
     )
     Babel(app)
-
     InvenioAssets(app)
     InvenioSearchUI(app)
 
