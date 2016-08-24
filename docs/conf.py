@@ -134,8 +134,8 @@ html_theme_options = {
     'github_banner': True,
     'show_powered_by': False,
     'extra_nav_links': {
-        'invenio-search-ui@GitHub': 'http://github.com/inveniosoftware/invenio-search-ui',
-        'invenio-search-ui@PyPI': 'http://pypi.python.org/pypi/invenio-search-ui/',
+        'invenio-search-ui@GitHub': 'https://github.com/inveniosoftware/invenio-search-ui',
+        'invenio-search-ui@PyPI': 'https://pypi.python.org/pypi/invenio-search-ui/',
     }
 }
 
@@ -326,3 +326,6 @@ texinfo_documents = [
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {'https://docs.python.org/': None}
+
+# Autodoc configuraton.
+autoclass_content = 'both'
