@@ -37,9 +37,8 @@ tests_require = [
     'check-manifest>=0.25',
     'coverage>=4.0',
     'Flask-CLI>=0.2.1',
-    'invenio-assets>=1.0.0a1',
-    'invenio-db>=1.0.0a6',
-    'invenio-records>=1.0.0a6',
+    'invenio-db>=1.0.0b1',
+    'invenio-records>=1.0.0a17',
     'isort>=4.2.2',
     'pydocstyle>=1.0.0',
     'pytest-cache>=1.0',
@@ -65,6 +64,7 @@ setup_requires = [
 
 install_requires = [
     'Flask-BabelEx>=0.9.2',
+    'invenio-assets>=1.0.0b2',
 ]
 
 packages = find_packages()

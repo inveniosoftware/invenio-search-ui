@@ -28,18 +28,6 @@
 Installation proccess
 ---------------------
 
-First preapare all static files:
-
-.. code-block:: console
-
-   $ npm install -g node-sass clean-css requirejs uglify-js
-   $ cd examples
-   $ pip install -r requirements.txt
-   $ flask -a app.py npm
-   $ cd static ; npm install ; cd ..
-   $ flask -a app.py collect -v
-   $ flask -a app.py assets build
-
 Make sure that ``elasticsearch`` server is running:
 
 .. code-block:: console
@@ -48,24 +36,18 @@ Make sure that ``elasticsearch`` server is running:
 
    ... version[2.0.0] ...
 
-Create demo records
+Create the environment and execute flask:
 
 .. code-block:: console
 
-   $ mkdir instance
-   $ flask -a app.py db init
-   $ flask -a app.py db create
-   $ flask -a app.py index init
-   $ flask -a app.py fixtures records
-
-Start the server
-
-.. code-block:: console
-
-   $ flask -a app.py --debug run
+   $ pip install -e .[all]
+   $ cd examples
+   $ ./app-recreate.sh
 
 Visit your favorite browser on `http://localhost:5000/search
 <http://localhost:5000/search>`_.
+
+Search for example: `wall`.
 
 """
 
@@ -79,6 +61,7 @@ from flask_babelex import Babel
 from flask_cli import FlaskCLI
 from invenio_assets import InvenioAssets
 from invenio_db import InvenioDB, db
+from invenio_i18n import InvenioI18N
 from invenio_indexer import InvenioIndexer
 from invenio_indexer.api import RecordIndexer
 from invenio_pidstore import InvenioPIDStore
@@ -184,8 +167,9 @@ Babel(app)
 app.jinja_loader = jinja2.ChoiceLoader([
     jinja2.FileSystemLoader(join(dirname(__file__), "templates")),
     app.jinja_loader
- ])
+])
 
+InvenioI18N(app)
 InvenioDB(app)
 InvenioTheme(app)
 InvenioRecords(app)
@@ -200,7 +184,6 @@ InvenioPIDStore(app)
 InvenioRecordsREST(app)
 
 assets = InvenioAssets(app)
-assets.init_cli(app.cli)
 
 # Register assets
 assets.env.register('invenio_search_ui_search_js', js)

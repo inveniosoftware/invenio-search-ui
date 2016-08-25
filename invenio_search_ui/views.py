@@ -43,13 +43,18 @@ def search():
 
 
 def sorted_options(sort_options):
-    """Sort sort options for display."""
+    """Sort sort options for display.
+
+    :param sort_options: A dictionary containing the field name as key and
+        asc/desc as value.
+    :returns: A dictionary with sorting options for Invenio-Search-JS.
+    """
     return [
-        dict(
-            title=v['title'],
-            value=('-{0}'.format(k)
-                   if v.get('default_order', 'asc') == 'desc' else k),
-        )
+        {
+            'title': v['title'],
+            'value': ('-{0}'.format(k)
+                      if v.get('default_order', 'asc') == 'desc' else k),
+        }
         for k, v in
         sorted(sort_options.items(), key=lambda x: x[1].get('order', 0))
     ]
@@ -58,6 +63,6 @@ def sorted_options(sort_options):
 @blueprint.app_template_filter('format_sortoptions')
 def format_sortoptions(sort_options):
     """Create sort options JSON dump for Invenio-Search-JS."""
-    return json.dumps(dict(
-        options=sorted_options(sort_options)
-    ))
+    return json.dumps({
+        'options': sorted_options(sort_options)
+    })

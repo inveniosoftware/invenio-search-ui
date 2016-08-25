@@ -34,18 +34,27 @@ class InvenioSearchUI(object):
     """Invenio-Search-UI extension."""
 
     def __init__(self, app=None):
-        """Extension initialization."""
+        """Extension initialization.
+
+        :param app: The Flask application.
+        """
         if app:
             self.init_app(app)
 
     def init_app(self, app):
-        """Flask application initialization."""
+        """Flask application initialization.
+
+        :param app: The Flask application.
+        """
         self.init_config(app)
         app.register_blueprint(blueprint)
         app.extensions['invenio-search-ui'] = self
 
     def init_config(self, app):
-        """Initialize configuration."""
+        """Initialize configuration.
+
+        :param app: The Flask application.
+        """
         app.config.setdefault(
             'SEARCH_UI_BASE_TEMPLATE',
             app.config.get('BASE_TEMPLATE', 'invenio_search_ui/base.html')

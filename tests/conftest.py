@@ -48,8 +48,7 @@ def app():
     Babel(app)
 
     FlaskCLI(app)
-    assets = InvenioAssets(app)
-    assets.init_cli(app.cli)
+    InvenioAssets(app)
     InvenioSearchUI(app)
 
     @app.route('/api')
