@@ -27,5 +27,9 @@ Authors
 
 UI for Invenio-Search.
 
-- CERN <info@inveniosoftware.org>
+- Esteban J. G. Gabancho <esteban.gabancho@gmail.com>
+- Harris Tzovanakis <me@drjova.com>
 - Jiri Kuncar <jiri.kuncar@cern.ch>
+- Lars Holm Nielsen <lars.holm.nielsen@cern.ch>
+- Leonardo Rossi <leonardo.r@cern.ch>
+- Tibor Simko <tibor.simko@cern.ch>

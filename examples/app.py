@@ -58,7 +58,6 @@ from os.path import dirname, join
 import jinja2
 from flask import Flask, render_template
 from flask_babelex import Babel
-from flask_cli import FlaskCLI
 from invenio_assets import InvenioAssets
 from invenio_db import InvenioDB, db
 from invenio_i18n import InvenioI18N
@@ -160,7 +159,6 @@ app.config.update(
     RECORDS_UI_DEFAULT_PERMISSION_FACTORY=None,
 )
 
-FlaskCLI(app)
 Babel(app)
 
 # Set jinja loader to first grab templates from the app's folder.
