@@ -1,10 +1,14 @@
 #!/bin/sh
 
-# clean environment
-[ -e "app.db" ] && rm app.db
-[ -e "static" ] && rm static -Rf
-[ -e "instance" ] && rm instance -Rf
+# quit on errors:
+set -o errexit
 
+# quit on unbound symbols:
+set -o nounset
+
+DIR=`dirname "$0"`
+
+cd $DIR
 export FLASK_APP=app.py
 
 # Install specific dependencies
@@ -16,13 +20,11 @@ flask npm
 cd static ; npm install ; cd ..
 flask collect -v
 flask assets build
-mkdir instance
 
-# Create demo records
+# Create the database
 flask db init
 flask db create
-flask index init
-flask fixtures records
 
-# Start the server
-flask run --debugger -h 0.0.0.0 -p 5000
+# Initialize indices
+flask index init
+flask index queue init

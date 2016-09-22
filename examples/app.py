@@ -28,13 +28,7 @@
 Installation proccess
 ---------------------
 
-Make sure that ``elasticsearch`` server is running:
-
-.. code-block:: console
-
-   $ elasticsearch
-
-   ... version[2.0.0] ...
+Run ElastiSearch and RabbitMQ servers.
 
 Create the environment and execute flask:
 
@@ -42,17 +36,31 @@ Create the environment and execute flask:
 
    $ pip install -e .[all]
    $ cd examples
-   $ ./app-recreate.sh
+   $ ./app-setup.sh
+   $ ./app-fixtures.sh
+
+Run the server:
+
+.. code-block:: console
+
+    $ FLASK_APP=app.py flask run --debugger -p 5000
 
 Visit your favorite browser on `http://localhost:5000/search
 <http://localhost:5000/search>`_.
 
 Search for example: `wall`.
 
+To be able to uninstall the example app:
+
+.. code-block:: console
+
+    $ ./app-teardown.sh
+
 """
 
 from __future__ import absolute_import, print_function
 
+import os
 from os.path import dirname, join
 
 import jinja2
@@ -165,6 +173,8 @@ app.config.update(
         testrecords=dict(query='bestmatch', noquery='-controlnumber'),
     ),
     RECORDS_UI_DEFAULT_PERMISSION_FACTORY=None,
+    SQLALCHEMY_DATABASE_URI=os.getenv('SQLALCHEMY_DATABASE_URI',
+                                      'sqlite:///app.db'),
 )
 
 Babel(app)
