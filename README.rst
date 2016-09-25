@@ -46,4 +46,4 @@ UI for Invenio-Search.
 *This is an experimental developer preview release.*
 
 * Free software: GPLv2 license
-* Documentation: https://pythonhosted.org/invenio-search-ui/
+* Documentation: https://invenio-search-ui.readthedocs.io/

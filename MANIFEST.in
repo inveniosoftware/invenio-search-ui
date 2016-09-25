@@ -38,6 +38,7 @@ include *.sh
 include *.txt
 include LICENSE
 include babel.ini
+include docs/requirements.txt
 include pytest.ini
 include examples/requirements.txt
 recursive-include examples *.sh
