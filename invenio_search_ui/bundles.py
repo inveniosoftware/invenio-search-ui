@@ -24,8 +24,11 @@
 
 """UI for Invenio-Search."""
 
+import os
+
 from flask_assets import Bundle
-from invenio_assets import NpmBundle
+from invenio_assets import AngularGettextFilter, GlobBundle, NpmBundle
+from pkg_resources import resource_filename
 
 css = Bundle(
     Bundle(
@@ -38,6 +41,24 @@ css = Bundle(
     ),
     output='gen/search.%(version)s.css'
 )
+
+
+def catalog(domain):
+    """Return glob matching path to tranlated messages for a given domain."""
+    return os.path.join(
+        resource_filename('invenio_search_ui', 'translations'),
+        '*',  # language code
+        'LC_MESSAGES',
+        '{0}.po'.format(domain),
+    )
+
+
+i18n = GlobBundle(
+    catalog('messages-js'),
+    filters=AngularGettextFilter(catalog_name='invenioSearchUITranslation'),
+    output='gen/translations/invenio-search-ui.js',
+)
+
 
 js = NpmBundle(
     'js/invenio_search_ui/app.js',

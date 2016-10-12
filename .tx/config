@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of Invenio.
-# Copyright (C) 2015 CERN.
+# Copyright (C) 2015, 2016 CERN.
 #
 # Invenio is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -23,7 +23,7 @@
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
 
-# TODO: Transifex integration
+# Transifex integration
 #
 # 1) Create message catalog:
 #    $ python setup.py extract_messages
@@ -46,5 +46,11 @@ host = https://www.transifex.com
 [invenio.invenio-search-ui-messages]
 file_filter = invenio_search_ui/translations/<lang>/LC_MESSAGES/messages.po
 source_file = invenio_search_ui/translations/messages.pot
+source_lang = en
+type = PO
+
+[invenio.invenio-search-ui-messages-js]
+file_filter = invenio_search_ui/translations/<lang>/LC_MESSAGES/messages-js.po
+source_file = invenio_search_ui/translations/messages-js.pot
 source_lang = en
 type = PO

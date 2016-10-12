@@ -63,7 +63,8 @@ setup_requires = [
 install_requires = [
     'Flask-BabelEx>=0.9.2',
     'Flask>=0.11.1',
-    'invenio-assets>=1.0.0b2',
+    'angular-gettext-babel>=0.1',
+    'invenio-assets>=1.0.0b4',
 ]
 
 packages = find_packages()
@@ -89,11 +90,15 @@ setup(
     include_package_data=True,
     platforms='any',
     entry_points={
+        'babel.extractors': [
+            'angular_gettext = angular_gettext_babel.extract:extract_angular',
+        ],
         'invenio_base.apps': [
             'invenio_search_ui = invenio_search_ui:InvenioSearchUI'
         ],
         'invenio_assets.bundles': [
             'invenio_search_ui_search_css = invenio_search_ui.bundles:css',
+            'invenio_search_ui_search_i18n = invenio_search_ui.bundles:i18n',
             'invenio_search_ui_search_js = invenio_search_ui.bundles:js',
         ],
         'invenio_i18n.translations': [

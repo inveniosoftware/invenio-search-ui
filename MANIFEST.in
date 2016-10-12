@@ -22,35 +22,33 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-# Check manifest will not automatically add these two files:
+include *.rst
+include *.sh
+include *.txt
 include .dockerignore
 include .editorconfig
+include .lgtm
 include .tx/config
+include LICENSE
+include MAINTAINERS
+include babel-js.ini
+include babel.ini
+include docs/requirements.txt
+include examples/requirements.txt
+include pytest.ini
+recursive-include docs *.bat
+recursive-include docs *.py
+recursive-include docs *.rst
+recursive-include docs Makefile
+recursive-include examples *.py
+recursive-include examples *.sh
+recursive-include examples *.xml
+recursive-include examples/data *.json
+recursive-include invenio_search_ui *.html
 recursive-include invenio_search_ui *.js
 recursive-include invenio_search_ui *.mo
 recursive-include invenio_search_ui *.po
 recursive-include invenio_search_ui *.pot
 recursive-include invenio_search_ui *.scss
-
-# added by check_manifest.py
-include *.rst
-include *.sh
-include *.txt
-include .lgtm
-include LICENSE
-include MAINTAINERS
-include babel.ini
-include docs/requirements.txt
-include pytest.ini
-include examples/requirements.txt
-recursive-include examples *.sh
-recursive-include docs *.bat
-recursive-include docs *.py
-recursive-include docs *.rst
-recursive-include docs Makefile
-recursive-include examples/data *.json
-recursive-include examples *.py
-recursive-include examples *.xml
-recursive-include invenio_search_ui *.html
 recursive-include tests *.py
 prune examples/static/node_modules
