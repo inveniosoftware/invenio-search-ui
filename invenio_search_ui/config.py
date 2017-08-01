@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of Invenio.
-# Copyright (C) 2015, 2016 CERN.
+# Copyright (C) 2015, 2016, 2017 CERN.
 #
 # Invenio is free software; you can redistribute it
 # and/or modify it under the terms of the GNU General Public License as
@@ -45,7 +45,8 @@ SEARCH_UI_JSTEMPLATE_FACETS = \
     'node_modules/invenio-search-js/dist/templates/facets.html'
 """Configure the facets template."""
 
-SEARCH_UI_JSTEMPLATE_RANGE = 'templates/invenio_search_ui/range.html'
+SEARCH_UI_JSTEMPLATE_RANGE = \
+    'node_modules/invenio-search-js/dist/templates/range.html'
 """Configure the range template."""
 
 SEARCH_UI_JSTEMPLATE_RANGE_OPTIONS = {'histogramId': '#year_hist',
