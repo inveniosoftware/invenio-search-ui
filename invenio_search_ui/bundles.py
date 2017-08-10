@@ -70,6 +70,6 @@ js = NpmBundle(
         'angular': '~1.4.10',
         'angular-loading-bar': '~0.9.0',
         'd3': '^3.5.17',
-        'invenio-search-js': '~1.2.0',
+        'invenio-search-js': '~1.2.1',
     },
 )
