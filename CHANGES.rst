@@ -25,7 +25,7 @@
 Changes
 =======
 
-Version 1.0.0a7 (released 2017-08-09)
+Version 1.0.0a8 (released 2017-08-10)
 -------------------------------------
 
 - Fixes for Content Security Policy (CSP).
