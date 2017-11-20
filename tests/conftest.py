@@ -26,6 +26,9 @@
 
 from __future__ import absolute_import, print_function
 
+import shutil
+import tempfile
+
 import pytest
 from flask import Flask
 from flask_babelex import Babel
@@ -33,6 +36,14 @@ from invenio_assets import InvenioAssets
 
 from invenio_search_ui import InvenioSearchUI
 from invenio_search_ui.views import blueprint
+
+
+@pytest.yield_fixture()
+def instance_path():
+    """Temporary instance path."""
+    path = tempfile.mkdtemp()
+    yield path
+    shutil.rmtree(path)
 
 
 @pytest.fixture()

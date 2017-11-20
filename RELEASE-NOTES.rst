@@ -9,8 +9,6 @@ About
 
 UI for Invenio-Search.
 
-*This is an experimental developer preview release.*
-
 What's new
 ----------
 
