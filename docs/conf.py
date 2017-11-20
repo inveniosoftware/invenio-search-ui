@@ -22,6 +22,8 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
+"""Sphinx configuration."""
+
 from __future__ import print_function
 
 import os
@@ -31,6 +33,7 @@ import os
 # If your documentation needs a minimal Sphinx version, state it here.
 # needs_sphinx = '1.0'
 
+# Do not warn on external images.
 suppress_warnings = ['image.nonlocal_uri']
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -71,7 +74,9 @@ author = u'CERN'
 
 # Get the version string. Cannot be done with import!
 g = {}
-with open(os.path.join('..', 'invenio_search_ui', 'version.py'), 'rt') as fp:
+with open(os.path.join(os.path.dirname(__file__), '..',
+                       'invenio_search_ui', 'version.py'),
+          'rt') as fp:
     exec(fp.read(), g)
     version = g['__version__']
 
@@ -262,8 +267,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'invenio-search-ui.tex', u'invenio-search-ui Documentation',
-   u'CERN', 'manual'),
+    (master_doc, 'invenio-search-ui.tex', u'invenio-search-ui Documentation',
+     u'CERN', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -306,9 +311,9 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'invenio-search-ui', u'Invenio-Search-UI Documentation',
-   author, 'invenio-search-ui', 'UI for Invenio-Search.',
-   'Miscellaneous'),
+    (master_doc, 'invenio-search-ui', u'Invenio-Search-UI Documentation',
+     author, 'invenio-search-ui', 'UI for Invenio-Search.',
+     'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.

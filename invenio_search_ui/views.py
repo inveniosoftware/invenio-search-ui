@@ -36,7 +36,7 @@ blueprint = Blueprint(
 )
 
 
-@blueprint.route("/search")
+@blueprint.route('/search')
 def search():
     """Search page ui."""
     return render_template(current_app.config['SEARCH_UI_SEARCH_TEMPLATE'])

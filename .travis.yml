@@ -37,7 +37,7 @@ cache:
 
 env:
   - REQUIREMENTS=lowest ES_VERSION=2.4.6
-  - REQUIREMENTS=release ES_VERSION=2.4.6
+  - REQUIREMENTS=release ES_VERSION=2.4.6 DEPLOY=true
   - REQUIREMENTS=devel ES_VERSION=2.4.6
 
 services:
@@ -46,12 +46,9 @@ services:
 python:
   - "2.7"
   - "3.5"
-  - "pypy"
 
 matrix:
   fast_finish: true
-  allow_failures:
-    - python: pypy
 
 before_install:
   - mkdir /tmp/elasticsearch
@@ -84,4 +81,5 @@ deploy:
   on:
     tags: true
     python: "2.7"
-    condition: $REQUIREMENTS = release
+    repo: inveniosoftware/invenio-search-ui
+    condition: $DEPLOY = true
