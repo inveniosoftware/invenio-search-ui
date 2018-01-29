@@ -39,7 +39,10 @@ blueprint = Blueprint(
 @blueprint.route('/search')
 def search():
     """Search page ui."""
-    return render_template(current_app.config['SEARCH_UI_SEARCH_TEMPLATE'])
+    return render_template(
+        current_app.config['SEARCH_UI_SEARCH_TEMPLATE'],
+        search_extra_params=current_app.config['SEARCH_UI_SEARCH_EXTRA_PARAMS']
+    )
 
 
 def sorted_options(sort_options):
