@@ -30,5 +30,5 @@ invenio-rest[cors]>=1.0.0a9
 invenio-records-rest>=1.0.0a15
 invenio-records-ui>=1.0.0a7
 invenio-records>=1.0.0a17
-invenio-search>=1.0.0a7
+invenio-search[elasticsearch2]>=1.0.0b4
 invenio-theme>=1.0.0a14
