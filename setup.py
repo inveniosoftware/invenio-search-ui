@@ -34,14 +34,14 @@ history = open('CHANGES.rst').read()
 tests_require = [
     'check-manifest>=0.25',
     'coverage>=4.0',
-    'invenio-db>=1.0.0b1',
-    'invenio-records>=1.0.0a17',
-    'isort>=4.2.2',
+    'invenio-db>=1.0.0b9',
+    'invenio-records>=1.0.0b4',
+    'isort>=4.3.0',
     'pydocstyle>=1.0.0',
     'pytest-cache>=1.0',
     'pytest-cov>=1.8.0',
     'pytest-pep8>=1.0.6',
-    'pytest>=2.8.0',
+    'pytest>=2.8.0,!=3.3.0',
 ]
 
 extras_require = {
@@ -64,7 +64,7 @@ install_requires = [
     'Flask-BabelEx>=0.9.2',
     'Flask>=0.11.1',
     'angular-gettext-babel>=0.1',
-    'invenio-assets>=1.0.0b6',
+    'invenio-assets>=1.0.0b7',
 ]
 
 packages = find_packages()
