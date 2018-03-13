@@ -43,9 +43,14 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.coverage',
     'sphinx.ext.doctest',
+    'sphinx.ext.extlinks',
     'sphinx.ext.intersphinx',
     'sphinx.ext.viewcode',
 ]
+
+extlinks = {
+    'source': ('https://github.com/inveniosoftware/invenio-search-ui/tree/master/%s', 'source')
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
