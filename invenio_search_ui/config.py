@@ -41,12 +41,10 @@ SEARCH_UI_JSTEMPLATE_COUNT = 'templates/invenio_search_ui/count.html'
 SEARCH_UI_JSTEMPLATE_ERROR = 'templates/invenio_search_ui/error.html'
 """Configure the error page template."""
 
-SEARCH_UI_JSTEMPLATE_FACETS = \
-    'node_modules/invenio-search-js/dist/templates/facets.html'
+SEARCH_UI_JSTEMPLATE_FACETS = 'templates/invenio_search_ui/facets.html'
 """Configure the facets template."""
 
-SEARCH_UI_JSTEMPLATE_RANGE = \
-    'node_modules/invenio-search-js/dist/templates/range.html'
+SEARCH_UI_JSTEMPLATE_RANGE = 'templates/invenio_search_ui/range.html'
 """Configure the range template."""
 
 SEARCH_UI_JSTEMPLATE_RANGE_OPTIONS = {'histogramId': '#year_hist',
