@@ -33,6 +33,8 @@ python:
 
 matrix:
   fast_finish: true
+  allow_failures:
+    - env: REQUIREMENTS=devel ES_VERSION=2.4.6
 
 before_install:
   - mkdir /tmp/elasticsearch
