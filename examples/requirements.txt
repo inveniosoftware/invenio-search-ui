@@ -7,12 +7,12 @@
 # under the terms of the MIT License; see LICENSE file for more details.
 
 dojson>=1.2.1
-invenio-db>=1.0.0b1
-invenio-indexer>=1.0.0a6
-invenio-pidstore>=1.0.0a9
-invenio-rest[cors]>=1.0.0a9
-invenio-records-rest>=1.0.0a15
-invenio-records-ui>=1.0.0a7
-invenio-records>=1.0.0a17
-invenio-search[elasticsearch2]>=1.0.0b4
-invenio-theme>=1.0.0a14
+invenio-db>=1.0.0
+invenio-indexer>=1.0.0
+invenio-pidstore>=1.0.0
+invenio-rest[cors]>=1.0.0
+invenio-records-rest>=1.0.0
+invenio-records-ui>=1.0.0
+invenio-records>=1.0.0
+invenio-search[elasticsearch6]>=1.0.0
+invenio-theme>=1.0.0

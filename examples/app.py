@@ -62,6 +62,8 @@ from invenio_pidstore import InvenioPIDStore
 from invenio_records import InvenioRecords
 from invenio_records_rest import InvenioRecordsREST
 from invenio_records_rest.facets import range_filter, terms_filter
+from invenio_records_rest.utils import PIDConverter
+from invenio_records_rest.views import create_blueprint_from_app
 from invenio_records_ui import InvenioRecordsUI
 from invenio_rest import InvenioREST
 from invenio_search import InvenioSearch
@@ -172,6 +174,8 @@ app.jinja_loader = jinja2.ChoiceLoader([
     app.jinja_loader
 ])
 
+app.url_map.converters['pid'] = PIDConverter
+
 InvenioI18N(app)
 InvenioDB(app)
 InvenioTheme(app)
@@ -185,6 +189,7 @@ InvenioIndexer(app)
 InvenioPIDStore(app)
 
 InvenioRecordsREST(app)
+
 
 assets = InvenioAssets(app)
 
@@ -230,6 +235,7 @@ def records():
 
 # register the blueprints
 app.register_blueprint(blueprint)
+app.register_blueprint(create_blueprint_from_app(app))
 
 
 @app.route('/')

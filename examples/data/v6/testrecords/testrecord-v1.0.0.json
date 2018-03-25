@@ -1,0 +1,56 @@
+{
+    "mappings": {
+      "testrecord-v1.0.0": {
+        "properties": {
+          "control_number": {
+            "type": "keyword"
+          },
+          "subject_added_entry_topical_term": {
+            "type": "object",
+            "properties": {
+                "topical_term_or_geographic_name_entry_element": {
+                    "type": "keyword"
+                }
+            }
+          },
+          "language_code": {
+            "type": "object",
+            "properties": {
+                "language_code_of_text_sound_track_or_separate_title": {
+                    "type": "keyword"
+                }
+            }
+          },
+          "added_entry_personal_name": {
+            "type": "object",
+            "properties": {
+                "personal_name": {
+                    "type": "keyword"
+                }
+            }
+          },
+          "imprint": {
+            "type": "object",
+            "properties": {
+                "complete_date": {
+                    "type": "date"
+                }
+            }
+          },
+          "participants": {
+            "type": "long"
+          },
+          "title": {
+            "type": "text",
+            "copy_to": "suggest_title"
+          },
+          "type": {
+            "type": "keyword"
+          },
+          "suggest_title": {
+            "type": "completion"
+          }
+        }
+      }
+    }
+  }
