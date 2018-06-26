@@ -11,6 +11,7 @@
 import os
 
 from flask_assets import Bundle
+from flask_webpackext import WebpackBundle
 from invenio_assets import AngularGettextFilter, GlobBundle, NpmBundle
 from pkg_resources import resource_filename
 
@@ -57,3 +58,18 @@ js = NpmBundle(
         'invenio-search-js': '^1.3.1',
     },
 )
+
+search_ui = WebpackBundle(
+    __name__,
+    'assets',
+    entry={
+        'search_ui_app': './js/invenio_search_ui/app.js',
+        'search_ui_theme': './scss/invenio_search_ui/search.scss',
+    },
+    dependencies={
+        'almond': '~0.3.1',
+        'angular': '~1.4.10',
+        'angular-loading-bar': '~0.9.0',
+        'd3': '^3.5.17',
+        'invenio-search-js': '^1.3.1',
+    })
