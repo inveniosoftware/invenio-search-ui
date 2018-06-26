@@ -1,0 +1,39 @@
+/*
+ * This file is part of Invenio.
+ * Copyright (C) 2015-2018 CERN.
+ *
+ * Invenio is free software; you can redistribute it and/or modify it
+ * under the terms of the MIT License; see LICENSE file for more details.
+ */
+
+@import '~angular-loading-bar/build/loading-bar.css';
+
+$invenio-search-small-space: 5px !default;
+$invenio-search-medium-space: 10px !default;
+$invenio-search-large-space: 15px !default;
+$invenio-search-xlarge-space: 20px !default;
+$invenio-search-grey: #eee !default;
+$invenio-search-light-grey: #fafafa !default;
+
+.invenio-search-count {
+  margin: $invenio-search-large-space 0;
+}
+
+.invenio-search-loading{
+  margin: $invenio-search-large-space 0;
+}
+
+.invenio-search-bar {
+  padding: $invenio-search-xlarge-space;
+  border-bottom: 1px solid $invenio-search-grey;
+}
+
+.search-page {
+    .pagination {
+        margin: 0 0;
+    }
+}
+
+a.ng-binding{
+  cursor: pointer;
+}
