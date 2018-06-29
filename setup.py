@@ -46,6 +46,7 @@ setup_requires = [
 install_requires = [
     'Flask-BabelEx>=0.9.2',
     'Flask>=0.11.1',
+    'flask-webpackext>=0.1.0',
     'angular-gettext-babel>=0.1',
     'invenio-assets>=1.0.0',
 ]
@@ -83,6 +84,9 @@ setup(
             'invenio_search_ui_search_css = invenio_search_ui.bundles:css',
             'invenio_search_ui_search_i18n = invenio_search_ui.bundles:i18n',
             'invenio_search_ui_search_js = invenio_search_ui.bundles:js',
+        ],
+        'invenio_assets.webpack': [
+            'invenio_search_ui = invenio_search_ui.bundles:search_ui',
         ],
         'invenio_i18n.translations': [
             'messages = invenio_search_ui',
