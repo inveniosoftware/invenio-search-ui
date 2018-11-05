@@ -15,4 +15,6 @@ invenio-records-rest>=1.0.0
 invenio-records-ui>=1.0.0
 invenio-records>=1.0.0
 invenio-search[elasticsearch6]>=1.0.0
-invenio-theme>=1.0.0
+invenio-theme>=1.1.0
+invenio-assets>=1.1.0
+invenio-i18n>=1.1.0

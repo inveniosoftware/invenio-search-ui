@@ -15,11 +15,8 @@ export FLASK_APP=app.py
 pip install -r requirements.txt
 
 # Preapare all static files:
-npm install -g node-sass clean-css clean-css-cli requirejs uglify-js
-flask npm
-cd static ; npm install ; cd ..
 flask collect -v
-flask assets build
+flask webpack buildall
 
 # Create the database
 flask db init
