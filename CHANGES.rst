@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 1.1.1 (released 2018-11-12)
+
+- Includes missing assets for AMD build.
+
 Version 1.1.0 (released 2018-11-06)
 
 - Introduces Webpack support.
