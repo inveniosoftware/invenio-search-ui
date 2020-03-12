@@ -27,45 +27,49 @@ Initialization
     The following commands can be either run in a Python shell or written to
     a separate ``app.py`` file which can then be run via ``python app.py`` or
     by running ``export FLASK_APP=app.py`` and using the ``flask`` CLI tools.
-    You can take inspiration from the :doc:`Example Application <examplesapp>`
-    on how the end result of this guide will look like.
 
     To make sure that you have all of the dependencies used installed you
     should also run ``pip install invenio-search-ui[all]`` first.
 
 First create a Flask application:
 
->>> from flask import Flask
->>> app = Flask('myapp')
+.. code-block:: python
+
+    from flask import Flask
+    app = Flask('myapp')
 
 There are several dependencies that should be initialized in order to make
 Invenio-Search-UI work correctly.
 
->>> from invenio_db import InvenioDB
->>> from invenio_pidstore import InvenioPIDStore
->>> from invenio_records import InvenioRecords
->>> from invenio_rest import InvenioREST
->>> from invenio_search import InvenioSearch
->>> from invenio_indexer import InvenioIndexer
->>> from invenio_theme import InvenioTheme
->>> from invenio_i18n import InvenioI18N
->>> app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
->>> ext_db = InvenioDB(app)
->>> ext_pid = InvenioPIDStore(app)
->>> ext_records = InvenioRecords(app)
->>> ext_rest = InvenioREST(app)
->>> ext_theme = InvenioTheme(app)
->>> ext_i18n = InvenioI18N(app)
->>> ext_indexer = InvenioIndexer(app)
->>> ext_search = InvenioSearch(app)
+.. code-block:: python
+
+    from invenio_db import InvenioDB
+    from invenio_pidstore import InvenioPIDStore
+    from invenio_records import InvenioRecords
+    from invenio_rest import InvenioREST
+    from invenio_search import InvenioSearch
+    from invenio_indexer import InvenioIndexer
+    from invenio_theme import InvenioTheme
+    from invenio_i18n import InvenioI18N
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
+    ext_db = InvenioDB(app)
+    ext_pid = InvenioPIDStore(app)
+    ext_records = InvenioRecords(app)
+    ext_rest = InvenioREST(app)
+    ext_theme = InvenioTheme(app)
+    ext_i18n = InvenioI18N(app)
+    ext_indexer = InvenioIndexer(app)
+    ext_search = InvenioSearch(app)
 
 Register the JavaScript bundle, containing Invenio-Search-JS:
 
->>> from invenio_assets import InvenioAssets
->>> from invenio_search_ui.bundles import js
->>> ext_assets = InvenioAssets(app)
->>> ext_assets.env.register('invenio_search_ui_search_js', js)
-<NpmBundle ...>
+.. code-block:: python
+
+    from invenio_assets import InvenioAssets
+    from invenio_search_ui.bundles import js
+    ext_assets = InvenioAssets(app)
+    ext_assets.env.register('invenio_search_ui_search_js', js)
+    <NpmBundle ...>
 
 Before we initialize the Invenio-Search-UI extension, we need to have some
 REST API endpoints configured to expose our records. For more detailed
@@ -77,29 +81,37 @@ integer record identifiers to internal record objects. It uses though a custom
 Flask URL converter to resolve this integer to a Persistent Identifier, which
 needs to be registered:
 
->>> from invenio_records_rest import InvenioRecordsREST
->>> from invenio_records_rest.utils import PIDConverter
->>> app.url_map.converters['pid'] = PIDConverter
->>> ext_records_rest = InvenioRecordsREST(app)
+.. code-block:: python
+
+    from invenio_records_rest import InvenioRecordsREST
+    from invenio_records_rest.utils import PIDConverter
+    app.url_map.converters['pid'] = PIDConverter
+    ext_records_rest = InvenioRecordsREST(app)
 
 Now we can initialize Invenio-Search-UI and register its blueprint:
 
->>> from invenio_search_ui import InvenioSearchUI
->>> from invenio_search_ui.views import blueprint
->>> ext_search_ui = InvenioSearchUI(app)
->>> app.register_blueprint(blueprint)
+.. code-block:: python
+
+    from invenio_search_ui import InvenioSearchUI
+    from invenio_search_ui.views import blueprint
+    ext_search_ui = InvenioSearchUI(app)
+    app.register_blueprint(blueprint)
 
 In order for the following examples to work, you need to work within an
 Flask application context so let's push one:
 
->>> ctx = app.app_context()
->>> ctx.push()
+.. code-block:: python
+
+    ctx = app.app_context()
+    ctx.push()
 
 Also, for the examples to work we need to create the database and tables (note,
 in this example we use an in-memory SQLite database):
 
->>> from invenio_db import db
->>> db.create_all()
+.. code-block:: python
+
+    from invenio_db import db
+    db.create_all()
 
 Building Assets
 ~~~~~~~~~~~~~~~
@@ -119,20 +131,23 @@ Record data
 ~~~~~~~~~~~
 Last, but not least, we have to create and index a record:
 
->>> from uuid import uuid4
->>> from invenio_records.api import Record
->>> from invenio_pidstore.providers.recordid import RecordIdProvider
->>> from invenio_indexer.api import RecordIndexer
->>> rec = Record.create({
-...     'title': 'My title',
-...     'description': 'My record decription',
-...     'type': 'article',
-...     'creators': [{'name': 'Doe, John'}, {'name': 'Roe, Jane'}],
-...     'status': 'published',
-... }, id_=uuid4())
->>> provider = RecordIdProvider.create(object_type='rec', object_uuid=rec.id)
->>> db.session.commit()
->>> RecordIndexer().index_by_id(str(rec.id))
+.. code-block:: python
+
+    from uuid import uuid4
+    from invenio_records.api import Record
+    from invenio_pidstore.providers.recordid import RecordIdProvider
+    from invenio_indexer.api import RecordIndexer
+    rec = Record.create({
+        'title': 'My title',
+        'description': 'My record decription',
+        'type': 'article',
+        'creators': [{'name': 'Doe, John'}, {'name': 'Roe, Jane'}],
+        'status': 'published',
+    }, id_=uuid4())
+    provider = RecordIdProvider.create(object_type='rec', object_uuid=rec.id)
+    db.session.commit()
+    RecordIndexer().index_by_id(str(rec.id))
+
 {...}
 
 Feel free to create more records in a similar fashion.

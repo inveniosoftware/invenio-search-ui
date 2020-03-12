@@ -19,7 +19,6 @@ Invenio-Search-UI.
    installation
    configuration
    usage
-   examplesapp
 
 API Reference
 -------------
