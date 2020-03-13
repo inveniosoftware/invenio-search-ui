@@ -8,6 +8,11 @@
 Changes
 =======
 
+Version 1.2.0 (released 2020-03-13)
+
+- Drops support for Python 2.7
+- Changes Flask dependency to centrally managed by invenio-base
+
 Version 1.1.1 (released 2018-11-12)
 
 - Includes missing assets for AMD build.
