@@ -1,0 +1,20 @@
+	{% extends config.SEARCH_UI_BASE_TEMPLATE %}
+
+{%- block css %}
+    {{ super() }}
+    {{ webpack['vendor.css'] }}
+{%- endblock css %}
+
+
+{%- block javascript %}
+  {{ super() }}
+  {{ webpack['search_ui_app.js'] }}
+  {% set ui_config = ({ "api": config.SEARCH_UI_SEARCH_API, "mimetype": config.SEARCH_UI_SEARCH_MIMETYPE|default('application/json') }) %}
+  <script type="text/javascript">window.initSearchApp("invenio-search-ui-app", {{ ui_config|safe }});</script>
+{%- endblock javascript %}
+
+
+{%- block page_body %}
+<div id="invenio-search-ui-app">
+</div>
+{%- endblock page_body -%}

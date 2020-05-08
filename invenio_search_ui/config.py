@@ -10,6 +10,8 @@
 
 from __future__ import absolute_import, print_function
 
+SEARCH_UI_JS_FRAMEWORK = 'react'
+
 SEARCH_UI_SEARCH_API = '/api/records/'
 """Configure the search engine endpoint."""
 
