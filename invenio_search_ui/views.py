@@ -106,9 +106,10 @@ def format_config(config, endpoint_name):
         'api': config.get('SEARCH_UI_SEARCH_API'),
         'mimetype': config.get('SEARCH_UI_SEARCH_MIMETYPE',
                                'application/json'),
-        "sort_options": searchkit_sort_options(
+        'searchbar_id': config.get('THEME_SEARCHBAR_ID'),
+        'sort_options': searchkit_sort_options(
             config_sort_options, config_default_sort
         ),
-        "aggs": searchkit_aggs(config.get('RECORDS_REST_FACETS', {}).get(
+        'aggs': searchkit_aggs(config.get('RECORDS_REST_FACETS', {}).get(
             search_index).get("aggs", {})),
     })

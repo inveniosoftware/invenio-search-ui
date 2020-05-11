@@ -79,3 +79,4 @@ def test_format_sortoptions(app):
         dict(title='Test2', value='test2'),
         dict(title='Test1', value='-test1'),
     ])
+

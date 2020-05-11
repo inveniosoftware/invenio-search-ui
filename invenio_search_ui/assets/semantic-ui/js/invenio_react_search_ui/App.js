@@ -6,11 +6,12 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
+import InvenioSearchUISearchBar
+  from "./InvenioSearchUISearchBar";
 import React, { Component } from "react";
 import { Container, Grid } from "semantic-ui-react";
 import {
   ReactSearchKit,
-  SearchBar,
   BucketAggregation,
   EmptyResults,
   Error,
@@ -48,7 +49,8 @@ export class App extends Component {
             <Grid.Row>
               <Grid.Column width={4} />
               <Grid.Column width={12}>
-                <SearchBar />
+                <InvenioSearchUISearchBar
+                  searchBarUID={this.props.config.searchbar_id}/>
               </Grid.Column>
             </Grid.Row>
           </Grid>
