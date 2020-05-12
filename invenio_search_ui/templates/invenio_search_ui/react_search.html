@@ -9,7 +9,7 @@
 {%- block javascript %}
   {{ super() }}
   {{ webpack['search_ui_app.js'] }}
-  <script type="text/javascript">window.initSearchApp("invenio-search-ui-app", {{ config|format_config("records")|safe }});</script>
+  <script type="text/javascript">window.initSearchApp("invenio-search-ui-app", {{ config|format_config("recid")|safe }});</script>
 {%- endblock javascript %}
 
 

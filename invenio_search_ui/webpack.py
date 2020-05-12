@@ -35,6 +35,7 @@ def search_ui():
                 "lodash": "^4.17.15",
                 "node-sass": "^4.12.0",
                 "qs": "^6.8.0",
+                "prop-types": "^15.7.2",
                 "react": "^16.9.0",
                 "react-dom": "^16.9.0",
                 "react-redux": "^7.1",

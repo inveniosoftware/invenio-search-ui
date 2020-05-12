@@ -93,10 +93,13 @@ def format_sortoptions(sort_options):
 def format_config(config, endpoint_name):
     """Create config JSON dump for Invenio-Search-JS."""
 
+    search_index = current_app.get('RECORDS_REST_ENDPOINTS', {}).get(
+        endpoint_name, {}).get('search_index', 'records')
+
     config_sort_options = config.get('RECORDS_REST_SORT_OPTIONS', {}).get(
-        endpoint_name)
+        search_index)
     config_default_sort = config.get('RECORDS_REST_DEFAULT_SORT', {}).get(
-        endpoint_name)
+        search_index)
 
     return json.dumps({
         'api': config.get('SEARCH_UI_SEARCH_API'),
@@ -106,5 +109,5 @@ def format_config(config, endpoint_name):
             config_sort_options, config_default_sort
         ),
         "aggs": searchkit_aggs(config.get('RECORDS_REST_FACETS', {}).get(
-            endpoint_name).get("aggs", {}))
+            endpoint_name).get("aggs", {})),
     })
