@@ -9,8 +9,7 @@
 {%- block javascript %}
   {{ super() }}
   {{ webpack['search_ui_app.js'] }}
-  {% set ui_config = ({ "api": config.SEARCH_UI_SEARCH_API, "mimetype": config.SEARCH_UI_SEARCH_MIMETYPE|default('application/json') }) %}
-  <script type="text/javascript">window.initSearchApp("invenio-search-ui-app", {{ ui_config|safe }});</script>
+  <script type="text/javascript">window.initSearchApp("invenio-search-ui-app", {{ config|format_config("records")|safe }});</script>
 {%- endblock javascript %}
 
 

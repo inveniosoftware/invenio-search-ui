@@ -7,7 +7,7 @@
 //  */
 
 import React, { Component } from "react";
-import { Grid, Card, Image, Item } from "semantic-ui-react";
+import { Grid, Card, Image, Item, Label, Divider } from "semantic-ui-react";
 import _truncate from "lodash/truncate";
 import {
   ActiveFilters,
@@ -78,48 +78,53 @@ export class Results extends Component {
     );
   }
 
+  renderCount(totalResults) {
+    return (
+      <Label size="mini" color="blue">
+        {totalResults}
+      </Label>
+    );
+  }
+
   render() {
     const { total } = this.props.currentResultsState.data;
     const CustomResultsListCmp = () => (
-      <Item.Group>
-        <ResultsList renderListItem={this.renderResultsListItem} />
-      </Item.Group>
+      <ResultsList renderListItem={this.renderResultsListItem} />
     );
     const CustomResultsGridCmp = () => (
       <ResultsGrid renderGridItem={this.renderResultsGridItem} />
     );
     return total ? (
-      <div>
+      <>
         <Grid relaxed>
-          <ActiveFilters />
+          <Grid.Row verticalAlign="middle">
+            <Grid.Column width={7}>
+              <Count renderElement={this.renderCount} label={(cmp)=> <>{cmp} result(s) found</>}/>
+              <br />
+            </Grid.Column>
+            <Grid.Column width={7} textAlign="right">
+              <SpanWithMargin text="Sort by" />
+              <Sort values={this.sortValues} />
+            </Grid.Column>
+              <Grid.Column width={2} textAlign="right">
+              <LayoutSwitcher defaultLayout="list" />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column>
+              <ResultsMultiLayout
+                resultsListCmp={CustomResultsListCmp}
+                resultsGridCmp={CustomResultsGridCmp}
+              />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row verticalAlign="middle" textAlign="center">
+            <Grid.Column>
+              <Pagination />
+            </Grid.Column>
+          </Grid.Row>
         </Grid>
-        <Grid relaxed verticalAlign="middle">
-          <Grid.Column width={8}>
-            <SpanWithMargin text="Found" margin="right" />
-            <Count />
-            <SpanWithMargin text="results sorted by" />
-            <Sort values={this.sortValues} />
-          </Grid.Column>
-          <Grid.Column width={8} textAlign="right">
-            <SpanWithMargin text="Show" margin="right" />
-            <ResultsPerPage
-              values={this.resultsPerPageValues}
-              defaultValue={10}
-            />
-            <SpanWithMargin text="results per page" />
-            <LayoutSwitcher defaultLayout="list" />
-          </Grid.Column>
-        </Grid>
-        <Grid relaxed style={{ padding: "2em 0" }}>
-          <ResultsMultiLayout
-            resultsListCmp={CustomResultsListCmp}
-            resultsGridCmp={CustomResultsGridCmp}
-          />
-        </Grid>
-        <Grid relaxed verticalAlign="middle" textAlign="center">
-          <Pagination />
-        </Grid>
-      </div>
+      </>
     ) : null;
   }
 }
