@@ -48,23 +48,6 @@ class InvenioSearchUI(object):
             app.config.get('HEADER_TEMPLATE',
                            'invenio_search_ui/base_header.html')
         )
-        app.config.setdefault(
-            'SEARCH_UI_JS_FRAMEWORK',
-            app.config.get('JS_FRAMEWORK',
-                           'react')
-        )
-        if app.config.get('SEARCH_UI_JS_FRAMEWORK') == 'react':
-            app.config.setdefault(
-                'SEARCH_UI_SEARCH_TEMPLATE',
-                app.config.get('SEARCH_TEMPLATE',
-                               'invenio_search_ui/react_search.html')
-            )
-        else:
-            app.config.setdefault(
-                'SEARCH_UI_SEARCH_TEMPLATE',
-                app.config.get('SEARCH_TEMPLATE',
-                               'invenio_search_ui/search.html')
-            )
 
         for k in dir(config):
             if k.startswith('SEARCH_UI_'):

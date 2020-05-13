@@ -10,7 +10,7 @@
 
 from __future__ import absolute_import, print_function
 
-SEARCH_UI_APP_THEME = ['react', 'angular']
+APP_THEME = ['semantic-ui', 'bootstrap3']
 
 SEARCH_UI_SEARCH_API = '/api/records/'
 """Configure the search engine endpoint."""

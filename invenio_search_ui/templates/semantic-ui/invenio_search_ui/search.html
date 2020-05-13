@@ -1,22 +1,9 @@
 	{% extends config.SEARCH_UI_BASE_TEMPLATE %}
 
-{%- block css %}
-    {{ super() }}
-    {{ webpack['vendor.css'] }}
-
-    {% block css_render %}
-      {{ webpack.render('.css') }}
-    {% endblock css_render %}
-{%- endblock css %}
-
-
 {%- block javascript %}
   {{ super() }}
   {{ webpack['search_ui_app.js'] }}
   <script type="text/javascript">window.initSearchApp("invenio-search-ui-app", {{ config|format_config("recid")|safe }});</script>
-    {% block javascript_render %}
-    {{ webpack.render('.js') }}
-  {% endblock javascript_render %}
 {%- endblock javascript %}
 
 
