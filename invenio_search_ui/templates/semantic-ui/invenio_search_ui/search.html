@@ -2,12 +2,16 @@
 
 {%- block javascript %}
   {{ super() }}
+  {%- block javascript_override_searchapp %}
+      {{ webpack['search_ui_app_override.js'] }}
+  {%- endblock javascript_override_searchapp %}
   {{ webpack['search_ui_app.js'] }}
   <script type="text/javascript">window.initSearchApp("invenio-search-ui-app", {{ config|format_config("recid")|tojson }});</script>
 {%- endblock javascript %}
 
 
 {%- block page_body %}
-<div id="invenio-search-ui-app">
+<div id="invenio-search-ui-app" data-name="InvenioSearchUIApp">
+
 </div>
 {%- endblock page_body -%}

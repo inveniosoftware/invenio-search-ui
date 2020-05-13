@@ -11,9 +11,10 @@ import ReactDOM from "react-dom";
 import React from 'react';
 
 export function initSearchApp(ID, config) {
+  const rootElement = document.getElementById(ID);
   return ReactDOM.render(
-    <App config={config} />,
-    document.getElementById(ID)
+    <App config={config} appName={rootElement.getAttribute("data-name")}/>,
+    rootElement
   );
 }
 

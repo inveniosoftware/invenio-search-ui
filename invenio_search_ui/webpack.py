@@ -27,6 +27,7 @@ search_ui = WebpackThemeBundle(
         'semantic-ui': dict(
             entry={
                 'search_ui_app': './js/invenio_search_ui/index.js',
+                'search_ui_app_override': './js/invenio_search_ui/SearchAppOverride.js',
             },
             dependencies={
                 "axios": "^0.19.0",
@@ -35,11 +36,12 @@ search_ui = WebpackThemeBundle(
                 "prop-types": "^15.7.2",
                 "react": "^16.9.0",
                 "react-dom": "^16.9.0",
+                "react-overridable": "^0.0.2",
                 "react-redux": "^7.1",
                 "react-scripts": "3.1.1",
                 "redux": "^4.0.4",
                 "redux-thunk": "^2.3.0",
-                'react-searchkit': '^0.19.0',
+                'react-searchkit': '^1.0.0-alpha.0',
                 "semantic-ui-react": "^0.88.0"
             }
         ),
