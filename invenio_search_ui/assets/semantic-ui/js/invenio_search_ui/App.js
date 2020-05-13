@@ -10,7 +10,6 @@ import React, { Component } from "react";
 import { Container, Grid } from "semantic-ui-react";
 import {
   ReactSearchKit,
-  SearchBar,
   BucketAggregation,
   EmptyResults,
   Error,
@@ -21,6 +20,8 @@ import PropTypes from "prop-types";
 import { Results } from "./Results";
 import { InvenioSearchApi } from "react-searchkit";
 import { OverridableContext, overrideStore } from "react-overridable";
+import InvenioSearchUISearchBar
+  from "./InvenioSearchUISearchBar";
 
 const OnResults = withState(Results);
 
@@ -48,7 +49,8 @@ export class App extends Component {
               <Grid.Row>
                 <Grid.Column width={4} />
                 <Grid.Column width={12}>
-                  <SearchBar />
+                  <InvenioSearchUISearchBar
+                    searchBarUID={this.props.config.searchbar_id}/>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
