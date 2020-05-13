@@ -1,0 +1,13 @@
+	{% extends config.SEARCH_UI_BASE_TEMPLATE %}
+
+{%- block javascript %}
+  {{ super() }}
+  {{ webpack['search_ui_app.js'] }}
+  <script type="text/javascript">window.initSearchApp("invenio-search-ui-app", {{ config|format_config("recid")|tojson }});</script>
+{%- endblock javascript %}
+
+
+{%- block page_body %}
+<div id="invenio-search-ui-app">
+</div>
+{%- endblock page_body -%}

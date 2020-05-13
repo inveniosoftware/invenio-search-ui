@@ -47,11 +47,11 @@ def sorted_options(sort_options):
 def searchkit_sort_options(sort_options, default_sort):
     """Sort and map sort options for display.
 
-        :param sort_options: A dictionary containing the field name as key and
+    :param sort_options: A dictionary containing the field name as key and
             asc/desc as value.
-        :returns: A dictionary with sorting options for Invenio-Search-JS
+    :returns: A dictionary with sorting options for Invenio-Search-JS
         with react-searchkit.
-        """
+    """
     return [
         {
             'text': v['title'],
@@ -92,8 +92,9 @@ def format_sortoptions(sort_options):
 @blueprint.app_template_filter('format_config')
 def format_config(config, endpoint_name):
     """Create config JSON dump for Invenio-Search-JS."""
-
-    search_index = current_app.get('RECORDS_REST_ENDPOINTS', {}).get(
+    # TODO check what happens when search_index not defined
+    # in record_rest_endpoints
+    search_index = config.get('RECORDS_REST_ENDPOINTS', {}).get(
         endpoint_name, {}).get('search_index', 'records')
 
     config_sort_options = config.get('RECORDS_REST_SORT_OPTIONS', {}).get(
@@ -101,7 +102,7 @@ def format_config(config, endpoint_name):
     config_default_sort = config.get('RECORDS_REST_DEFAULT_SORT', {}).get(
         search_index)
 
-    return json.dumps({
+    return {
         'api': config.get('SEARCH_UI_SEARCH_API'),
         'mimetype': config.get('SEARCH_UI_SEARCH_MIMETYPE',
                                'application/json'),
@@ -109,5 +110,5 @@ def format_config(config, endpoint_name):
             config_sort_options, config_default_sort
         ),
         "aggs": searchkit_aggs(config.get('RECORDS_REST_FACETS', {}).get(
-            endpoint_name).get("aggs", {})),
-    })
+            search_index).get("aggs", {})),
+    }

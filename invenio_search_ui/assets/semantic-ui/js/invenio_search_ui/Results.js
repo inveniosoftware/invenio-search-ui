@@ -76,14 +76,6 @@ export class Results extends Component {
     );
   }
 
-  renderCount(totalResults) {
-    return (
-      <Label size="mini" color="blue">
-        {totalResults}
-      </Label>
-    );
-  }
-
   render() {
     const { total } = this.props.currentResultsState.data;
     const CustomResultsListCmp = () => (
@@ -97,7 +89,6 @@ export class Results extends Component {
         <Grid.Row verticalAlign="middle">
           <Grid.Column width={7}>
             <Count
-              renderElement={this.renderCount}
               label={cmp => <>{cmp} result(s) found</>}
             />
             <br />

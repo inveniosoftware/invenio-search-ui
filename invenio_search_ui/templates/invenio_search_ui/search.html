@@ -11,21 +11,14 @@
 
 {%- block css %}
     {{ super() }}
-    {{ webpack['search_ui_theme'] }}
+    {{ webpack['search_ui_theme.css'] }}
     {# assets "invenio_search_ui_search_css" %}<link href="{{ ASSET_URL }}" rel="stylesheet">{% endassets #}
-
-    {% block css_render %}
-      {{ webpack.render('.css') }}
-    {% endblock css_render %}
 {%- endblock css %}
 
 {%- block javascript %}
   {{ super() }}
-  {{ webpack['search_ui_app'] }}
+  {{ webpack['search_ui_app.js'] }}
   {# assets "invenio_search_ui_search_js" %}<script src="{{ ASSET_URL }}"></script>{% endassets #}
-  {% block javascript_render %}
-    {{ webpack.render('.js') }}
-  {% endblock javascript_render %}
 {%- endblock javascript %}
 
 {%- block body_inner %}
