@@ -28,12 +28,12 @@ export class Results extends Component {
             <Count label={(cmp) => <>{cmp} result(s) found</>} />
             <br />
           </Grid.Column>
-          <Grid.Column width={7} textAlign="right">
+          <Grid.Column width={6} textAlign="right">
             {sortValues && (
               <Sort values={sortValues} label={(cmp) => <>sort by {cmp}</>} />
             )}
           </Grid.Column>
-          <Grid.Column width={2} textAlign="right">
+          <Grid.Column width={3} textAlign="right">
             <LayoutSwitcher defaultLayout="list" />
           </Grid.Column>
         </Grid.Row>

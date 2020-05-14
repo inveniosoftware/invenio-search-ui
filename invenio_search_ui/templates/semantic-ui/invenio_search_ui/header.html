@@ -9,11 +9,11 @@
 {% extends config.SEARCH_UI_HEADER_TEMPLATE %}
 
 {%- block navbar_search %}
-<div id="header-search-bar" class="ui basic segment" style="width: 500px;">
+<div id="header-search-bar" class="item">
   <form class="ui form" action="{{config.THEME_SEARCH_ENDPOINT}}" role="search">
     <div class="ui action icon input">
       <input type="text" name="q" placeholder="{{_('Search')}}">
-      <button type="submit" class="ui icon button"><i class="icon search"></i></button>
+      <button type="submit" class="ui icon button orange"><i class="icon search"></i></button>
     </div>
   </form>
 </div>

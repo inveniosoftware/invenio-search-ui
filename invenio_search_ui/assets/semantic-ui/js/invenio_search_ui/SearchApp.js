@@ -39,7 +39,7 @@ export class SearchApp extends Component {
       <OverridableContext.Provider value={overrideStore.getAll()}>
         <ReactSearchKit searchApi={searchApi} appName={appName}>
           <Container>
-            <Grid>
+            <Grid relaxed padded>
               <Grid.Row>
                 <Grid.Column width={4} />
                 <Grid.Column width={12}>
