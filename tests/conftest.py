@@ -32,14 +32,15 @@ def instance_path():
     shutil.rmtree(path)
 
 
-def app(base_template, header_template):
-    """Flask application common fixture."""
+@pytest.fixture()
+def app():
+    """Flask application fixture."""
     app = Flask('testapp')
     app.config.update(
         TESTING=True,
         SEARCH_UI_SEARCH_API='api',
-        BASE_TEMPLATE=base_template,
-        HEADER_TEMPLATE=header_template,
+        BASE_TEMPLATE='invenio_search_ui/base.html',
+        HEADER_TEMPLATE='invenio_search_ui/base_header.html',
     )
     Babel(app)
     InvenioAssets(app)
@@ -60,17 +61,3 @@ def app(base_template, header_template):
     # override default app jinja_loader to add the new path
     app.jinja_loader = enhanced_jinja_loader
     return app
-
-
-@pytest.fixture()
-def app_ng():
-    """Flask application fixture for the AngularJS/Bootstrap3 app."""
-    return app('invenio_search_ui/base.html',
-               'invenio_search_ui/base_header.html')
-
-
-@pytest.fixture()
-def app_rsk():
-    """Flask application fixture for the React/Semantic-UI app."""
-    return app('invenio_search_ui/base.html',
-               'invenio_search_ui/base_header.html')

@@ -22,7 +22,7 @@ def test_version():
     assert __version__
 
 
-def test_init(app_ng):
+def test_init():
     """Test extension initialization."""
     app = Flask('testapp')
     InvenioSearchUI(app)

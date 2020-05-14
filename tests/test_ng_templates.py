@@ -34,13 +34,13 @@ def _check_template():
     assert 'invenio-search-range' in rendered
 
 
-def test_view(app_ng):
+def test_view(app):
     """Test view."""
-    with app_ng.test_request_context():
+    with app.test_request_context():
         _check_template()
 
 
-def test_format_sortoptions(app_ng):
+def test_format_sortoptions(app):
     """Test default sort option filter."""
     sort_options = dict(
         test1=dict(order=2, title='Test1', default_order='desc'),

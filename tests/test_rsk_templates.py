@@ -30,13 +30,13 @@ def _check_template():
     assert 'id="search-ui-app"' in rendered
 
 
-def test_view(app_rsk):
+def test_view(app):
     """Test view."""
-    with app_rsk.test_request_context():
+    with app.test_request_context():
         _check_template()
 
 
-def test_format_sortoptions(app_rsk):
+def test_format_sortoptions(app):
     """Test default sort option filter."""
     sort_options = dict(
         test1=dict(order=2, title="Test 1", default_order="desc"),
