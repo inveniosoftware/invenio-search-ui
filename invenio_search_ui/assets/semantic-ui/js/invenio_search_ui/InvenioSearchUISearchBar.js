@@ -19,8 +19,8 @@ export default class InvenioSearchUISearchBar extends Component {
       return <SearchBar/>
     }
     const searchNode = document.getElementById(this.props.searchBarUID);
-    searchNode.innerHTML = "";
     if (searchNode) {
+      searchNode.innerHTML = "";
       return ReactDOM.createPortal(<SearchBar />, searchNode);
     }
     return <SearchBar/>;
