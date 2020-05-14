@@ -44,11 +44,12 @@ setup_requires = [
 ]
 
 install_requires = [
-    'invenio-base>=1.2.2',
+    'invenio-base>=1.3.0',
     'invenio-i18n>=1.1.0',
     'flask-webpackext>=1.0.0',
     'angular-gettext-babel>=0.1',
-    'invenio-assets>=1.1.0',
+    'invenio-assets>=1.2.0',
+    'invenio-theme==1.3.0a1'
 ]
 
 packages = find_packages()
