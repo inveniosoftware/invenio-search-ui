@@ -1,4 +1,16 @@
-	{% extends config.SEARCH_UI_BASE_TEMPLATE %}
+{# -*- coding: utf-8 -*-
+
+  This file is part of Invenio.
+  Copyright (C) 2015-2020 CERN.
+
+  Invenio is free software; you can redistribute it and/or modify it
+  under the terms of the MIT License; see LICENSE file for more details.
+#}
+{% extends config.SEARCH_UI_BASE_TEMPLATE %}
+
+{%- block page_header %}
+{% include "semantic-ui/invenio_search_ui/header.html" %}
+{%- endblock page_header %}
 
 {%- block javascript %}
   {{ super() }}
@@ -6,12 +18,11 @@
       {{ webpack['search_ui_app_override.js'] }}
   {%- endblock javascript_override_searchapp %}
   {{ webpack['search_ui_app.js'] }}
-  <script type="text/javascript">window.initSearchApp("invenio-search-ui-app", {{ config|format_config("recid")|tojson }});</script>
+  <script type="text/javascript">
+    window.initSearchApp("search-ui-app", {{ config|format_config("recid")|tojson }});
+  </script>
 {%- endblock javascript %}
 
-
 {%- block page_body %}
-<div id="invenio-search-ui-app" data-name="InvenioSearchUIApp">
-
-</div>
+<div id="search-ui-app"></div>
 {%- endblock page_body -%}

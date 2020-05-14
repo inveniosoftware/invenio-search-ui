@@ -1,21 +1,17 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of Invenio.
-# Copyright (C) 2015-2018 CERN.
+# Copyright (C) 2015-2020 CERN.
 #
 # Invenio is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 
-
-"""Module tests."""
-
-from __future__ import absolute_import, print_function
+"""Tests for the search templates with AngularJS/Bootstrap3."""
 
 import json
 
-from flask import Flask, render_template_string
+from flask import render_template_string
 
-from invenio_search_ui import InvenioSearchUI, bundles
 from invenio_search_ui.views import format_sortoptions
 
 
@@ -38,38 +34,13 @@ def _check_template():
     assert 'invenio-search-range' in rendered
 
 
-def test_version():
-    """Test version import."""
-    from invenio_search_ui import __version__
-    assert __version__
-
-
-def test_bundles():
-    """Test bundles."""
-    assert bundles.js
-    assert bundles.css
-
-
-def test_init():
-    """Test extension initialization."""
-    app = Flask('testapp')
-    ext = InvenioSearchUI(app)
-    assert 'invenio-search-ui' in app.extensions
-
-    app = Flask('testapp')
-    ext = InvenioSearchUI()
-    assert 'invenio-search-ui' not in app.extensions
-    ext.init_app(app)
-    assert 'invenio-search-ui' in app.extensions
-
-
-def test_view(app):
+def test_view(app_ng):
     """Test view."""
-    with app.test_request_context():
+    with app_ng.test_request_context():
         _check_template()
 
 
-def test_format_sortoptions(app):
+def test_format_sortoptions(app_ng):
     """Test default sort option filter."""
     sort_options = dict(
         test1=dict(order=2, title='Test1', default_order='desc'),

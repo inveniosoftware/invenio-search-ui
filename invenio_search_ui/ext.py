@@ -40,13 +40,10 @@ class InvenioSearchUI(object):
         :param app: The Flask application.
         """
         app.config.setdefault(
-            'SEARCH_UI_BASE_TEMPLATE',
-            app.config.get('BASE_TEMPLATE', 'invenio_search_ui/base.html')
+            'SEARCH_UI_BASE_TEMPLATE', app.config.get('BASE_TEMPLATE')
         )
         app.config.setdefault(
-            'SEARCH_UI_HEADER_TEMPLATE',
-            app.config.get('HEADER_TEMPLATE',
-                           'invenio_search_ui/base_header.html')
+            'SEARCH_UI_HEADER_TEMPLATE', app.config.get('HEADER_TEMPLATE')
         )
 
         for k in dir(config):

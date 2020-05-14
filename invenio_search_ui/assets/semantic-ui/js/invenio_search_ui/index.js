@@ -6,14 +6,15 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
-import { App } from "./App";
+import React from "react";
 import ReactDOM from "react-dom";
-import React from 'react';
+import { SearchApp } from "./SearchApp";
 
-export function initSearchApp(ID, config) {
-  const rootElement = document.getElementById(ID);
+export function initSearchApp(elementId, config) {
+  const rootElement = document.getElementById(elementId);
+  const appName = rootElement.getAttribute("data-name");
   return ReactDOM.render(
-    <App config={config} appName={rootElement.getAttribute("data-name")}/>,
+    <SearchApp config={config} appName={appName} />,
     rootElement
   );
 }

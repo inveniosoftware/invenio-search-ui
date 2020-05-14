@@ -32,5 +32,5 @@ recursive-include invenio_search_ui *.mo
 recursive-include invenio_search_ui *.po
 recursive-include invenio_search_ui *.pot
 recursive-include invenio_search_ui *.scss
+recursive-include tests *.html
 recursive-include tests *.py
-prune examples/static/node_modules

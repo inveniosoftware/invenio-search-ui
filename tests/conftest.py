@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of Invenio.
-# Copyright (C) 2015-2018 CERN.
+# Copyright (C) 2015-2020 CERN.
 #
 # Invenio is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
@@ -10,9 +10,11 @@
 
 from __future__ import absolute_import, print_function
 
+import os
 import shutil
 import tempfile
 
+import jinja2
 import pytest
 from flask import Flask
 from flask_babelex import Babel
@@ -30,13 +32,14 @@ def instance_path():
     shutil.rmtree(path)
 
 
-@pytest.fixture()
-def app():
-    """Flask application fixture."""
+def app(base_template, header_template):
+    """Flask application common fixture."""
     app = Flask('testapp')
     app.config.update(
         TESTING=True,
         SEARCH_UI_SEARCH_API='api',
+        BASE_TEMPLATE=base_template,
+        HEADER_TEMPLATE=header_template,
     )
     Babel(app)
     InvenioAssets(app)
@@ -47,4 +50,27 @@ def app():
         return {}
 
     app.register_blueprint(blueprint)
+    # add extra test templates to the search app blueprint, to fake the
+    # existence of `invenio-theme` base templates.
+    test_templates_path = os.path.join(os.path.dirname(__file__), "templates")
+    enhanced_jinja_loader = jinja2.ChoiceLoader([
+        app.jinja_loader,
+        jinja2.FileSystemLoader(test_templates_path),
+    ])
+    # override default app jinja_loader to add the new path
+    app.jinja_loader = enhanced_jinja_loader
     return app
+
+
+@pytest.fixture()
+def app_ng():
+    """Flask application fixture for the AngularJS/Bootstrap3 app."""
+    return app('invenio_search_ui/base.html',
+               'invenio_search_ui/base_header.html')
+
+
+@pytest.fixture()
+def app_rsk():
+    """Flask application fixture for the React/Semantic-UI app."""
+    return app('invenio_search_ui/base.html',
+               'invenio_search_ui/base_header.html')

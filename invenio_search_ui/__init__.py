@@ -66,10 +66,7 @@ Register the JavaScript bundle, containing Invenio-Search-JS:
 .. code-block:: python
 
     from invenio_assets import InvenioAssets
-    from invenio_search_ui.bundles import js
     ext_assets = InvenioAssets(app)
-    ext_assets.env.register('invenio_search_ui_search_js', js)
-    <NpmBundle ...>
 
 Before we initialize the Invenio-Search-UI extension, we need to have some
 REST API endpoints configured to expose our records. For more detailed

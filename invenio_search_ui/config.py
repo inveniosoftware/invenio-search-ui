@@ -8,9 +8,10 @@
 
 """Configuration for Invenio-Search-UI."""
 
-from __future__ import absolute_import, print_function
+SEARCH_UI_SEARCH_TEMPLATE = 'invenio_search_ui/search.html'
+"""Configure the search page template."""
 
-APP_THEME = ['semantic-ui', 'bootstrap3']
+# The configuration below is for the AngularJS search app configuration
 
 SEARCH_UI_SEARCH_API = '/api/records/'
 """Configure the search engine endpoint."""
@@ -18,8 +19,7 @@ SEARCH_UI_SEARCH_API = '/api/records/'
 SEARCH_UI_SEARCH_INDEX = 'records'
 """Name of the search index used."""
 
-SEARCH_UI_SEARCH_TEMPLATE = 'invenio_search_ui/search.html'
-"""Configure the search page template."""
+# The configuration below is for the AngularJS search app templates
 
 SEARCH_UI_JSTEMPLATE_COUNT = 'templates/invenio_search_ui/count.html'
 """Configure the count template."""

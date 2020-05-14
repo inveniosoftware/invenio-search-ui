@@ -6,64 +6,57 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
+import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { Container, Grid } from "semantic-ui-react";
+import { OverridableContext, overrideStore } from "react-overridable";
 import {
-  ReactSearchKit,
   BucketAggregation,
   EmptyResults,
   Error,
+  InvenioSearchApi,
+  ReactSearchKit,
   ResultsLoader,
-  withState
+  withState,
 } from "react-searchkit";
-import PropTypes from "prop-types";
+import { Container, Grid } from "semantic-ui-react";
 import { Results } from "./Results";
-import { InvenioSearchApi } from "react-searchkit";
-import { OverridableContext, overrideStore } from "react-overridable";
-import InvenioSearchUISearchBar
-  from "./InvenioSearchUISearchBar";
+import SearchBar from "./SearchBar";
 
 const OnResults = withState(Results);
 
-export class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { activeIndex: -1 };
-  }
-
+export class SearchApp extends Component {
   render() {
-    const config = new InvenioSearchApi({
+    const { appName, config } = this.props;
+    const searchApi = new InvenioSearchApi({
       axios: {
-        url: this.props.config.api,
-        withCredentials: true
+        url: config.api,
+        withCredentials: true,
       },
-      timeout: 5000,
-      headers: { Accept: this.props.config.mimetype }
+      headers: { Accept: config.mimetype },
     });
 
     return (
       <OverridableContext.Provider value={overrideStore.getAll()}>
-        <ReactSearchKit searchApi={config} appName={this.props.appName}>
+        <ReactSearchKit searchApi={searchApi} appName={appName}>
           <Container>
             <Grid>
               <Grid.Row>
                 <Grid.Column width={4} />
                 <Grid.Column width={12}>
-                  <InvenioSearchUISearchBar
-                    searchBarUID={this.props.config.searchbar_id}/>
+                  <SearchBar />
                 </Grid.Column>
               </Grid.Row>
             </Grid>
             <Grid relaxed padded>
               <Grid.Row columns={2}>
                 <Grid.Column width={4}>
-                  {this.props.config.aggs.map(agg => (
+                  {config.aggs.map((agg) => (
                     <BucketAggregation
                       key={agg.title}
                       title={agg.title}
                       agg={{
                         field: agg.field,
-                        aggName: agg.aggName
+                        aggName: agg.aggName,
                       }}
                     />
                   ))}
@@ -72,7 +65,7 @@ export class App extends Component {
                   <ResultsLoader>
                     <EmptyResults />
                     <Error />
-                    <OnResults sortValues={this.props.config.sort_options} />
+                    <OnResults sortValues={config.sort_options} />
                   </ResultsLoader>
                 </Grid.Column>
               </Grid.Row>
@@ -84,7 +77,22 @@ export class App extends Component {
   }
 }
 
-App.propTypes = {
-  config: PropTypes.object.isRequired,
+SearchApp.propTypes = {
+  config: PropTypes.shape({
+    api: PropTypes.string,
+    mimetype: PropTypes.string,
+    aggs: PropTypes.array,
+    sort_options: PropTypes.array,
+  }).isRequired,
   appName: PropTypes.string,
-}
+};
+
+SearchApp.defaultProps = {
+  config: {
+    api: "",
+    mimetype: "",
+    aggs: [],
+    sort_options: [],
+  },
+  appName: null,
+};

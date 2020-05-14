@@ -49,7 +49,6 @@ install_requires = [
     'flask-webpackext>=1.0.0',
     'angular-gettext-babel>=0.1',
     'invenio-assets>=1.2.0',
-    'invenio-theme>=1.3.0a1'
 ]
 
 packages = find_packages()
@@ -80,11 +79,6 @@ setup(
         ],
         'invenio_base.apps': [
             'invenio_search_ui = invenio_search_ui:InvenioSearchUI'
-        ],
-        'invenio_assets.bundles': [
-            'invenio_search_ui_search_css = invenio_search_ui.bundles:css',
-            'invenio_search_ui_search_i18n = invenio_search_ui.bundles:i18n',
-            'invenio_search_ui_search_js = invenio_search_ui.bundles:js',
         ],
         'invenio_assets.webpack': [
             'invenio_search_ui = invenio_search_ui.webpack:search_ui',
