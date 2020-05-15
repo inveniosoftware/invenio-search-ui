@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.0.0a1 (released 2020-05-15)
+
+- Adds React-Searchkit application for use with Semantic UI theme.
+
 Version 1.2.0 (released 2020-03-13)
 
 - Drops support for Python 2.7
