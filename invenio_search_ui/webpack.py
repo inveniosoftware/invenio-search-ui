@@ -40,7 +40,7 @@ search_ui = WebpackThemeBundle(
                 "react-redux": "^7.2",
                 "redux": "^4.0.5",
                 "redux-thunk": "^2.3.0",
-                "react-searchkit": "^1.0.0-alpha.0",
+                "react-searchkit": "^1.0.0-alpha.1",
                 "semantic-ui-css": "^2.4.1",
                 "semantic-ui-react": "^0.88.0",
                 "@babel/runtime": "^7.9.0",

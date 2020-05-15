@@ -1,6 +1,6 @@
 ..
     This file is part of Invenio.
-    Copyright (C) 2015-2018 CERN.
+    Copyright (C) 2015-2020 CERN.
 
     Invenio is free software; you can redistribute it and/or modify it
     under the terms of the MIT License; see LICENSE file for more details.
@@ -8,9 +8,13 @@
 Changes
 =======
 
+Version 2.0.0a2 (released 2020-05-15)
+
+- Bump React-SearchKit JS version.
+
 Version 2.0.0a1 (released 2020-05-15)
 
-- Adds React-Searchkit application for use with Semantic UI theme.
+- Adds React-SearchKit JS application for use with Semantic UI theme.
 
 Version 1.2.0 (released 2020-03-13)
 
