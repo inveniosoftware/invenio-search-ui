@@ -8,11 +8,29 @@
 
 """Tests for the search templates with React-SearchKit/Semantic-UI."""
 
-import json
-
 from flask import render_template_string
 
 from invenio_search_ui.views import format_config
+
+_RECORDS_REST_CONFIG = dict(
+    RECORDS_REST_ENDPOINTS=dict(
+        recid=dict(
+            list_route="/myrecords/",
+            default_media_type="application/json",
+            search_index="myrecords",
+        )
+    ),
+    RECORDS_REST_SORT_OPTIONS=dict(myrecords=dict(
+        test1=dict(order=2, title="Test 1", default_order="desc"),
+        test2=dict(order=1, title="Test 2", default_order="asc"),
+    )),
+    RECORDS_REST_DEFAULT_SORT=dict(
+        myrecords=dict(query="test2", noquery="test1")),
+    RECORDS_REST_FACETS=dict(
+        myrecords=dict(
+            aggs=dict(type=dict(terms=dict(field="type"))))
+    )
+)
 
 
 def _check_template():
@@ -26,39 +44,23 @@ def _check_template():
     rendered = render_template_string(extended)
     # check if the header search bar element id exists
     assert 'id="header-search-bar"' in rendered
-    # check if the search app element id exists
-    assert 'id="search-ui-app"' in rendered
+    # check if the search app config attribute exists
+    assert 'data-invenio-search-config' in rendered
 
 
 def test_view(app):
     """Test view."""
+    app.config.update(_RECORDS_REST_CONFIG)
     with app.test_request_context():
         _check_template()
+    for k in _RECORDS_REST_CONFIG:
+        del app.config[k]
 
 
 def test_format_sortoptions(app):
     """Test default sort option filter."""
-    sort_options = dict(
-        test1=dict(order=2, title="Test 1", default_order="desc"),
-        test2=dict(order=1, title="Test 2", default_order="asc"),
-    )
-    default_sort = dict(query="test2", noquery="test1")
-    facets = dict(aggs=dict(type=dict(terms=dict(field="type"))))
-
-    config = dict(
-        RECORDS_REST_ENDPOINTS=dict(
-            recid=dict(
-                list_route="/myrecords/",
-                default_media_type="application/json",
-                search_index="myrecords",
-            )
-        ),
-        RECORDS_REST_SORT_OPTIONS=dict(myrecords=sort_options),
-        RECORDS_REST_DEFAULT_SORT=dict(myrecords=default_sort),
-        RECORDS_REST_FACETS=dict(myrecords=dict(facets)),
-    )
-
-    assert format_config(config, "recid") == dict(
+    assert format_config(_RECORDS_REST_CONFIG, "recid") == dict(
+        appId='search',
         api="/api/myrecords/", mimetype="application/json",
         sort_options=[dict(
             text="Test 2",
