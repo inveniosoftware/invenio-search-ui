@@ -26,9 +26,7 @@ search_ui = WebpackThemeBundle(
     themes={
         "semantic-ui": dict(
             entry={
-                "search_ui_app": "./js/invenio_search_ui/index.js",
-                "search_ui_app_customizations":
-                    "./js/invenio_search_ui/SearchAppCustomizations.js",
+                "invenio_search_ui_app": "./js/invenio_search_ui/app.js",
             },
             dependencies={
                 "axios": "^0.19.0",
@@ -45,6 +43,9 @@ search_ui = WebpackThemeBundle(
                 "semantic-ui-react": "^0.88.0",
                 "@babel/runtime": "^7.9.0",
             },
+            aliases={
+                '@js/invenio_search_ui': 'js/invenio_search_ui',
+            }
         ),
         "bootstrap3": dict(
             entry={

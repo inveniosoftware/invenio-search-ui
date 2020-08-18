@@ -6,10 +6,12 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
-import defaultComponents from "./defaultComponents";
-import { createSearchAppInit } from "./util";
+import {
+  SearchUIResultsListItem,
+  SearchUIResultsGridItem,
+} from "./SearchAppCustomizations";
 
-export {
-  defaultComponents,
-  createSearchAppInit,
+export default {
+  "ResultsList.item": SearchUIResultsListItem,
+  "ResultsGrid.item": SearchUIResultsGridItem,
 };

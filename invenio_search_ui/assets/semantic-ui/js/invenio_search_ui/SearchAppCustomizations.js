@@ -9,10 +9,9 @@
 import _get from "lodash/get";
 import _truncate from "lodash/truncate";
 import React from "react";
-import { overrideStore } from "react-overridable";
 import { Card, Item, Label } from "semantic-ui-react";
 
-const SearchUIResultsListItem = ({ result, index }) => {
+export const SearchUIResultsListItem = ({ result, index }) => {
   const metadata = result.metadata;
   return (
     <Item key={index} href={_get(result, "links.html", "#")}>
@@ -36,7 +35,7 @@ const SearchUIResultsListItem = ({ result, index }) => {
   );
 };
 
-const SearchUIResultsGridItem = ({ result, index }) => {
+export const SearchUIResultsGridItem = ({ result, index }) => {
   const metadata = result.metadata;
   return (
     <Card fluid key={index} href={_get(result, "links.html", "#")}>
@@ -59,6 +58,3 @@ const SearchUIResultsGridItem = ({ result, index }) => {
     </Card>
   );
 };
-
-overrideStore.add("ResultsList.item", SearchUIResultsListItem);
-overrideStore.add("ResultsGrid.item", SearchUIResultsGridItem);

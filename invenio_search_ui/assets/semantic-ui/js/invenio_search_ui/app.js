@@ -9,7 +9,5 @@
 import defaultComponents from "./defaultComponents";
 import { createSearchAppInit } from "./util";
 
-export {
-  defaultComponents,
-  createSearchAppInit,
-};
+// Create and autoinitialize the search app
+createSearchAppInit(defaultComponents);
