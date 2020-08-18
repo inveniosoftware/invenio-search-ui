@@ -6,20 +6,18 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
-import React, { Component } from "react";
+import React from "react";
 import { SearchBar as ReactSearchKitSearchBar } from "react-searchkit";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 
-export default class SearchBar extends Component {
-  render() {
-    const domElement = document.getElementById(this.props.elementId);
-    if (domElement) {
-      domElement.innerHTML = "";
-      return ReactDOM.createPortal(<ReactSearchKitSearchBar />, domElement);
-    }
-    return <ReactSearchKitSearchBar />;
+export const SearchBar = ({ elementId }) => {
+  const domElement = document.getElementById(elementId);
+  if (domElement) {
+    domElement.innerHTML = "";
+    return ReactDOM.createPortal(<ReactSearchKitSearchBar />, domElement);
   }
+  return <ReactSearchKitSearchBar />;
 }
 
 SearchBar.propTypes = {

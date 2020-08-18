@@ -20,7 +20,7 @@ import {
 } from "react-searchkit";
 import { Container, Grid } from "semantic-ui-react";
 import { Results } from "./Results";
-import SearchBar from "./SearchBar";
+import { SearchBar } from "./SearchBar";
 
 const OnResults = withState(Results);
 
