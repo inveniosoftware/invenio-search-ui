@@ -61,8 +61,16 @@ def test_format_sortoptions(app):
     """Test default sort option filter."""
     assert format_config(_RECORDS_REST_CONFIG, "recid") == dict(
         appId='search',
-        api="/api/myrecords/", mimetype="application/json",
-        sort_options=[dict(
+        searchApi={
+            'axios': {
+                'headers': {'Accept': 'application/json'},
+                'url': '/api/myrecords/',
+                'withCredentials': True
+            }
+        },
+        initialQueryState={'hiddenParams': None},
+        layoutOptions={'gridView': True, 'listView': True},
+        sortOptions=[dict(
             text="Test 2",
             sortBy="test2",
             sortOrder="asc",
@@ -77,5 +85,13 @@ def test_format_sortoptions(app):
         )],
         aggs=[dict(
             title="Type", aggName="type", field="type"
-        )]
+        )],
+        paginationOptions={
+            "defaultValue": 10,
+            "resultsPerPage": [
+                {"text": "10", "value": 10},
+                {"text": "20", "value": 20},
+                {"text": "50", "value": 50},
+            ],
+        }
     )

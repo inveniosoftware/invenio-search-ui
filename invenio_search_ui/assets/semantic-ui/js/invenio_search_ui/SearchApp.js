@@ -7,7 +7,7 @@
  */
 
 import PropTypes from "prop-types";
-import React, { Component, useContext } from "react";
+import React from "react";
 import { OverridableContext, overrideStore } from "react-overridable";
 import {
   BucketAggregation,
@@ -31,7 +31,7 @@ export const SearchApp = ({ config, appName }) => {
   return (
     <OverridableContext.Provider value={overrideStore.getAll()}>
       <SearchConfigurationContext.Provider value={config}>
-        <ReactSearchKit searchApi={searchApi} appName={appName}>
+        <ReactSearchKit searchApi={searchApi} appName={appName} initialQueryState={config.initialQueryState}>
           <Container>
             <Grid relaxed padded>
               <Grid.Row>
@@ -73,23 +73,51 @@ export const SearchApp = ({ config, appName }) => {
 
 SearchApp.propTypes = {
   config: PropTypes.shape({
-    api: PropTypes.string,
-    mimetype: PropTypes.string,
+    searchApi: PropTypes.object.isRequired, //same as ReactSearchKit.searchApi
+    initialQueryState: PropTypes.object,
     aggs: PropTypes.arrayOf(PropTypes.shape({
       title: PropTypes.string,
       aggName: PropTypes.string,
+      access_right: PropTypes.string,
+      mapping: PropTypes.object
     })),
-    sort_options: PropTypes.array.isRequired,
+    sortOptions: PropTypes.arrayOf(PropTypes.shape({
+      default: PropTypes.bool,
+      defaultOnEmptyString: PropTypes.bool,
+      sortBy: PropTypes.string,
+      sortOrder: PropTypes.string,
+      text: PropTypes.string
+    })),
+    paginationOptions: PropTypes.shape({
+      defaultValue: PropTypes.number,
+      resultsPerPage: PropTypes.arrayOf(PropTypes.shape({
+        text: PropTypes.string,
+        value: PropTypes.number
+      }))
+    }),
+    layoutOptions: PropTypes.shape({
+      listView: PropTypes.bool.isRequired,
+      gridView: PropTypes.bool.isRequired
+    }).isRequired,
   }).isRequired,
   appName: PropTypes.string,
 };
 
 SearchApp.defaultProps = {
   config: {
-    api: "",
-    mimetype: "",
-    aggs: [],
-    sort_options: [],
+  searchApi: {
+    url: "",
+    withCredentials: false,
+    headers: {},
   },
+  initialQueryState: {},
+  aggs: [],
+  sortOptions: [],
+  paginationOptions: {},
+  layoutOptions: {
+    'listView': true,
+    'gridView': false
+  }
+},
   appName: null,
 };
