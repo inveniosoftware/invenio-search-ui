@@ -106,9 +106,7 @@ def format_config(config, endpoint_name, **kwargs):
     )
 
     config = {
-        "api": api_list_route,
-        "mimetype": api_mimetype,
-        "sort_options": searchkit_sort_options(sort_options, default_sort),
+        "sortOptions": searchkit_sort_options(sort_options, default_sort),
         "aggs": searchkit_aggs(aggs),
         "layoutOptions": {
             "listView": True,

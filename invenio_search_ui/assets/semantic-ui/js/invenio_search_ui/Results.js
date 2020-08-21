@@ -15,7 +15,8 @@ import {
   ResultsMultiLayout,
   Sort,
   ResultsList,
-  ResultsGrid
+  ResultsGrid,
+  ResultsPerPage
 } from "react-searchkit";
 import { Grid } from "semantic-ui-react";
 import { SearchConfigurationContext } from "./SearchApp";
@@ -25,18 +26,24 @@ export const Results = ({
   currentResultsState = {}
 }) => {
   const { total } = currentResultsState.data;
-  const { layoutOptions } = useContext(SearchConfigurationContext);
-  let layoutOptions = layoutOptions;
+  const { layoutOptions, paginationOptions } = useContext(SearchConfigurationContext);
   let multipleLayouts = layoutOptions.listView && layoutOptions.gridView;
   if (total) {
     return (
       <Grid relaxed>
         <Grid.Row verticalAlign="middle">
-          <Grid.Column width={multipleLayouts ? 7 : 10}>
+          <Grid.Column width={multipleLayouts ? 5 : 8}>
             <Count label={(cmp) => <>{cmp} result(s) found</>} />
             <br />
           </Grid.Column>
-          <Grid.Column width={6} textAlign="right">
+          <Grid.Column width={4} textAlign="right">
+            <ResultsPerPage
+                  values={paginationOptions.resultsPerPage}
+                  label={(cmp) => <> {cmp} results per page</>}
+                  defaultValue={paginationOptions.defaultValue}
+                />
+          </Grid.Column>
+          <Grid.Column width={4} textAlign="right">
             {sortValues && (
               <Sort values={sortValues} label={(cmp) => <>sort by {cmp}</>} />
             )}
@@ -69,4 +76,3 @@ export const Results = ({
     return null;
   }
 }
-
