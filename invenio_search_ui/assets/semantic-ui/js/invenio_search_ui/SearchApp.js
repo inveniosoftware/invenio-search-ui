@@ -7,7 +7,7 @@
  */
 
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import { OverridableContext, overrideStore } from "react-overridable";
 import {
   BucketAggregation,
@@ -23,20 +23,14 @@ import { Results } from "./Results";
 import SearchBar from "./SearchBar";
 
 const OnResults = withState(Results);
+export const SearchConfigurationContext = React.createContext({});
 
-export class SearchApp extends Component {
-  render() {
-    const { appName, config } = this.props;
-    const searchApi = new InvenioSearchApi({
-      axios: {
-        url: config.api,
-        withCredentials: true,
-      },
-      headers: { Accept: config.mimetype },
-    });
+export const SearchApp = ({ config, appName }) => {
+  const searchApi = new InvenioSearchApi(config.searchApi);
 
-    return (
-      <OverridableContext.Provider value={overrideStore.getAll()}>
+  return (
+    <OverridableContext.Provider value={overrideStore.getAll()}>
+      <SearchConfigurationContext.Provider value={config}>
         <ReactSearchKit searchApi={searchApi} appName={appName}>
           <Container>
             <Grid relaxed padded>
@@ -65,24 +59,27 @@ export class SearchApp extends Component {
                   <ResultsLoader>
                     <EmptyResults />
                     <Error />
-                    <OnResults sortValues={config.sort_options} />
+                    <OnResults sortValues={config.sort_options} layoutOptions={config.layoutOptions} />
                   </ResultsLoader>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
           </Container>
         </ReactSearchKit>
-      </OverridableContext.Provider>
-    );
-  }
+      </SearchConfigurationContext.Provider>
+    </OverridableContext.Provider>
+  )
 }
 
 SearchApp.propTypes = {
   config: PropTypes.shape({
     api: PropTypes.string,
     mimetype: PropTypes.string,
-    aggs: PropTypes.array,
-    sort_options: PropTypes.array,
+    aggs: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string,
+      aggName: PropTypes.string,
+    })),
+    sort_options: PropTypes.array.isRequired,
   }).isRequired,
   appName: PropTypes.string,
 };

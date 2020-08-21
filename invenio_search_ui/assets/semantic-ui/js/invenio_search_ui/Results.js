@@ -7,24 +7,32 @@
  */
 
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import {
   Count,
   LayoutSwitcher,
   Pagination,
   ResultsMultiLayout,
   Sort,
+  ResultsList,
+  ResultsGrid
 } from "react-searchkit";
 import { Grid } from "semantic-ui-react";
+import { SearchConfigurationContext } from "./SearchApp";
 
-export class Results extends Component {
-  render() {
-    const { sortValues, currentResultsState } = this.props;
-    const { total } = currentResultsState.data;
-    return total ? (
+export const Results = ({
+  sortValues = [],
+  currentResultsState = {}
+}) => {
+  const { total } = currentResultsState.data;
+  const { layoutOptions } = useContext(SearchConfigurationContext);
+  let layoutOptions = layoutOptions;
+  let multipleLayouts = layoutOptions.listView && layoutOptions.gridView;
+  if (total) {
+    return (
       <Grid relaxed>
         <Grid.Row verticalAlign="middle">
-          <Grid.Column width={7}>
+          <Grid.Column width={multipleLayouts ? 7 : 10}>
             <Count label={(cmp) => <>{cmp} result(s) found</>} />
             <br />
           </Grid.Column>
@@ -33,13 +41,20 @@ export class Results extends Component {
               <Sort values={sortValues} label={(cmp) => <>sort by {cmp}</>} />
             )}
           </Grid.Column>
-          <Grid.Column width={3} textAlign="right">
-            <LayoutSwitcher defaultLayout="list" />
-          </Grid.Column>
+          {multipleLayouts ?
+            <Grid.Column width={3} textAlign="right">
+              <LayoutSwitcher defaultLayout="list" />
+            </Grid.Column>
+            : null}
         </Grid.Row>
         <Grid.Row>
           <Grid.Column>
-            <ResultsMultiLayout />
+            {multipleLayouts ?
+              <ResultsMultiLayout />
+              : layoutOptions.listView ?
+                <ResultsList /> :
+                <ResultsGrid />
+            }
           </Grid.Column>
         </Grid.Row>
         <Grid.Row verticalAlign="middle" textAlign="center">
@@ -48,14 +63,10 @@ export class Results extends Component {
           </Grid.Column>
         </Grid.Row>
       </Grid>
-    ) : null;
+    )
+  }
+  else {
+    return null;
   }
 }
 
-Results.propTypes = {
-  sortValues: PropTypes.array,
-};
-
-Results.defaultProps = {
-  sortValues: [],
-};
