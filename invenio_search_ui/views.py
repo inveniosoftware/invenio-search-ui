@@ -88,9 +88,9 @@ def format_sortoptions(sort_options):
     """Create sort options JSON dump for Invenio-Search-JS."""
     return json.dumps({"options": sorted_options(sort_options)})
 
-
 @blueprint.app_template_filter("format_config")
-def format_config(config, endpoint_name, app_id='search', hidden_params=None):
+def format_config(config, endpoint_name, app_id='search', hidden_params=None,
+                  **kwargs):
     """Create config JSON dump for Invenio-Search-JS with React-SearchKit."""
     rest_endpoint = config["RECORDS_REST_ENDPOINTS"][endpoint_name]
     api_list_route = "/api{}".format(rest_endpoint["list_route"])
@@ -112,10 +112,16 @@ def format_config(config, endpoint_name, app_id='search', hidden_params=None):
         .get("aggs", {})
     )
 
-    return {
+    config = {
         "appId": app_id,
         "api": api_list_route,
         "mimetype": api_mimetype,
         "sort_options": searchkit_sort_options(sort_options, default_sort),
         "aggs": searchkit_aggs(aggs),
+        "layoutOptions": {
+            "listView": True,
+            "gridView": True,
+        }
     }
+    config.update(kwargs)
+    return config
