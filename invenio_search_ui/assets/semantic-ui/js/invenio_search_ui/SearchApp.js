@@ -59,7 +59,7 @@ export const SearchApp = ({ config, appName }) => {
                   <ResultsLoader>
                     <EmptyResults />
                     <Error />
-                    <OnResults sortValues={config.sort_options} layoutOptions={config.layoutOptions} />
+                    <OnResults sortValues={config.sortOptions} layoutOptions={config.layoutOptions} />
                   </ResultsLoader>
                 </Grid.Column>
               </Grid.Row>
