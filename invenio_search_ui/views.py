@@ -10,6 +10,8 @@
 
 from __future__ import absolute_import, print_function
 
+from urllib.parse import urlencode
+
 from flask import Blueprint, current_app, json, render_template
 
 blueprint = Blueprint(
@@ -88,10 +90,14 @@ def format_sortoptions(sort_options):
 
 
 @blueprint.app_template_filter("format_config")
-def format_config(config, endpoint_name, app_id='search'):
+def format_config(config, endpoint_name, app_id='search', hidden_params=None):
     """Create config JSON dump for Invenio-Search-JS with React-SearchKit."""
     rest_endpoint = config["RECORDS_REST_ENDPOINTS"][endpoint_name]
     api_list_route = "/api{}".format(rest_endpoint["list_route"])
+    # TODO: Remove when
+    # https://github.com/inveniosoftware/invenio-search-ui/pull/96 is merged
+    if hidden_params:
+        api_list_route += '?' + urlencode(hidden_params)
     api_mimetype = rest_endpoint["default_media_type"]
     search_index = rest_endpoint["search_index"]
     sort_options = config.get("RECORDS_REST_SORT_OPTIONS", {}).get(
