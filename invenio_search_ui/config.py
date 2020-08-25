@@ -8,6 +8,8 @@
 
 """Configuration for Invenio-Search-UI."""
 
+from .views import SearchAppInvenioRestConfigHelper
+
 SEARCH_UI_SEARCH_TEMPLATE = 'invenio_search_ui/search.html'
 """Configure the search page template."""
 
@@ -55,3 +57,8 @@ SEARCH_UI_JSTEMPLATE_SELECT_BOX = 'templates/invenio_search_ui/selectbox.html'
 SEARCH_UI_JSTEMPLATE_SORT_ORDER = \
     'templates/invenio_search_ui/togglebutton.html'
 """Configure the toggle button template."""
+
+SEARCH_UI_SEARCH_CONFIG_GEN = {
+    'invenio_records_rest': SearchAppInvenioRestConfigHelper,
+}
+"""Override the Invenio-Search-JS config generator."""

@@ -61,3 +61,33 @@ def app():
     # override default app jinja_loader to add the new path
     app.jinja_loader = enhanced_jinja_loader
     return app
+
+
+@pytest.yield_fixture()
+def use_records_rest_config(app):
+    """Add temporarily a records rest configuration."""
+    app.config.update(_RECORDS_REST_CONFIG)
+    yield
+    for k in _RECORDS_REST_CONFIG:
+        del app.config[k]
+
+
+_RECORDS_REST_CONFIG = dict(
+    RECORDS_REST_ENDPOINTS=dict(
+        recid=dict(
+            list_route="/myrecords/",
+            default_media_type="application/json",
+            search_index="myrecords",
+        )
+    ),
+    RECORDS_REST_SORT_OPTIONS=dict(myrecords=dict(
+        test1=dict(order=2, title="Test 1", default_order="desc"),
+        test2=dict(order=1, title="Test 2", default_order="asc"),
+    )),
+    RECORDS_REST_DEFAULT_SORT=dict(
+        myrecords=dict(query="test2", noquery="test1")),
+    RECORDS_REST_FACETS=dict(
+        myrecords=dict(
+            aggs=dict(type=dict(terms=dict(field="type"))))
+    )
+)
