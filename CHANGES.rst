@@ -8,8 +8,11 @@
 Changes
 =======
 
-Version 2.0.0a2 (released 2020-05-15)
+Version 2.0.0a3 (released 2020-08-25)
 
+- SearchApp refactoring
+    - Standardize and document configuration
+    - Improve reusability and customization for other modules
 - Bump React-SearchKit JS version.
 
 Version 2.0.0a1 (released 2020-05-15)
