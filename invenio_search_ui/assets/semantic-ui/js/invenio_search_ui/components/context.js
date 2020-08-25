@@ -6,9 +6,6 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
-import { ResultsGridItem, ResultsListItem } from "./components";
+import React from "react";
 
-export default {
-  "ResultsList.item": ResultsListItem,
-  "ResultsGrid.item": ResultsGridItem,
-};
+export const SearchConfigurationContext = React.createContext({});

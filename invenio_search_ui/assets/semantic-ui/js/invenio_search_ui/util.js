@@ -8,7 +8,7 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import { SearchApp } from "./SearchApp";
+import { SearchApp } from "./components";
 import { loadComponents } from "@js/invenio_theme/templates";
 import _camelCase from "lodash/camelCase";
 
