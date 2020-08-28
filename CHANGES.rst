@@ -8,7 +8,7 @@
 Changes
 =======
 
-Version 2.0.0a3 (released 2020-08-26)
+Version 2.0.0a4 (released 2020-08-28)
 
 - SearchApp refactoring
     - Standardize and document configuration
