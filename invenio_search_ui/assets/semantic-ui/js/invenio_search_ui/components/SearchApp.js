@@ -49,7 +49,11 @@ export const SearchAppFacets = ({ aggs }) => {
 
 export const SearchAppResultsPane = ({ sortOptions, layoutOptions }) => {
   return (
-    <Overridable id={"SearchApp.resultsPane"} sortOptions={sortOptions} layoutOptions={layoutOptions}>
+    <Overridable
+      id={"SearchApp.resultsPane"}
+      sortOptions={sortOptions}
+      layoutOptions={layoutOptions}
+    >
       <ResultsLoader>
         <EmptyResults />
         <Error />
@@ -75,7 +79,9 @@ export const SearchApp = ({ config, appName }) => {
                 <Grid.Row>
                   <Grid.Column width={4} />
                   <Grid.Column width={12}>
-                    <SearchBar />
+                    <Overridable id={"SearchApp.searchbar"}>
+                      <SearchBar />
+                    </Overridable>
                   </Grid.Column>
                 </Grid.Row>
               </Grid>

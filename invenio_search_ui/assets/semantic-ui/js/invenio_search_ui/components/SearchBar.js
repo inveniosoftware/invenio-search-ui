@@ -18,7 +18,7 @@ export const SearchBar = ({ elementId }) => {
     return ReactDOM.createPortal(<ReactSearchKitSearchBar />, domElement);
   }
   return <ReactSearchKitSearchBar />;
-}
+};
 
 SearchBar.propTypes = {
   elementId: PropTypes.string,
