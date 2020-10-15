@@ -23,13 +23,24 @@ import { SearchConfigurationContext } from "./context";
 
 export const Results = ({ currentResultsState = {} }) => {
   const { total } = currentResultsState.data;
-  const { sortOptions, layoutOptions, paginationOptions } = useContext(
-    SearchConfigurationContext
-  );
+  const {
+    sortOptions,
+    layoutOptions,
+    paginationOptions,
+    sortOrderDisabled,
+  } = useContext(SearchConfigurationContext);
   let multipleLayouts = layoutOptions.listView && layoutOptions.gridView;
   return (
     (total || null) && (
-      <Overridable id={"SearchApp.results"} {...{currentResultsState, sortOptions, layoutOptions, paginationOptions}}>
+      <Overridable
+        id={"SearchApp.results"}
+        {...{
+          currentResultsState,
+          sortOptions,
+          layoutOptions,
+          paginationOptions,
+        }}
+      >
         <Grid relaxed>
           <Grid.Row verticalAlign="middle">
             <Grid.Column width={multipleLayouts ? 5 : 8}>
@@ -45,7 +56,13 @@ export const Results = ({ currentResultsState = {} }) => {
             </Grid.Column>
             <Grid.Column width={4} textAlign="right">
               {sortOptions && (
-                <Sort values={sortOptions} label={(cmp) => <>sort by {cmp}</>} />
+                <Overridable id={"SearchApp.sort"} options={sortOptions}>
+                  <Sort
+                    sortOrderDisabled={sortOrderDisabled || false}
+                    values={sortOptions}
+                    label={(cmp) => <>sort by {cmp}</>}
+                  />
+                </Overridable>
               )}
             </Grid.Column>
             {multipleLayouts ? (
