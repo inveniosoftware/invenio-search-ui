@@ -8,13 +8,15 @@
 Changes
 =======
 
-Version 2.0.0a5 (released 2020-10-09)
+Version 2.0.0a6 (released 2020-10-15)
 
 - SearchApp refactoring
     - Standardize and document configuration
     - Improve reusability and customization for other modules
     - Split into smaller overridable components
     - Make default searchbar overridable
+    - Make sort configurable
+    - Add configuration to disable sort order
 - Bump React-SearchKit JS version.
 
 Version 2.0.0a1 (released 2020-05-15)
