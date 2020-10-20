@@ -33,14 +33,7 @@ export const SearchAppFacets = ({ aggs }) => {
     <Overridable id={"SearchApp.facets"} aggs={aggs}>
       <>
         {aggs.map((agg) => (
-          <BucketAggregation
-            key={agg.title}
-            title={agg.title}
-            agg={{
-              field: agg.field,
-              aggName: agg.aggName,
-            }}
-          />
+          <BucketAggregation key={agg.title} title={agg.title} agg={agg} />
         ))}
       </>
     </Overridable>
