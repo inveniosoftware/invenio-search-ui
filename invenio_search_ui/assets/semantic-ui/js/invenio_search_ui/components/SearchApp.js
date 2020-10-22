@@ -78,7 +78,7 @@ export const SearchApp = ({ config, appName }) => {
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
-              <Grid relaxed padded>
+              <Grid relaxed>
                 <Grid.Row columns={2}>
                   <Grid.Column width={4}>
                     <SearchAppFacets aggs={config.aggs} />
