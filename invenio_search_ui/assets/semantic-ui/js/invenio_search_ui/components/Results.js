@@ -60,7 +60,6 @@ export const Results = ({ currentResultsState = {} }) => {
                   <Sort
                     sortOrderDisabled={sortOrderDisabled || false}
                     values={sortOptions}
-                    label={(cmp) => <>sort by {cmp}</>}
                   />
                 </Overridable>
               )}
