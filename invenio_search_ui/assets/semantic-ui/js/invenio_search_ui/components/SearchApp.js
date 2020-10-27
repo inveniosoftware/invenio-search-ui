@@ -22,11 +22,12 @@ import {
   withState,
 } from "react-searchkit";
 import { Container, Grid } from "semantic-ui-react";
-import { Results } from "./Results";
+import { Results, ResultOptions } from "./Results";
 import { SearchBar } from "./SearchBar";
 import { SearchConfigurationContext } from "./context";
 
 const OnResults = withState(Results);
+const ResultOptionsWithState = withState(ResultOptions);
 
 export const SearchAppFacets = ({ aggs }) => {
   return (
@@ -40,11 +41,10 @@ export const SearchAppFacets = ({ aggs }) => {
   );
 };
 
-export const SearchAppResultsPane = ({ sortOptions, layoutOptions }) => {
+export const SearchAppResultsPane = ({ layoutOptions }) => {
   return (
     <Overridable
       id={"SearchApp.resultsPane"}
-      sortOptions={sortOptions}
       layoutOptions={layoutOptions}
     >
       <ResultsLoader>
@@ -79,13 +79,21 @@ export const SearchApp = ({ config, appName }) => {
                 </Grid.Row>
               </Grid>
               <Grid relaxed>
+                <Grid.Row textAlign='right' columns={2}>
+                  <Grid.Column width={4}/>
+                  <Grid.Column width={12}>
+                    <ResultOptionsWithState
+                      sortOptions={config.sortOptions}
+                      layoutOptions={config.layoutOptions}
+                    />
+                  </Grid.Column>
+                </Grid.Row>
                 <Grid.Row columns={2}>
                   <Grid.Column width={4}>
                     <SearchAppFacets aggs={config.aggs} />
                   </Grid.Column>
                   <Grid.Column width={12}>
                     <SearchAppResultsPane
-                      sortOptions={config.sortOptions}
                       layoutOptions={config.layoutOptions}
                     />
                   </Grid.Column>
