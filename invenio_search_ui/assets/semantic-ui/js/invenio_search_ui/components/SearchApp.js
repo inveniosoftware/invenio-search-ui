@@ -68,7 +68,6 @@ export const SearchApp = ({ config, appName }) => {
         >
           <Overridable id={"SearchApp.layout"}>
             <Container>
-              <Grid relaxed padded>
                 <Grid.Row>
                   <Grid.Column width={4} />
                   <Grid.Column width={12}>
@@ -77,7 +76,6 @@ export const SearchApp = ({ config, appName }) => {
                     </Overridable>
                   </Grid.Column>
                 </Grid.Row>
-              </Grid>
               <Grid relaxed>
                 <Grid.Row columns={2}>
                   <Grid.Column width={4}>
