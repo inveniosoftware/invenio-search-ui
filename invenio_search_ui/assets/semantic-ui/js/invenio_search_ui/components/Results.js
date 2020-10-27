@@ -24,37 +24,75 @@ import { SearchConfigurationContext } from "./context";
 export const Results = ({ currentResultsState = {} }) => {
   const { total } = currentResultsState.data;
   const {
-    sortOptions,
     layoutOptions,
-    paginationOptions,
-    sortOrderDisabled,
   } = useContext(SearchConfigurationContext);
-  let multipleLayouts = layoutOptions.listView && layoutOptions.gridView;
+  const multipleLayouts = layoutOptions.listView && layoutOptions.gridView;
   return (
     (total || null) && (
       <Overridable
         id={"SearchApp.results"}
         {...{
           currentResultsState,
-          sortOptions,
           layoutOptions,
-          paginationOptions,
         }}
       >
         <Grid relaxed>
+          <Grid.Row>
+            <Grid.Column>
+              {multipleLayouts ? (
+                <ResultsMultiLayout />
+              ) : layoutOptions.listView ? (
+                <ResultsList />
+              ) : (
+                    <ResultsGrid />
+                  )}
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row verticalAlign="middle" textAlign="center">
+            <Grid.Column>
+              <Pagination />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Overridable>
+    )
+  );
+};
+
+export const ResultOptions = ({ currentResultsState = {} }) => {
+  const { total } = currentResultsState.data;
+  const {
+    sortOptions,
+    paginationOptions,
+    sortOrderDisabled,
+    layoutOptions,
+  } = useContext(SearchConfigurationContext);
+  const multipleLayouts = layoutOptions.listView && layoutOptions.gridView;
+  return (
+    (total || null) && (
+      <Overridable
+        id={"SearchApp.resultOptions"}
+        {...{
+          currentResultsState,
+          sortOptions,
+          paginationOptions,
+          layoutOptions,
+        }}
+      >
+        <Grid>
           <Grid.Row verticalAlign="middle">
-            <Grid.Column width={multipleLayouts ? 5 : 8}>
+            <Grid.Column textAlign="left" width={multipleLayouts ? 5 : 8}>
               <Count label={(cmp) => <>{cmp} result(s) found</>} />
               <br />
             </Grid.Column>
-            <Grid.Column width={4} textAlign="right">
+            <Grid.Column width={3} textAlign="right">
               <ResultsPerPage
                 values={paginationOptions.resultsPerPage}
                 label={(cmp) => <> {cmp} results per page</>}
                 defaultValue={paginationOptions.defaultValue}
               />
             </Grid.Column>
-            <Grid.Column width={4} textAlign="right">
+            <Grid.Column width={5} textAlign="right">
               {sortOptions && (
                 <Overridable id={"SearchApp.sort"} options={sortOptions}>
                   <Sort
@@ -70,24 +108,7 @@ export const Results = ({ currentResultsState = {} }) => {
               </Grid.Column>
             ) : null}
           </Grid.Row>
-          <Grid.Row>
-            <Grid.Column>
-              {multipleLayouts ? (
-                <ResultsMultiLayout />
-              ) : layoutOptions.listView ? (
-                <ResultsList />
-              ) : (
-                <ResultsGrid />
-              )}
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row verticalAlign="middle" textAlign="center">
-            <Grid.Column>
-              <Pagination />
-            </Grid.Column>
-          </Grid.Row>
         </Grid>
       </Overridable>
-    )
-  );
+    ));
 };
