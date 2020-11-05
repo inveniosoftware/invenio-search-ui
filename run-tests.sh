@@ -9,6 +9,6 @@
 
 pydocstyle invenio_search_ui tests docs && \
 isort invenio_search_ui tests --check-only --diff && \
-check-manifest --ignore ".travis-*" && \
+check-manifest --ignore ".*-requirements.txt" && \
 sphinx-build -qnNW docs docs/_build/html && \
 python setup.py test
