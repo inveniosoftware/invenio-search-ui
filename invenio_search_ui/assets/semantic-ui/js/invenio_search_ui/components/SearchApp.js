@@ -68,16 +68,18 @@ export const SearchApp = ({ config, appName }) => {
         >
           <Overridable id={"SearchApp.layout"}>
             <Container>
-              <Grid relaxed padded>
-                <Grid.Row>
-                  <Grid.Column width={4} />
-                  <Grid.Column width={12}>
-                    <Overridable id={"SearchApp.searchbar"}>
-                      <SearchBar />
-                    </Overridable>
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
+              <Overridable id={"SearchApp.searchbarContainer"}>
+                <Grid relaxed padded>
+                  <Grid.Row>
+                    <Grid.Column width={4} />
+                    <Grid.Column width={12}>
+                      <Overridable id={"SearchApp.searchbar"}>
+                        <SearchBar />
+                      </Overridable>
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
+              </Overridable>
               <Grid relaxed>
                 <Grid.Row
                   textAlign='right'
