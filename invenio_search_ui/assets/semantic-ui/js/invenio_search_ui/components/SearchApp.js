@@ -79,7 +79,11 @@ export const SearchApp = ({ config, appName }) => {
                 </Grid.Row>
               </Grid>
               <Grid relaxed>
-                <Grid.Row textAlign='right' columns={2}>
+                <Grid.Row
+                  textAlign='right'
+                  columns={2}
+                  className="result-options"
+                >
                   <Grid.Column width={4}/>
                   <Grid.Column width={12}>
                     <ResultOptionsWithState
