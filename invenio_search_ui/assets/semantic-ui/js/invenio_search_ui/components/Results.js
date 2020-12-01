@@ -59,7 +59,6 @@ export const Results = ({ currentResultsState = {} }) => {
             <ResultsPerPage
               values={paginationOptions.resultsPerPage}
               label={(cmp) => <> {cmp} results per page</>}
-              defaultValue={paginationOptions.defaultValue}
             />
             </Grid.Column>
           </Grid.Row>
@@ -107,7 +106,7 @@ export const ResultOptions = ({ currentResultsState = {} }) => {
             </Grid.Column>
             {multipleLayouts ? (
               <Grid.Column width={3} textAlign="right">
-                <LayoutSwitcher defaultLayout="list" />
+                <LayoutSwitcher/>
               </Grid.Column>
             ) : null}
           </Grid.Row>

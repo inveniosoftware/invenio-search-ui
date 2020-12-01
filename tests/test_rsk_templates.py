@@ -47,30 +47,37 @@ def test_format_sortoptions(app, use_records_rest_config):
                     'withCredentials': True
                 }
             },
-            initialQueryState={'hiddenParams': None},
+            initialQueryState={
+                'hiddenParams': None,
+                'layout': 'list',
+                'page': 1,
+                'size': 10,
+                'sortBy': 'test2',
+                'sortOrder': 'asc',
+            },
             layoutOptions={'gridView': True, 'listView': True},
             sortOptions=[dict(
                 text="Test 2",
                 sortBy="test2",
                 sortOrder="asc",
-                default=True,
-                defaultOnEmptyString=False
             ), dict(
                 text="Test 1",
                 sortBy="test1",
                 sortOrder="desc",
-                default=False,
-                defaultOnEmptyString=True
             )],
             aggs=[dict(
-                title="Type", aggName="type", field="type"
+                title="Type",
+                agg=dict(aggName="type", field="type")
             )],
             paginationOptions={
-                "defaultValue": 10,
                 "resultsPerPage": [
                     {"text": "10", "value": 10},
                     {"text": "20", "value": 20},
                     {"text": "50", "value": 50}
                 ],
+            },
+            defaultSortingOnEmptyQueryString={
+                'sortBy': 'test1',
+                'sortOrder': 'desc'
             }
         )

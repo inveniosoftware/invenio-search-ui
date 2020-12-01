@@ -34,7 +34,7 @@ export const SearchAppFacets = ({ aggs }) => {
     <Overridable id={"SearchApp.facets"} aggs={aggs}>
       <>
         {aggs.map((agg) => (
-          <BucketAggregation key={agg.title} title={agg.title} agg={agg} />
+          <BucketAggregation key={agg.title} title={agg.title} agg={agg.agg} />
         ))}
       </>
     </Overridable>
@@ -65,6 +65,7 @@ export const SearchApp = ({ config, appName }) => {
           searchApi={searchApi}
           appName={appName}
           initialQueryState={config.initialQueryState}
+          defaultSortingOnEmptyQueryString={config.defaultSortingOnEmptyQueryString}
         >
           <Overridable id={"SearchApp.layout"}>
             <Container>
@@ -116,7 +117,15 @@ export const SearchApp = ({ config, appName }) => {
 SearchApp.propTypes = {
   config: PropTypes.shape({
     searchApi: PropTypes.object.isRequired, // same as ReactSearchKit.searchApi
-    initialQueryState: PropTypes.object,
+    initialQueryState: PropTypes.shape({
+      queryString: PropTypes.string,
+      sortBy: PropTypes.string,
+      sortOrder: PropTypes.string,
+      page: PropTypes.number,
+      size: PropTypes.number,
+      hiddenParams: PropTypes.array,
+      layout: PropTypes.oneOf(['list', 'grid']),
+    }),
     aggs: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string,
@@ -127,15 +136,12 @@ SearchApp.propTypes = {
     ),
     sortOptions: PropTypes.arrayOf(
       PropTypes.shape({
-        default: PropTypes.bool,
-        defaultOnEmptyString: PropTypes.bool,
         sortBy: PropTypes.string,
         sortOrder: PropTypes.string,
         text: PropTypes.string,
       })
     ),
     paginationOptions: PropTypes.shape({
-      defaultValue: PropTypes.number,
       resultsPerPage: PropTypes.arrayOf(
         PropTypes.shape({
           text: PropTypes.string,
@@ -147,6 +153,10 @@ SearchApp.propTypes = {
       listView: PropTypes.bool.isRequired,
       gridView: PropTypes.bool.isRequired,
     }).isRequired,
+    defaultSortingOnEmptyQueryString: PropTypes.shape({
+      sortBy: PropTypes.string,
+      sortOrder: PropTypes.string,
+    }),
   }).isRequired,
   appName: PropTypes.string,
 };
@@ -166,6 +176,7 @@ SearchApp.defaultProps = {
       listView: true,
       gridView: false,
     },
+    defaultSortingOnEmptyQueryString: {},
   },
   appName: null,
 };
