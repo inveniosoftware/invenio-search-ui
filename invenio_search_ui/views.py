@@ -73,6 +73,7 @@ class SearchAppInvenioRestConfigHelper(object):
         grid_view=True,
         pagination_options=(10, 20, 50),
         default_size=10,
+        default_page=1,
     )
 
     def __init__(self, configuration_options):
@@ -90,11 +91,29 @@ class SearchAppInvenioRestConfigHelper(object):
             page options.
         :param default_size: An integer setting the default number of results
             per page.
+        :param default_page: An integer setting the default page.
         """
         options = deepcopy(self.default_options)
         options.update(configuration_options)
         for key, value in options.items():
             setattr(self, key, value)
+
+    def _sort_config(self, search_index, option):
+        """Returns the sort by and sort order for a given index and option.
+
+        :param index: Search index where to look for the options
+        :param option: Option name
+
+        """
+        default_sort = current_app.config.get(
+            "RECORDS_REST_DEFAULT_SORT", {}).get(search_index, {})
+        sort_options = current_app.config.get(
+            "RECORDS_REST_SORT_OPTIONS", {}).get(search_index, {})
+
+        sort_by = default_sort[option]
+        sort_order = sort_options[sort_by].get("default_order", "asc")
+
+        return sort_by, sort_order
 
     @property
     def _rest_config(self):
@@ -107,10 +126,20 @@ class SearchAppInvenioRestConfigHelper(object):
         return self.app_id
 
     @property
-    def initialQuerystate(self):
+    def initialQueryState(self):
         """Generate initialQueryState."""
+        sort_by, sort_order = self._sort_config(
+            search_index=self._rest_config["search_index"],
+            option="query"
+        )
+
         return {
             'hiddenParams': self.hidden_params,
+            'layout': 'list' if self.list_view else 'grid',
+            "size": self.default_size,
+            "sortBy": sort_by,
+            "sortOrder": sort_order,
+            "page": self.default_page,
         }
 
     @property
@@ -146,16 +175,12 @@ class SearchAppInvenioRestConfigHelper(object):
         search_index = self._rest_config["search_index"]
         sort_options = current_app.config.get(
             "RECORDS_REST_SORT_OPTIONS", {}).get(search_index, {})
-        default_sort = current_app.config.get(
-            "RECORDS_REST_DEFAULT_SORT", {}).get(search_index, {})
 
         return [
             {
                 "text": v["title"],
                 "sortBy": k,
                 "sortOrder": v.get("default_order", "asc"),
-                "default": default_sort["query"] == k,
-                "defaultOnEmptyString": default_sort["noquery"] == k
             }
             for k, v in sorted(
                 sort_options.items(), key=lambda x: x[1].get("order", 0)
@@ -177,8 +202,10 @@ class SearchAppInvenioRestConfigHelper(object):
         return [
             {
                 "title": k.capitalize(),
-                "aggName": k,
-                "field": v["terms"]["field"]
+                "agg": {
+                    "aggName": k,
+                    "field": v["terms"]["field"]
+                },
             }
             for k, v in aggs.items()
         ]
@@ -197,12 +224,23 @@ class SearchAppInvenioRestConfigHelper(object):
             raise ValueError(
                 'Parameter default_size should be part of options')
         return {
-                "defaultValue": self.default_size,
                 "resultsPerPage": [
                     {"text": str(option), "value": option}
                     for option in self.pagination_options
                 ]
             }
+
+    @property
+    def defaultSortingOnEmptyQueryString(self):
+        """Defines the default sorting options when there is no query."""
+        sort_by, sort_order = self._sort_config(
+            search_index=self._rest_config["search_index"],
+            option="noquery"
+        )
+        return {
+            "sortBy": sort_by,
+            "sortOrder": sort_order
+        }
 
     @classmethod
     def generate(cls, options, **kwargs):
@@ -210,12 +248,14 @@ class SearchAppInvenioRestConfigHelper(object):
         generator_object = cls(options)
         config = {
             "appId": generator_object.appId,
-            "initialQueryState": generator_object.initialQuerystate,
+            "initialQueryState": generator_object.initialQueryState,
             "searchApi": generator_object.searchApi,
             "sortOptions": generator_object.sortOptions,
             "aggs": generator_object.aggs,
             "layoutOptions": generator_object.layoutOptions,
-            "paginationOptions": generator_object.paginationOptions
+            "paginationOptions": generator_object.paginationOptions,
+            "defaultSortingOnEmptyQueryString":
+                generator_object.defaultSortingOnEmptyQueryString
 
         }
         config.update(kwargs)
