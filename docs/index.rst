@@ -19,6 +19,7 @@ Invenio-Search-UI.
    installation
    configuration
    usage
+   customizing
 
 API Reference
 -------------
