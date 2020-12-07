@@ -47,8 +47,7 @@ SEARCH_UI_JSTEMPLATE_LOADING = 'templates/invenio_search_ui/loading.html'
 SEARCH_UI_JSTEMPLATE_PAGINATION = 'templates/invenio_search_ui/pagination.html'
 """Configure the pagination template."""
 
-SEARCH_UI_JSTEMPLATE_RESULTS = \
-    'templates/invenio_search_ui/marc21/default.html'
+SEARCH_UI_JSTEMPLATE_RESULTS = 'templates/invenio_search_ui/results.html'
 """Configure the results template."""
 
 SEARCH_UI_JSTEMPLATE_SELECT_BOX = 'templates/invenio_search_ui/selectbox.html'

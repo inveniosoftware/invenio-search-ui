@@ -160,7 +160,7 @@ The building blocks for the search result page are all the
 can think of them as the UI components of a classic search page. All of the
 available directives are listed below (with their default template files):
 
-- **<invenio-search-results>** - The actual result item display (:source:`default.html <invenio_search_ui/static/templates/invenio_search_ui/marc21/default.html>`)
+- **<invenio-search-results>** - The actual result item display (:source:`results.html <invenio_search_ui/static/templates/invenio_search_ui/results.html>`)
 - **<invenio-search-bar>** - Search input box for queries (:source:`searchbar.html <invenio_search_ui/static/templates/invenio_search_ui/searchbar.html>`)
 - **<invenio-search-pagination>** - Pagination controls for navigating the search result pages (:source:`pagination.html <invenio_search_ui/static/templates/invenio_search_ui/pagination.html>`)
 - **<invenio-search-sort-order>** - Sort order of results, i.e. ascending/descending (:source:`togglebutton.html <invenio_search_ui/static/templates/invenio_search_ui/togglebutton.html>`)
