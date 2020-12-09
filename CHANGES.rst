@@ -8,7 +8,7 @@
 Changes
 =======
 
-Version 2.0.0a9 (released 2020-11-05)
+Version 2.0.0a10 (released 2020-12-09)
 
 - SearchApp refactoring
     - Standardize and document configuration
@@ -20,6 +20,8 @@ Version 2.0.0a9 (released 2020-11-05)
     - Pass backend agg to aggregation component
 - Bump React-SearchKit JS version.
 - Adds React-SearchKit JS application for use with Semantic UI theme.
+- Adapt to latest React-SearchKit changes.
+- Migrate CI to GitHub actions.
 
 Version 1.2.0 (released 2020-03-13)
 
