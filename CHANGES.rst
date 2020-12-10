@@ -8,7 +8,7 @@
 Changes
 =======
 
-Version 2.0.0a10 (released 2020-12-09)
+Version 2.0.0 (released 2020-12-10)
 
 - SearchApp refactoring
     - Standardize and document configuration
@@ -22,6 +22,8 @@ Version 2.0.0a10 (released 2020-12-09)
 - Adds React-SearchKit JS application for use with Semantic UI theme.
 - Adapt to latest React-SearchKit changes.
 - Migrate CI to GitHub actions.
+- Fixes metadata path in AngularJS template.
+- Moves AngularJS files in correct path.
 
 Version 1.2.0 (released 2020-03-13)
 
