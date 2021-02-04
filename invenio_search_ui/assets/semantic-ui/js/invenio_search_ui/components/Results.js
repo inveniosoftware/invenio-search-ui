@@ -23,16 +23,16 @@ import { SearchConfigurationContext } from "./context";
 
 export const Results = ({ currentResultsState = {} }) => {
   const { total } = currentResultsState.data;
-  const {
-    layoutOptions,
-    paginationOptions
-  } = useContext(SearchConfigurationContext);
+  const { sortOptions, layoutOptions, paginationOptions } = useContext(
+    SearchConfigurationContext
+  );
   const multipleLayouts = layoutOptions.listView && layoutOptions.gridView;
   return (
     (total || null) && (
       <Overridable
         id={"SearchApp.results"}
         {...{
+          sortOptions,
           currentResultsState,
           layoutOptions,
         }}
@@ -45,21 +45,20 @@ export const Results = ({ currentResultsState = {} }) => {
               ) : layoutOptions.listView ? (
                 <ResultsList />
               ) : (
-                    <ResultsGrid />
-                  )}
+                <ResultsGrid />
+              )}
             </Grid.Column>
           </Grid.Row>
           <Grid.Row verticalAlign="middle">
-          <Grid.Column width={4}>
-          </Grid.Column>
+            <Grid.Column width={4}></Grid.Column>
             <Grid.Column width={8} textAlign="center">
               <Pagination />
             </Grid.Column>
             <Grid.Column width={4} textAlign="right">
-            <ResultsPerPage
-              values={paginationOptions.resultsPerPage}
-              label={(cmp) => <> {cmp} results per page</>}
-            />
+              <ResultsPerPage
+                values={paginationOptions.resultsPerPage}
+                label={(cmp) => <> {cmp} results per page</>}
+              />
             </Grid.Column>
           </Grid.Row>
         </Grid>
@@ -94,7 +93,7 @@ export const ResultOptions = ({ currentResultsState = {} }) => {
               <Count label={(cmp) => <>{cmp} result(s) found</>} />
               <br />
             </Grid.Column>
-            <Grid.Column  width={8} textAlign="right">
+            <Grid.Column width={8} textAlign="right">
               {sortOptions && (
                 <Overridable id={"SearchApp.sort"} options={sortOptions}>
                   <Sort
@@ -106,11 +105,12 @@ export const ResultOptions = ({ currentResultsState = {} }) => {
             </Grid.Column>
             {multipleLayouts ? (
               <Grid.Column width={3} textAlign="right">
-                <LayoutSwitcher/>
+                <LayoutSwitcher />
               </Grid.Column>
             ) : null}
           </Grid.Row>
         </Grid>
       </Overridable>
-    ));
+    )
+  );
 };
