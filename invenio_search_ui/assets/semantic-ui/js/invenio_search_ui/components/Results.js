@@ -1,6 +1,7 @@
 /*
  * This file is part of Invenio.
  * Copyright (C) 2020 CERN.
+ * Copyright (C) 2021 Graz University of Technology.
  *
  * Invenio is free software; you can redistribute it and/or modify it
  * under the terms of the MIT License; see LICENSE file for more details.
@@ -33,6 +34,7 @@ export const Results = ({ currentResultsState = {} }) => {
         id={"SearchApp.results"}
         {...{
           sortOptions,
+          paginationOptions,
           currentResultsState,
           layoutOptions,
         }}
@@ -52,9 +54,15 @@ export const Results = ({ currentResultsState = {} }) => {
           <Grid.Row verticalAlign="middle">
             <Grid.Column width={4}></Grid.Column>
             <Grid.Column width={8} textAlign="center">
-              <Pagination />
+              <Pagination
+                options={{
+                  size: "mini",
+                  showFirst: false,
+                  showLast: false,
+                }}
+              />
             </Grid.Column>
-            <Grid.Column width={4} textAlign="right">
+            <Grid.Column textAlign="right" width={4}>
               <ResultsPerPage
                 values={paginationOptions.resultsPerPage}
                 label={(cmp) => <> {cmp} results per page</>}
