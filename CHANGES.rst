@@ -8,6 +8,11 @@
 Changes
 =======
 
+Version 2.0.1 (released 2021-02-10)
+
+- Make sortOptions available when overriding Results component
+- Align pagination to center
+
 Version 2.0.0 (released 2020-12-10)
 
 - SearchApp refactoring
