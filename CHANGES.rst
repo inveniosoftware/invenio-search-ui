@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.0.2 (released 2021-02-22)
+
+- Pass search config in overridable `SearchApp.layout`
+
 Version 2.0.1 (released 2021-02-10)
 
 - Make sortOptions available when overriding Results component
