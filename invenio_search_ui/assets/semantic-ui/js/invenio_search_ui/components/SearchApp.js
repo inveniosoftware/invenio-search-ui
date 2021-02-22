@@ -43,10 +43,7 @@ export const SearchAppFacets = ({ aggs }) => {
 
 export const SearchAppResultsPane = ({ layoutOptions }) => {
   return (
-    <Overridable
-      id={"SearchApp.resultsPane"}
-      layoutOptions={layoutOptions}
-    >
+    <Overridable id={"SearchApp.resultsPane"} layoutOptions={layoutOptions}>
       <ResultsLoader>
         <EmptyResults />
         <Error />
@@ -65,9 +62,11 @@ export const SearchApp = ({ config, appName }) => {
           searchApi={searchApi}
           appName={appName}
           initialQueryState={config.initialQueryState}
-          defaultSortingOnEmptyQueryString={config.defaultSortingOnEmptyQueryString}
+          defaultSortingOnEmptyQueryString={
+            config.defaultSortingOnEmptyQueryString
+          }
         >
-          <Overridable id={"SearchApp.layout"}>
+          <Overridable id={"SearchApp.layout"} config={config}>
             <Container>
               <Overridable id={"SearchApp.searchbarContainer"}>
                 <Grid relaxed padded>
@@ -83,11 +82,11 @@ export const SearchApp = ({ config, appName }) => {
               </Overridable>
               <Grid relaxed>
                 <Grid.Row
-                  textAlign='right'
+                  textAlign="right"
                   columns={2}
                   className="result-options"
                 >
-                  <Grid.Column width={4}/>
+                  <Grid.Column width={4} />
                   <Grid.Column width={12}>
                     <ResultOptionsWithState
                       sortOptions={config.sortOptions}
@@ -124,7 +123,7 @@ SearchApp.propTypes = {
       page: PropTypes.number,
       size: PropTypes.number,
       hiddenParams: PropTypes.array,
-      layout: PropTypes.oneOf(['list', 'grid']),
+      layout: PropTypes.oneOf(["list", "grid"]),
     }),
     aggs: PropTypes.arrayOf(
       PropTypes.shape({
