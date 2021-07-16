@@ -29,7 +29,7 @@ search_ui = WebpackThemeBundle(
                 "invenio_search_ui_app": "./js/invenio_search_ui/app.js",
             },
             dependencies={
-                "axios": "^0.19.0",
+                "axios": "^0.21.1",
                 "lodash": "^4.17.15",
                 "qs": "^6.8.0",
                 "react": "^16.13.0",
