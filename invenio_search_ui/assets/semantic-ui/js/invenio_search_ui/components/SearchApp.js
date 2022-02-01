@@ -7,7 +7,7 @@
  */
 
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useContext } from "react";
 import Overridable, {
   OverridableContext,
   overrideStore,
@@ -20,6 +20,7 @@ import {
   ReactSearchKit,
   ResultsLoader,
   withState,
+  buildUID,
 } from "react-searchkit";
 import { Container, Grid } from "semantic-ui-react";
 import { Results, ResultOptions } from "./Results";
@@ -30,8 +31,9 @@ const OnResults = withState(Results);
 const ResultOptionsWithState = withState(ResultOptions);
 
 export const SearchAppFacets = ({ aggs }) => {
+  const { buildUID } = useContext(SearchConfigurationContext);
   return (
-    <Overridable id={"SearchApp.facets"} aggs={aggs}>
+    <Overridable id={buildUID("SearchApp.facets")} aggs={aggs}>
       <>
         {aggs.map((agg) => (
           <BucketAggregation key={agg.title} title={agg.title} agg={agg.agg} />
@@ -42,8 +44,12 @@ export const SearchAppFacets = ({ aggs }) => {
 };
 
 export const SearchAppResultsPane = ({ layoutOptions }) => {
+  const { buildUID } = useContext(SearchConfigurationContext);
   return (
-    <Overridable id={"SearchApp.resultsPane"} layoutOptions={layoutOptions}>
+    <Overridable
+      id={buildUID("SearchApp.resultsPane")}
+      layoutOptions={layoutOptions}
+    >
       <ResultsLoader>
         <EmptyResults />
         <Error />
@@ -55,9 +61,14 @@ export const SearchAppResultsPane = ({ layoutOptions }) => {
 
 export const SearchApp = ({ config, appName }) => {
   const searchApi = new InvenioSearchApi(config.searchApi);
+  const context = {
+    appName,
+    buildUID: (element) => buildUID(element, "", appName),
+    ...config,
+  };
   return (
     <OverridableContext.Provider value={overrideStore.getAll()}>
-      <SearchConfigurationContext.Provider value={config}>
+      <SearchConfigurationContext.Provider value={context}>
         <ReactSearchKit
           searchApi={searchApi}
           appName={appName}
@@ -66,14 +77,21 @@ export const SearchApp = ({ config, appName }) => {
             config.defaultSortingOnEmptyQueryString
           }
         >
-          <Overridable id={"SearchApp.layout"} config={config}>
+          <Overridable
+            id={buildUID("SearchApp.layout", "", appName)}
+            config={config}
+          >
             <Container>
-              <Overridable id={"SearchApp.searchbarContainer"}>
+              <Overridable
+                id={buildUID("SearchApp.searchbarContainer", "", appName)}
+              >
                 <Grid relaxed padded>
                   <Grid.Row>
                     <Grid.Column width={4} />
                     <Grid.Column width={12}>
-                      <Overridable id={"SearchApp.searchbar"}>
+                      <Overridable
+                        id={buildUID("SearchApp.searchbar", "", appName)}
+                      >
                         <SearchBar />
                       </Overridable>
                     </Grid.Column>
