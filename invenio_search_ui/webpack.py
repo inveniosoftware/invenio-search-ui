@@ -29,6 +29,8 @@ search_ui = WebpackThemeBundle(
                 "invenio_search_ui_app": "./js/invenio_search_ui/app.js",
             },
             dependencies={
+                "@babel/runtime": "^7.9.0",
+                "@semantic-ui-react/css-patch": "^1.0.0",
                 "axios": "^0.21.1",
                 "lodash": "^4.17.15",
                 "qs": "^6.8.0",
@@ -40,8 +42,7 @@ search_ui = WebpackThemeBundle(
                 "redux-thunk": "^2.3.0",
                 "react-searchkit": "^1.0.0-alpha.12",
                 "semantic-ui-css": "^2.4.1",
-                "semantic-ui-react": "^0.88.0",
-                "@babel/runtime": "^7.9.0",
+                "semantic-ui-react": "^2.1.1",
             },
             aliases={
                 '@js/invenio_search_ui': 'js/invenio_search_ui',

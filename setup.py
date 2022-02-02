@@ -23,7 +23,7 @@ tests_require = [
 
 extras_require = {
     'docs': [
-        'Sphinx>=3',
+        'Sphinx==4.2.0',
     ],
     'tests': tests_require,
 }
@@ -37,8 +37,8 @@ setup_requires = [
 ]
 
 install_requires = [
-    'invenio-assets>=1.2.0',
-    'invenio-base>=1.2.3',
+    'invenio-assets>=1.2.7',
+    'invenio-base>=1.2.5',
     'invenio-i18n>=1.2.0',
 ]
 

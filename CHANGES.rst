@@ -8,6 +8,15 @@
 Changes
 =======
 
+Version 2.0.4 (released 2022-02-02)
+
+- Add namespace based on `config.appId` passed from DOM.
+- Enable multiple search application support. Introduces a new parameter in
+  `utils.createSearchAppInit(...)` called `multi` that allows users to override
+  each application's components using `appId` as a prefix.
+- Bump semantic-ui-react to latest release
+- Adds `@semantic-ui-react/css-patch` because of https://github.com/Semantic-Org/Semantic-UI/issues/7073
+
 Version 2.0.2 (released 2021-02-22)
 
 - Pass search config in overridable `SearchApp.layout`
