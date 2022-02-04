@@ -21,6 +21,7 @@ import {
 } from "react-searchkit";
 import { Grid } from "semantic-ui-react";
 import { SearchConfigurationContext } from "./context";
+import { i18next } from "@translations/invenio_app_rdm/i18next";
 
 export const Results = ({ currentResultsState = {} }) => {
   const { total } = currentResultsState.data;
@@ -110,6 +111,7 @@ export const ResultOptions = ({ currentResultsState = {} }) => {
                   <Sort
                     sortOrderDisabled={sortOrderDisabled || false}
                     values={sortOptions}
+                    ariaLabel={i18next.t("Sort")}
                   />
                 </Overridable>
               )}
