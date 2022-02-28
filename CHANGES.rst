@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.0.6 (released 2022-02-28)
+
+- Fix web accessibility issue.
+
 Version 2.0.5 (released 2022-02-11)
 
 - Upgrade react-overridable dependency.
