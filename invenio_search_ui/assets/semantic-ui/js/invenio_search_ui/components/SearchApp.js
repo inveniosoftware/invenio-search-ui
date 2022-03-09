@@ -22,10 +22,13 @@ import {
   withState,
   buildUID,
 } from "react-searchkit";
-import { Container, Grid } from "semantic-ui-react";
+import { GridResponsiveSidebarColumn } from "react-invenio-forms";
+import { Container, Grid, Button } from "semantic-ui-react";
 import { Results, ResultOptions } from "./Results";
 import { SearchBar } from "./SearchBar";
 import { SearchConfigurationContext } from "./context";
+import { i18next } from "@translations/invenio_app_rdm/i18next";
+
 
 const OnResults = withState(Results);
 const ResultOptionsWithState = withState(ResultOptions);
@@ -60,6 +63,7 @@ export const SearchAppResultsPane = ({ layoutOptions }) => {
 };
 
 export const SearchApp = ({ config, appName }) => {
+  const [sidebarVisible, setSidebarVisible] = React.useState(false);
   const searchApi = new InvenioSearchApi(config.searchApi);
   const context = {
     appName,
@@ -87,8 +91,7 @@ export const SearchApp = ({ config, appName }) => {
               >
                 <Grid relaxed padded>
                   <Grid.Row>
-                    <Grid.Column width={4} />
-                    <Grid.Column width={12}>
+                    <Grid.Column width={12} floated="right">
                       <Overridable
                         id={buildUID("SearchApp.searchbar", "", appName)}
                       >
@@ -98,25 +101,46 @@ export const SearchApp = ({ config, appName }) => {
                   </Grid.Row>
                 </Grid>
               </Overridable>
+
               <Grid relaxed>
                 <Grid.Row
                   textAlign="right"
                   columns={2}
                   className="result-options rel-mt-2"
                 >
-                  <Grid.Column width={4} />
-                  <Grid.Column width={12}>
+                  <Grid.Column
+                    only="mobile tablet"
+                    mobile={2}
+                    tablet={1}
+                    textAlign="center"
+                    verticalAlign="middle"
+                  >
+                    <Button
+                      basic
+                      icon="sliders"
+                      onClick={() => setSidebarVisible(true)}
+                      aria-label={i18next.t("Filter results")}
+                    />
+                  </Grid.Column>
+
+                  <Grid.Column mobile={14} tablet={15} computer={12} floated="right">
                     <ResultOptionsWithState
                       sortOptions={config.sortOptions}
                       layoutOptions={config.layoutOptions}
                     />
                   </Grid.Column>
                 </Grid.Row>
+
                 <Grid.Row columns={2}>
-                  <Grid.Column width={4}>
-                    <SearchAppFacets aggs={config.aggs} />
-                  </Grid.Column>
-                  <Grid.Column width={12}>
+                  <GridResponsiveSidebarColumn
+                    width={4}
+                    open={sidebarVisible}
+                    onHideClick={() => setSidebarVisible(false)}
+                    children={
+                      <SearchAppFacets aggs={config.aggs} />
+                    }
+                  />
+                  <Grid.Column mobile={16} tablet={16} computer={12}>
                     <SearchAppResultsPane
                       layoutOptions={config.layoutOptions}
                     />
