@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.0.7 (released 2022-03-16)
+
+- Add helpers to build search pages with React-SearchKit.
+
 Version 2.0.6 (released 2022-02-28)
 
 - Fix web accessibility issue.
