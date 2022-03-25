@@ -102,7 +102,7 @@ export const SearchApp = ({ config, appName }) => {
                 <Grid.Row
                   textAlign="right"
                   columns={2}
-                  className="result-options"
+                  className="result-options rel-mt-2"
                 >
                   <Grid.Column width={4} />
                   <Grid.Column width={12}>
