@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.0.8 (released 2022-03-25)
+
+- Refactors search app styling
+
 Version 2.0.7 (released 2022-03-16)
 
 - Add helpers to build search pages with React-SearchKit.
