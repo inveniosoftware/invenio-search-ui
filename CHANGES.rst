@@ -8,9 +8,15 @@
 Changes
 =======
 
+Version 2.0.9 (released 2022-03-31)
+
+- Move setup.py to setup.cfg
+- Remove Python 2.7/3.5/3.6 support
+- Upgrade react-searchkit and fixes
+
 Version 2.0.8 (released 2022-03-25)
 
-- Refactors search app styling
+- Refactor search app styling
 
 Version 2.0.7 (released 2022-03-16)
 
