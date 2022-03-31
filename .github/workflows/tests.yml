@@ -20,16 +20,16 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-          python-version: [3.6, 3.7, 3.8]
+          python-version: [3.7, 3.8, 3.9]
           services: [release, lowest]
           include:
           - services: release
             ES_VERSION: "ES_7_LATEST"
-            EXTRAS: "all,elasticsearch7"
+            EXTRAS: "tests,elasticsearch7"
             REQUIREMENTS_LEVEL: "pypi"
           - services: lowest
             ES_VERSION: "ES_6_LATEST"
-            EXTRAS: "all,elasticsearch6"
+            EXTRAS: "tests,elasticsearch6"
             REQUIREMENTS_LEVEL: "min"
 
     env:
@@ -58,7 +58,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r .${{matrix.REQUIREMENTS_LEVEL}}-${{ matrix.python-version }}-requirements.txt
-          pip install -e .[all]
+          pip install -e .[tests]
           pip freeze
           docker --version
           docker-compose --version
