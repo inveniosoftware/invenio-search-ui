@@ -6,11 +6,11 @@
  * under the terms of the MIT License; see LICENSE file for more details.
  */
 
+import { loadComponents } from "@js/invenio_theme/templates";
+import _camelCase from "lodash/camelCase";
 import React from "react";
 import ReactDOM from "react-dom";
 import { SearchApp } from "./components";
-import { loadComponents } from "@js/invenio_theme/templates";
-import _camelCase from "lodash/camelCase";
 
 /**
  * Initialize React search application.

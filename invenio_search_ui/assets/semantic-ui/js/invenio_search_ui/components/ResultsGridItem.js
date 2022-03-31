@@ -11,10 +11,10 @@ import _truncate from "lodash/truncate";
 import React from "react";
 import { Card, Label } from "semantic-ui-react";
 
-export const ResultsGridItem = ({ result, index }) => {
+export const ResultsGridItem = ({ result }) => {
   const metadata = result.metadata;
   return (
-    <Card fluid key={index} href={_get(result, "links.html", "#")}>
+    <Card fluid href={_get(result, "links.html", "#")}>
       <Card.Content>
         <Card.Header>{metadata.title}</Card.Header>
         <Card.Description>
