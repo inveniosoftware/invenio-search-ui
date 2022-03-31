@@ -11,10 +11,10 @@ import _truncate from "lodash/truncate";
 import React from "react";
 import { Item, Label } from "semantic-ui-react";
 
-export const ResultsListItem = ({ result, index }) => {
+export const ResultsListItem = ({ result }) => {
   const metadata = result.metadata;
   return (
-    <Item key={index} href={_get(result, "links.html", "#")}>
+    <Item href={_get(result, "links.html", "#")}>
       <Item.Content>
         <Item.Header>{metadata.title}</Item.Header>
         <Item.Description>
