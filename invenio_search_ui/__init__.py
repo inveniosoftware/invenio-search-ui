@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of Invenio.
-# Copyright (C) 2015-2018 CERN.
+# Copyright (C) 2015-2022 CERN.
 #
 # Invenio is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
@@ -160,16 +160,16 @@ The building blocks for the search result page are all the
 can think of them as the UI components of a classic search page. All of the
 available directives are listed below (with their default template files):
 
-- **<invenio-search-results>** - The actual result item display (:source:`results.html <invenio_search_ui/static/templates/invenio_search_ui/results.html>`)
-- **<invenio-search-bar>** - Search input box for queries (:source:`searchbar.html <invenio_search_ui/static/templates/invenio_search_ui/searchbar.html>`)
-- **<invenio-search-pagination>** - Pagination controls for navigating the search result pages (:source:`pagination.html <invenio_search_ui/static/templates/invenio_search_ui/pagination.html>`)
-- **<invenio-search-sort-order>** - Sort order of results, i.e. ascending/descending (:source:`togglebutton.html <invenio_search_ui/static/templates/invenio_search_ui/togglebutton.html>`)
-- **<invenio-search-facets>** - Faceting options for the search results (:source:`facets.html <invenio_search_ui/static/templates/invenio_search_ui/facets.html>`)
-- **<invenio-search-loading>** - Loading indicator for the REST API request (:source:`loading.html <invenio_search_ui/static/templates/invenio_search_ui/loading.html>`)
-- **<invenio-search-count>** - The number of search results (:source:`count.html <invenio_search_ui/static/templates/invenio_search_ui/count.html>`)
-- **<invenio-search-error>** - Errors returned by the REST API, e.g. 4xx or 5xx (:source:`error.html <invenio_search_ui/static/templates/invenio_search_ui/error.html>`)
-- **<invenio-search-range>** - Date or numeric range filtering (:source:`range.html <invenio_search_ui/static/templates/invenio_search_ui/range.html>`)
-- **<invenio-search-select-box>** - Select box for further filtering (:source:`selectbox.html <invenio_search_ui/static/templates/invenio_search_ui/selectbox.html>`)
+- **<invenio-search-results>** - The actual result item display (:source:`results.html <invenio_search_ui/static/templates/invenio_search_ui/results.html>`)  # noqa: 501
+- **<invenio-search-bar>** - Search input box for queries (:source:`searchbar.html <invenio_search_ui/static/templates/invenio_search_ui/searchbar.html>`)  # noqa: 501
+- **<invenio-search-pagination>** - Pagination controls for navigating the search result pages (:source:`pagination.html <invenio_search_ui/static/templates/invenio_search_ui/pagination.html>`)  # noqa: 501
+- **<invenio-search-sort-order>** - Sort order of results, i.e. ascending/descending (:source:`togglebutton.html <invenio_search_ui/static/templates/invenio_search_ui/togglebutton.html>`)  # noqa: 501
+- **<invenio-search-facets>** - Faceting options for the search results (:source:`facets.html <invenio_search_ui/static/templates/invenio_search_ui/facets.html>`)  # noqa: 501
+- **<invenio-search-loading>** - Loading indicator for the REST API request (:source:`loading.html <invenio_search_ui/static/templates/invenio_search_ui/loading.html>`)  # noqa: 501
+- **<invenio-search-count>** - The number of search results (:source:`count.html <invenio_search_ui/static/templates/invenio_search_ui/count.html>`)  # noqa: 501
+- **<invenio-search-error>** - Errors returned by the REST API, e.g. 4xx or 5xx (:source:`error.html <invenio_search_ui/static/templates/invenio_search_ui/error.html>`)  # noqa: 501
+- **<invenio-search-range>** - Date or numeric range filtering (:source:`range.html <invenio_search_ui/static/templates/invenio_search_ui/range.html>`)  # noqa: 501
+- **<invenio-search-select-box>** - Select box for further filtering (:source:`selectbox.html <invenio_search_ui/static/templates/invenio_search_ui/selectbox.html>`)  # noqa: 501
 
 Each one of them accepts attributes for configuring their specific behavior.
 All of them though accept a ``template`` attribute specifying an Angular
@@ -324,8 +324,6 @@ of the record in a list by using the ``ng-repeat`` attribute and the
       </li>
     </ul>
 """
-
-from __future__ import absolute_import, print_function
 
 from .ext import InvenioSearchUI
 
