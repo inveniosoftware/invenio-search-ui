@@ -8,9 +8,13 @@
 Changes
 =======
 
+Version 2.1.1 (released 2022-05-05)
+
+- Adds responsive sidebar to the search app.
+
 Version 2.1.0 (released 2022-04-05)
 
-- Upgrade react-searchkit version to v2.0.0
+- Upgrade react-searchkit version to v2.0.0.
 
 Version 2.0.10 (released 2022-04-05)
 
