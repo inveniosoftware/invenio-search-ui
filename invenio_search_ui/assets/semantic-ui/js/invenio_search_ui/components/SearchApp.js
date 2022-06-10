@@ -123,7 +123,14 @@ export const SearchApp = ({ config, appName }) => {
                     />
                   </Grid.Column>
 
-                  <Grid.Column mobile={14} tablet={15} computer={12} floated="right">
+                  <Grid.Column
+                    mobile={14}
+                    tablet={15}
+                    computer={12}
+                    largeScreen={13}
+                    widescreen={13}
+                    floated="right"
+                  >
                     <ResultOptionsWithState
                       sortOptions={config.sortOptions}
                       layoutOptions={config.layoutOptions}
@@ -133,14 +140,24 @@ export const SearchApp = ({ config, appName }) => {
 
                 <Grid.Row columns={2}>
                   <GridResponsiveSidebarColumn
-                    width={4}
+                    mobile={4}
+                    tablet={4}
+                    computer={4}
+                    largeScreen={3}
+                    widescreen={3}
                     open={sidebarVisible}
                     onHideClick={() => setSidebarVisible(false)}
-                    children={
-                      <SearchAppFacets aggs={config.aggs} />
-                    }
-                  />
-                  <Grid.Column mobile={16} tablet={16} computer={12}>
+                  >
+                    <SearchAppFacets aggs={config.aggs} />
+                  </GridResponsiveSidebarColumn>
+
+                  <Grid.Column
+                    mobile={16}
+                    tablet={16}
+                    computer={12}
+                    largeScreen={13}
+                    widescreen={13}
+                  >
                     <SearchAppResultsPane
                       layoutOptions={config.layoutOptions}
                     />
