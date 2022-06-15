@@ -29,7 +29,7 @@ class InvenioSearchUI(object):
         :param app: The Flask application.
         """
         self.init_config(app)
-        app.extensions['invenio-search-ui'] = self
+        app.extensions["invenio-search-ui"] = self
 
     def init_config(self, app):
         """Initialize configuration.
@@ -37,12 +37,12 @@ class InvenioSearchUI(object):
         :param app: The Flask application.
         """
         app.config.setdefault(
-            'SEARCH_UI_BASE_TEMPLATE', app.config.get('BASE_TEMPLATE')
+            "SEARCH_UI_BASE_TEMPLATE", app.config.get("BASE_TEMPLATE")
         )
         app.config.setdefault(
-            'SEARCH_UI_HEADER_TEMPLATE', app.config.get('HEADER_TEMPLATE')
+            "SEARCH_UI_HEADER_TEMPLATE", app.config.get("HEADER_TEMPLATE")
         )
 
         for k in dir(config):
-            if k.startswith('SEARCH_UI_'):
+            if k.startswith("SEARCH_UI_"):
                 app.config.setdefault(k, getattr(config, k))

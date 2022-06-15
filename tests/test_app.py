@@ -17,17 +17,18 @@ from invenio_search_ui import InvenioSearchUI
 def test_version():
     """Test version import."""
     from invenio_search_ui import __version__
+
     assert __version__
 
 
 def test_init():
     """Test extension initialization."""
-    app = Flask('testapp')
+    app = Flask("testapp")
     InvenioSearchUI(app)
-    assert 'invenio-search-ui' in app.extensions
+    assert "invenio-search-ui" in app.extensions
 
-    app = Flask('testapp')
+    app = Flask("testapp")
     ext = InvenioSearchUI()
-    assert 'invenio-search-ui' not in app.extensions
+    assert "invenio-search-ui" not in app.extensions
     ext.init_app(app)
-    assert 'invenio-search-ui' in app.extensions
+    assert "invenio-search-ui" in app.extensions

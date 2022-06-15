@@ -33,18 +33,18 @@ def instance_path():
 @pytest.fixture()
 def app():
     """Flask application fixture."""
-    app = Flask('testapp')
+    app = Flask("testapp")
     app.config.update(
         TESTING=True,
-        SEARCH_UI_SEARCH_API='api',
-        BASE_TEMPLATE='invenio_search_ui/base.html',
-        HEADER_TEMPLATE='invenio_search_ui/base_header.html',
+        SEARCH_UI_SEARCH_API="api",
+        BASE_TEMPLATE="invenio_search_ui/base.html",
+        HEADER_TEMPLATE="invenio_search_ui/base_header.html",
     )
     Babel(app)
     InvenioAssets(app)
     InvenioSearchUI(app)
 
-    @app.route('/api')
+    @app.route("/api")
     def api():
         return {}
 
@@ -52,10 +52,12 @@ def app():
     # add extra test templates to the search app blueprint, to fake the
     # existence of `invenio-theme` base templates.
     test_templates_path = os.path.join(os.path.dirname(__file__), "templates")
-    enhanced_jinja_loader = jinja2.ChoiceLoader([
-        app.jinja_loader,
-        jinja2.FileSystemLoader(test_templates_path),
-    ])
+    enhanced_jinja_loader = jinja2.ChoiceLoader(
+        [
+            app.jinja_loader,
+            jinja2.FileSystemLoader(test_templates_path),
+        ]
+    )
     # override default app jinja_loader to add the new path
     app.jinja_loader = enhanced_jinja_loader
     return app
@@ -78,14 +80,14 @@ _RECORDS_REST_CONFIG = dict(
             search_index="myrecords",
         )
     ),
-    RECORDS_REST_SORT_OPTIONS=dict(myrecords=dict(
-        test1=dict(order=2, title="Test 1", default_order="desc"),
-        test2=dict(order=1, title="Test 2", default_order="asc"),
-    )),
-    RECORDS_REST_DEFAULT_SORT=dict(
-        myrecords=dict(query="test2", noquery="test1")),
-    RECORDS_REST_FACETS=dict(
+    RECORDS_REST_SORT_OPTIONS=dict(
         myrecords=dict(
-            aggs=dict(type=dict(terms=dict(field="type"))))
-    )
+            test1=dict(order=2, title="Test 1", default_order="desc"),
+            test2=dict(order=1, title="Test 2", default_order="asc"),
+        )
+    ),
+    RECORDS_REST_DEFAULT_SORT=dict(myrecords=dict(query="test2", noquery="test1")),
+    RECORDS_REST_FACETS=dict(
+        myrecords=dict(aggs=dict(type=dict(terms=dict(field="type"))))
+    ),
 )

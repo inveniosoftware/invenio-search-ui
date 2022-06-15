@@ -46,8 +46,8 @@ search_ui = WebpackThemeBundle(
                 "semantic-ui-react": "^2.1.0",
             },
             aliases={
-                '@js/invenio_search_ui': 'js/invenio_search_ui',
-            }
+                "@js/invenio_search_ui": "js/invenio_search_ui",
+            },
         ),
         "bootstrap3": dict(
             entry={

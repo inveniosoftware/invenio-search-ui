@@ -25,7 +25,7 @@ def _check_template():
     # check if the header search bar element id exists
     assert 'id="header-search-bar"' in rendered
     # check if the search app config attribute exists
-    assert 'data-invenio-search-config' in rendered
+    assert "data-invenio-search-config" in rendered
 
 
 def test_view(app, use_records_rest_config):
@@ -38,46 +38,44 @@ def test_format_sortoptions(app, use_records_rest_config):
     """Test default sort option filter."""
     with app.test_request_context():
         assert SearchAppInvenioRestConfigHelper.generate(
-                {'endpoint_id': 'recid'}) == dict(
-            appId='search',
+            {"endpoint_id": "recid"}
+        ) == dict(
+            appId="search",
             searchApi={
-                'axios': {
-                    'headers': {'Accept': 'application/json'},
-                    'url': '/api/myrecords/',
-                    'withCredentials': True
+                "axios": {
+                    "headers": {"Accept": "application/json"},
+                    "url": "/api/myrecords/",
+                    "withCredentials": True,
                 }
             },
             initialQueryState={
-                'hiddenParams': None,
-                'layout': 'list',
-                'page': 1,
-                'size': 10,
-                'sortBy': 'test2',
-                'sortOrder': 'asc',
+                "hiddenParams": None,
+                "layout": "list",
+                "page": 1,
+                "size": 10,
+                "sortBy": "test2",
+                "sortOrder": "asc",
             },
-            layoutOptions={'gridView': True, 'listView': True},
-            sortOptions=[dict(
-                text="Test 2",
-                sortBy="test2",
-                sortOrder="asc",
-            ), dict(
-                text="Test 1",
-                sortBy="test1",
-                sortOrder="desc",
-            )],
-            aggs=[dict(
-                title="Type",
-                agg=dict(aggName="type", field="type")
-            )],
+            layoutOptions={"gridView": True, "listView": True},
+            sortOptions=[
+                dict(
+                    text="Test 2",
+                    sortBy="test2",
+                    sortOrder="asc",
+                ),
+                dict(
+                    text="Test 1",
+                    sortBy="test1",
+                    sortOrder="desc",
+                ),
+            ],
+            aggs=[dict(title="Type", agg=dict(aggName="type", field="type"))],
             paginationOptions={
                 "resultsPerPage": [
                     {"text": "10", "value": 10},
                     {"text": "20", "value": 20},
-                    {"text": "50", "value": 50}
+                    {"text": "50", "value": 50},
                 ],
             },
-            defaultSortingOnEmptyQueryString={
-                'sortBy': 'test1',
-                'sortOrder': 'desc'
-            }
+            defaultSortingOnEmptyQueryString={"sortBy": "test1", "sortOrder": "desc"},
         )
