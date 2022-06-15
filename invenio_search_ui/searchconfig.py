@@ -33,21 +33,20 @@ class SearchOptionsSelector:
 class SortConfig(SearchOptionsSelector):
     """Sort options for the search configuration."""
 
-    def __init__(self, available_options, selected_options, default=None,
-                 default_no_query=None):
+    def __init__(
+        self, available_options, selected_options, default=None, default_no_query=None
+    ):
         """Initialize sort options."""
         super().__init__(available_options, selected_options)
 
         self.default = selected_options[0] if default is None else default
-        self.default_no_query = selected_options[1] \
-            if default_no_query is None else default_no_query
+        self.default_no_query = (
+            selected_options[1] if default_no_query is None else default_no_query
+        )
 
     def map_option(self, key, option):
         """Generate a RSK search option."""
-        return {
-            "sortBy": key,
-            "text": option['title']
-        }
+        return {"sortBy": key, "text": option["title"]}
 
 
 class FacetsConfig(SearchOptionsSelector):
@@ -55,18 +54,20 @@ class FacetsConfig(SearchOptionsSelector):
 
     def map_option(self, key, option):
         """Generate an RSK aggregation option."""
-        title = option.get('title', option['facet']._label)
+        title = option.get("title", option["facet"]._label)
 
-        ui = deepcopy(option['ui'])
-        ui.update({
-            'aggName': key,
-            'title': title,
-        })
+        ui = deepcopy(option["ui"])
+        ui.update(
+            {
+                "aggName": key,
+                "title": title,
+            }
+        )
 
         # Nested facets
-        if 'childAgg' in ui:
-            ui['childAgg'].setdefault('aggName', 'inner')
-            ui['childAgg'].setdefault('title', title)
+        if "childAgg" in ui:
+            ui["childAgg"].setdefault("aggName", "inner")
+            ui["childAgg"].setdefault("title", title)
 
         return ui
 
@@ -77,7 +78,7 @@ class SearchAppConfig:
     default_options = dict(
         endpoint=None,
         hidden_params=None,
-        app_id='search',
+        app_id="search",
         headers=None,
         list_view=True,
         grid_view=False,
@@ -120,8 +121,8 @@ class SearchAppConfig:
     def initialQueryState(self):
         """Generate initialQueryState."""
         return {
-            'hiddenParams': self.hidden_params,
-            'layout': 'list' if self.list_view else 'grid',
+            "hiddenParams": self.hidden_params,
+            "layout": "list" if self.list_view else "grid",
             "size": self.default_size,
             "sortBy": self.sort.default,
             "page": self.default_page,
@@ -138,9 +139,8 @@ class SearchAppConfig:
                 "headers": self.headers,
             },
             "invenio": {
-                "requestSerializer":
-                    "InvenioRecordsResourcesRequestSerializer",
-            }
+                "requestSerializer": "InvenioRecordsResourcesRequestSerializer",
+            },
         }
 
     @property
@@ -149,10 +149,7 @@ class SearchAppConfig:
 
         :returns: A dict with the options for React-SearchKit JS.
         """
-        return {
-            'listView': self.list_view,
-            'gridView': self.grid_view
-        }
+        return {"listView": self.list_view, "gridView": self.grid_view}
 
     @property
     def sortOptions(self):
@@ -173,17 +170,20 @@ class SearchAppConfig:
     @property
     def paginationOptions(self):
         """Format the pagination options to be used in React-SearchKit JS."""
-        if not getattr(self, 'default_size') or \
-                self.default_size not in self.pagination_options:
+        if (
+            not getattr(self, "default_size")
+            or self.default_size not in self.pagination_options
+        ):
             raise ValueError(
-                'Parameter default_size should be part of pagination_options')
+                "Parameter default_size should be part of pagination_options"
+            )
         return {
-                "resultsPerPage": [
-                    {"text": str(option), "value": option}
-                    for option in self.pagination_options
-                ],
-                "defaultValue": self.default_size,
-            }
+            "resultsPerPage": [
+                {"text": str(option), "value": option}
+                for option in self.pagination_options
+            ],
+            "defaultValue": self.default_size,
+        }
 
     @property
     def defaultSortingOnEmptyQueryString(self):
@@ -205,9 +205,7 @@ class SearchAppConfig:
             "layoutOptions": generator_object.layoutOptions,
             "sortOrderDisabled": True,
             "paginationOptions": generator_object.paginationOptions,
-            "defaultSortingOnEmptyQueryString":
-                generator_object.defaultSortingOnEmptyQueryString
-
+            "defaultSortingOnEmptyQueryString": generator_object.defaultSortingOnEmptyQueryString,
         }
         config.update(kwargs)
         return config
@@ -220,17 +218,16 @@ def sort_config(config_name, sort_options):
     """Sort configuration."""
     return SortConfig(
         sort_options,
-        current_app.config[config_name].get('sort', []),
-        current_app.config[config_name].get('sort_default', None),
-        current_app.config[config_name].get('sort_default_no_query'),
+        current_app.config[config_name].get("sort", []),
+        current_app.config[config_name].get("sort_default", None),
+        current_app.config[config_name].get("sort_default_no_query"),
     )
 
 
 def facets_config(config_name, available_facets):
     """Facets configuration."""
     return FacetsConfig(
-        available_facets,
-        current_app.config[config_name].get('facets', [])
+        available_facets, current_app.config[config_name].get("facets", [])
     )
 
 

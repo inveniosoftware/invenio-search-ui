@@ -37,14 +37,10 @@ def sorted_options(sort_options):
         {
             "title": v["title"],
             "value": (
-                "-{0}".format(k)
-                if v.get("default_order", "asc") == "desc"
-                else k
+                "-{0}".format(k) if v.get("default_order", "asc") == "desc" else k
             ),
         }
-        for k, v in sorted(
-            sort_options.items(), key=lambda x: x[1].get("order", 0)
-        )
+        for k, v in sorted(sort_options.items(), key=lambda x: x[1].get("order", 0))
     ]
 
 
@@ -65,7 +61,7 @@ class SearchAppInvenioRestConfigHelper(object):
     default_options = dict(
         endpoint_id=None,
         hidden_params=None,
-        app_id='search',
+        app_id="search",
         headers=None,
         list_view=True,
         grid_view=True,
@@ -103,10 +99,12 @@ class SearchAppInvenioRestConfigHelper(object):
         :param option: Option name
 
         """
-        default_sort = current_app.config.get(
-            "RECORDS_REST_DEFAULT_SORT", {}).get(search_index, {})
-        sort_options = current_app.config.get(
-            "RECORDS_REST_SORT_OPTIONS", {}).get(search_index, {})
+        default_sort = current_app.config.get("RECORDS_REST_DEFAULT_SORT", {}).get(
+            search_index, {}
+        )
+        sort_options = current_app.config.get("RECORDS_REST_SORT_OPTIONS", {}).get(
+            search_index, {}
+        )
 
         sort_by = default_sort[option]
         sort_order = sort_options[sort_by].get("default_order", "asc")
@@ -116,7 +114,7 @@ class SearchAppInvenioRestConfigHelper(object):
     @property
     def _rest_config(self):
         """Get endpoint configuration."""
-        return current_app.config['RECORDS_REST_ENDPOINTS'][self.endpoint_id]
+        return current_app.config["RECORDS_REST_ENDPOINTS"][self.endpoint_id]
 
     @property
     def appId(self):
@@ -127,13 +125,12 @@ class SearchAppInvenioRestConfigHelper(object):
     def initialQueryState(self):
         """Generate initialQueryState."""
         sort_by, sort_order = self._sort_config(
-            search_index=self._rest_config["search_index"],
-            option="query"
+            search_index=self._rest_config["search_index"], option="query"
         )
 
         return {
-            'hiddenParams': self.hidden_params,
-            'layout': 'list' if self.list_view else 'grid',
+            "hiddenParams": self.hidden_params,
+            "layout": "list" if self.list_view else "grid",
             "size": self.default_size,
             "sortBy": sort_by,
             "sortOrder": sort_order,
@@ -144,12 +141,12 @@ class SearchAppInvenioRestConfigHelper(object):
     def searchApi(self):
         """Generate searchAPI configuration."""
         headers = {"Accept": self._rest_config["default_media_type"]}
-        headers.update(getattr(self, 'additional_headers', {}))
+        headers.update(getattr(self, "additional_headers", {}))
         return {
             "axios": {
                 "url": "/api{}".format(self._rest_config["list_route"]),
                 "withCredentials": True,
-                "headers": headers
+                "headers": headers,
             }
         }
 
@@ -159,10 +156,7 @@ class SearchAppInvenioRestConfigHelper(object):
 
         :returns: A dict with the options for React-SearchKit JS.
         """
-        return {
-            'listView': self.list_view,
-            'gridView': self.grid_view
-        }
+        return {"listView": self.list_view, "gridView": self.grid_view}
 
     @property
     def sortOptions(self):
@@ -171,8 +165,9 @@ class SearchAppInvenioRestConfigHelper(object):
         :returns: A list of dicts with sorting options for React-SearchKit JS.
         """
         search_index = self._rest_config["search_index"]
-        sort_options = current_app.config.get(
-            "RECORDS_REST_SORT_OPTIONS", {}).get(search_index, {})
+        sort_options = current_app.config.get("RECORDS_REST_SORT_OPTIONS", {}).get(
+            search_index, {}
+        )
 
         return [
             {
@@ -180,9 +175,7 @@ class SearchAppInvenioRestConfigHelper(object):
                 "sortBy": k,
                 "sortOrder": v.get("default_order", "asc"),
             }
-            for k, v in sorted(
-                sort_options.items(), key=lambda x: x[1].get("order", 0)
-            )
+            for k, v in sorted(sort_options.items(), key=lambda x: x[1].get("order", 0))
         ]
 
     @property
@@ -200,10 +193,7 @@ class SearchAppInvenioRestConfigHelper(object):
         return [
             {
                 "title": k.capitalize(),
-                "agg": {
-                    "aggName": k,
-                    "field": v["terms"]["field"]
-                },
+                "agg": {"aggName": k, "field": v["terms"]["field"]},
             }
             for k, v in aggs.items()
         ]
@@ -217,28 +207,25 @@ class SearchAppInvenioRestConfigHelper(object):
         :returns: A list of dicts with the appropriate format
          for React-SearchKit JS.
         """
-        if not getattr(self, 'default_size') or \
-                self.default_size not in self.pagination_options:
-            raise ValueError(
-                'Parameter default_size should be part of options')
+        if (
+            not getattr(self, "default_size")
+            or self.default_size not in self.pagination_options
+        ):
+            raise ValueError("Parameter default_size should be part of options")
         return {
-                "resultsPerPage": [
-                    {"text": str(option), "value": option}
-                    for option in self.pagination_options
-                ]
-            }
+            "resultsPerPage": [
+                {"text": str(option), "value": option}
+                for option in self.pagination_options
+            ]
+        }
 
     @property
     def defaultSortingOnEmptyQueryString(self):
         """Defines the default sorting options when there is no query."""
         sort_by, sort_order = self._sort_config(
-            search_index=self._rest_config["search_index"],
-            option="noquery"
+            search_index=self._rest_config["search_index"], option="noquery"
         )
-        return {
-            "sortBy": sort_by,
-            "sortOrder": sort_order
-        }
+        return {"sortBy": sort_by, "sortOrder": sort_order}
 
     @classmethod
     def generate(cls, options, **kwargs):
@@ -252,9 +239,7 @@ class SearchAppInvenioRestConfigHelper(object):
             "aggs": generator_object.aggs,
             "layoutOptions": generator_object.layoutOptions,
             "paginationOptions": generator_object.paginationOptions,
-            "defaultSortingOnEmptyQueryString":
-                generator_object.defaultSortingOnEmptyQueryString
-
+            "defaultSortingOnEmptyQueryString": generator_object.defaultSortingOnEmptyQueryString,
         }
         config.update(kwargs)
         return config
@@ -263,6 +248,4 @@ class SearchAppInvenioRestConfigHelper(object):
 @blueprint.app_context_processor
 def search_app_helpers():
     """Makes Invenio-Search-JS config generation available for Jinja."""
-    return {
-        'search_app_helpers': current_app.config['SEARCH_UI_SEARCH_CONFIG_GEN']
-    }
+    return {"search_app_helpers": current_app.config["SEARCH_UI_SEARCH_CONFIG_GEN"]}
