@@ -12,3 +12,7 @@ export { Results } from "./Results";
 export { SearchBar } from "./SearchBar";
 export { SearchApp, SearchAppFacets, SearchAppResultsPane } from "./SearchApp";
 export { SearchConfigurationContext } from "./context";
+export {
+  MultipleOptionsSearchBar,
+  MultipleOptionsSearchBarRSK,
+} from "./MultipleOptionsSearchBar";
