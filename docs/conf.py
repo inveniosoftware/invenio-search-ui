@@ -36,7 +36,7 @@ extensions = [
 extlinks = {
     "source": (
         "https://github.com/inveniosoftware/invenio-search-ui/tree/master/%s",
-        "source",
+        "source %s",
     )
 }
 
