@@ -8,6 +8,11 @@
 Changes
 =======
 
+
+Version 2.1.2 (released 2022-07-01)
+
+- Reduce space between facets and search results in large screens.
+
 Version 2.1.1 (released 2022-05-05)
 
 - Adds responsive sidebar to the search app.
