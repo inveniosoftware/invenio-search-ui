@@ -51,9 +51,13 @@ export const Results = ({ currentResultsState = {} }) => {
               )}
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row verticalAlign="middle">
-            <Grid.Column width={4}></Grid.Column>
-            <Grid.Column width={8} textAlign="center">
+          <Grid.Row verticalAlign="middle" floated="right">
+            <Grid.Column className="computer tablet only" width={4}></Grid.Column>
+            <Grid.Column
+              className="computer tablet only"
+              width={8}
+              textAlign="center"
+            >
               <Pagination
                 options={{
                   size: "mini",
@@ -62,7 +66,30 @@ export const Results = ({ currentResultsState = {} }) => {
                 }}
               />
             </Grid.Column>
-            <Grid.Column textAlign="right" width={4}>
+            <Grid.Column className="mobile only" width={16} textAlign="center">
+              <Pagination
+                options={{
+                  boundaryRangeCount: 0,
+                  showFirst: false,
+                  showLast: false,
+                }}
+              />
+            </Grid.Column>
+            <Grid.Column
+              className="computer tablet only "
+              textAlign="right"
+              width={4}
+            >
+              <ResultsPerPage
+                values={paginationOptions.resultsPerPage}
+                label={(cmp) => <> {cmp} results per page</>}
+              />
+            </Grid.Column>
+            <Grid.Column
+              className="mobile only mt-10"
+              textAlign="center"
+              width={16}
+            >
               <ResultsPerPage
                 values={paginationOptions.resultsPerPage}
                 label={(cmp) => <> {cmp} results per page</>}
