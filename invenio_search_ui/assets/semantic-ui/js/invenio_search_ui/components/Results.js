@@ -94,6 +94,11 @@ export const ResultOptions = ({ currentResultsState = {} }) => {
                     sortOrderDisabled={sortOrderDisabled || false}
                     values={sortOptions}
                     ariaLabel={i18next.t("Sort")}
+                    label={(cmp) => (
+                      <>
+                        <label className="mr-10">{i18next.t("Sort by")}</label>{cmp}
+                      </>
+                    )}
                   />
                 </Overridable>
               )}
