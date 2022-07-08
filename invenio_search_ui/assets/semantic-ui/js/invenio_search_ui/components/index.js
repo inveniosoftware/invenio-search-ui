@@ -12,6 +12,7 @@ export { Results } from "./Results";
 export { SearchBar } from "./SearchBar";
 export { SearchApp, SearchAppFacets, SearchAppResultsPane } from "./SearchApp";
 export { SearchConfigurationContext } from "./context";
+export { InvenioSearchPagination } from "./InvenioSearchPagination";
 export {
   MultipleOptionsSearchBar,
   MultipleOptionsSearchBarRSK,
