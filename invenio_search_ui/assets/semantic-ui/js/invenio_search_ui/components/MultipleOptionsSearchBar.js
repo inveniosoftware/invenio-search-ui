@@ -9,9 +9,8 @@
 import React, { Component } from "react";
 import { withState } from "react-searchkit";
 import { Search, Label } from "semantic-ui-react";
-import { i18next } from "@translations/invenio_communities/i18next";
+import { i18next } from "@translations/invenio_search_ui/i18next";
 import PropTypes from "prop-types";
-import ReactDOM from "react-dom";
 
 const resultRenderer = ({ text }, queryString) => {
   return (
