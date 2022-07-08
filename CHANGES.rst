@@ -9,6 +9,11 @@ Changes
 =======
 
 
+Version 2.1.3 (released 2022-07-08)
+
+- fix mobile pagination
+- add multiple option search component
+
 Version 2.1.2 (released 2022-07-01)
 
 - Reduce space between facets and search results in large screens.
