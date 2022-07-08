@@ -36,3 +36,9 @@ recursive-include invenio_search_ui *.scss
 recursive-include tests *.html
 recursive-include tests *.py
 include .git-blame-ignore-revs
+recursive-include invenio_search_ui *.json
+invenio_search_ui/assets/semantic-ui/translations/invenio_search_ui/messages/de/translations.json
+invenio_search_ui/assets/semantic-ui/translations/invenio_search_ui/messages/en/translations.json
+invenio_search_ui/assets/semantic-ui/translations/invenio_search_ui/messages/pl/translations.json
+invenio_search_ui/assets/semantic-ui/translations/invenio_search_ui/package-lock.json
+invenio_search_ui/assets/semantic-ui/translations/invenio_search_ui/package.json

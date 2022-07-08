@@ -47,6 +47,7 @@ search_ui = WebpackThemeBundle(
             },
             aliases={
                 "@js/invenio_search_ui": "js/invenio_search_ui",
+                "@translations/invenio_search_ui": "translations/invenio_search_ui",
             },
         ),
         "bootstrap3": dict(
