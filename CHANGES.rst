@@ -8,6 +8,11 @@
 Changes
 =======
 
+Version 2.0.11 (released 2022-07-08)
+
+- Removes dependency on invenio-app-rdm
+- Relaxes min version of invenio-i18n
+
 Version 2.0.10 (released 2022-04-05)
 
 - Relax min Python version to 3.6.
