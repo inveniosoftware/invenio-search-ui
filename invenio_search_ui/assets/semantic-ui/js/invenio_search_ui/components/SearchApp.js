@@ -27,7 +27,7 @@ import { Container, Grid, Button } from "semantic-ui-react";
 import { Results, ResultOptions } from "./Results";
 import { SearchBar } from "./SearchBar";
 import { SearchConfigurationContext } from "./context";
-import { i18next } from "@translations/invenio_app_rdm/i18next";
+import { i18next } from "@translations/invenio_search_ui/i18next";
 
 
 const OnResults = withState(Results);

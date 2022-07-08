@@ -1,0 +1,19 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"mime-version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"POT-Creation-Date: 2022-07-08T12:50:38.815Z\n"
+"PO-Revision-Date: 2022-07-08T12:50:38.815Z\n"
+"Language: en\n"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Sort"
+msgstr "Sort"
+
+msgid "Filter results"
+msgstr "Filter results"
