@@ -8,7 +8,7 @@
 
 import React, { Component } from "react";
 import { withState } from "react-searchkit";
-import { Search, Label } from "semantic-ui-react";
+import { Search, Label, Button, Icon } from "semantic-ui-react";
 import { i18next } from "@translations/invenio_search_ui/i18next";
 import PropTypes from "prop-types";
 
@@ -32,7 +32,18 @@ export class MultipleOptionsSearchBar extends Component {
   render() {
     const { placeholder, options } = this.props;
     const { queryString } = this.state;
-
+    const button = (
+      <Button
+        icon
+        className="right-floated search"
+        onClick={() => {
+          const url = options[0]?.value;
+          window.location = `${url}?q=${queryString}`;
+        }}
+      >
+        <Icon name="search" />
+      </Button>
+    );
     return (
       <Search
         fluid
@@ -47,6 +58,9 @@ export class MultipleOptionsSearchBar extends Component {
         results={options}
         value={queryString}
         placeholder={placeholder}
+        minCharacters={0}
+        icon={button}
+        className="right-angle-search-content"
         selectFirstResult
       />
     );
@@ -70,6 +84,22 @@ export class MultipleOptionsSearchBarCmp extends Component {
 
   render() {
     const { placeholder, queryString, onInputChange, options } = this.props;
+    const button = (
+      <Button
+        icon
+        className="right-floated search"
+        onClick={() => {
+          const url = options[0]?.value;
+          if (window.location.pathname === url) {
+            this.onBtnSearchClick();
+          } else {
+            window.location = `${url}?q=${queryString}`;
+          }
+        }}
+      >
+        <Icon name="search" />
+      </Button>
+    );
 
     return (
       <Search
@@ -89,7 +119,10 @@ export class MultipleOptionsSearchBarCmp extends Component {
         results={options}
         value={queryString}
         placeholder={placeholder}
+        className="right-angle-search-content"
         selectFirstResult
+        icon={button}
+        minCharacters={0}
       />
     );
   }
@@ -107,4 +140,6 @@ MultipleOptionsSearchBarCmp.defaultProps = {
   placeholder: i18next.t("Search"),
 };
 
-export const MultipleOptionsSearchBarRSK = withState(MultipleOptionsSearchBarCmp);
+export const MultipleOptionsSearchBarRSK = withState(
+  MultipleOptionsSearchBarCmp
+);
