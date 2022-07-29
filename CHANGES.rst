@@ -9,6 +9,10 @@ Changes
 =======
 
 
+Version 2.1.4 (released 2022-07-29)
+
+- add reusable pagination component
+
 Version 2.1.3 (released 2022-07-08)
 
 - fix mobile pagination
