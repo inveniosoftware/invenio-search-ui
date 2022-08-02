@@ -9,6 +9,10 @@ Changes
 =======
 
 
+Version 2.1.5 (released 2022-08-02)
+
+- multi-option searchbar: add empty search option
+
 Version 2.1.4 (released 2022-07-29)
 
 - add reusable pagination component
