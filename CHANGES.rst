@@ -8,6 +8,9 @@
 Changes
 =======
 
+Version 2.1.6 (released 2022-08-03)
+
+- multi-opion searchbar: fix options fixed to option 1
 
 Version 2.1.5 (released 2022-08-02)
 
