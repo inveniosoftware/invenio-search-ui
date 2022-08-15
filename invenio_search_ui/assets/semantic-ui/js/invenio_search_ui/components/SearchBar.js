@@ -10,14 +10,19 @@ import React from "react";
 import { SearchBar as ReactSearchKitSearchBar } from "react-searchkit";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
+import Overridable from "react-overridable";
 
-export const SearchBar = ({ elementId }) => {
+export const SearchBar = ({ elementId, buildUID, appName }) => {
   const domElement = document.getElementById(elementId);
   if (domElement) {
     domElement.innerHTML = "";
     return ReactDOM.createPortal(<ReactSearchKitSearchBar />, domElement);
   }
-  return <ReactSearchKitSearchBar />;
+  return (
+    <Overridable id={buildUID("SearchApp.searchbar", "", appName)}>
+      <ReactSearchKitSearchBar />
+    </Overridable>
+  );
 };
 
 SearchBar.propTypes = {

@@ -10,10 +10,14 @@ export { ResultsGridItem } from "./ResultsGridItem";
 export { ResultsListItem } from "./ResultsListItem";
 export { Results } from "./Results";
 export { SearchBar } from "./SearchBar";
-export { SearchApp, SearchAppFacets, SearchAppResultsPane } from "./SearchApp";
+export { SearchApp } from "./SearchApp";
 export { SearchConfigurationContext } from "./context";
 export { InvenioSearchPagination } from "./InvenioSearchPagination";
 export {
   MultipleOptionsSearchBar,
   MultipleOptionsSearchBarRSK,
 } from "./MultipleOptionsSearchBar";
+export { SearchAppFacets } from "./SearchAppFacets";
+export { SearchAppResultsPane } from "./SearchAppResultsPane";
+export { DropdownSort, DropdownFilter } from "./SearchDropdowns";
+export { SearchFilters } from "./SearchFilters";
