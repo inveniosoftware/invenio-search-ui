@@ -28,7 +28,7 @@ export const Results = ({ currentResultsState = {} }) => {
     useContext(SearchConfigurationContext);
   const multipleLayouts = layoutOptions.listView && layoutOptions.gridView;
   return (
-    (total || null) && (
+    (total) && (
       <Overridable
         id={buildUID("SearchApp.results")}
         {...{
