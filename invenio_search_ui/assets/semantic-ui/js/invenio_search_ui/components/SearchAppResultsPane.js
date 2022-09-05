@@ -12,19 +12,17 @@ import {
   Error,
   ResultsLoader,
   withState,
+  buildUID,
 } from "react-searchkit";
-
-import Overridable, {
-} from "react-overridable";
-
+import Overridable from "react-overridable";
 
 const OnResults = withState(Results);
 
-export const SearchAppResultsPane = ({ layoutOptions, buildUID, appName }) => {
-
+export const SearchAppResultsPane = ({ layoutOptions, appName }) => {
+  const buildOverridableUID = (element) => buildUID(element, "", appName);
   return (
     <Overridable
-      id={buildUID("SearchApp.resultsPane", "", appName)}
+      id={buildOverridableUID("SearchApp.resultsPane", "", appName)}
       layoutOptions={layoutOptions}
     >
       <ResultsLoader>

@@ -7,16 +7,16 @@
  */
 
 import React from "react";
-import {
-  BucketAggregation,
-} from "react-searchkit";
-import Overridable, {
-} from "react-overridable";
+import { BucketAggregation, buildUID } from "react-searchkit";
+import Overridable from "react-overridable";
 
-export const SearchAppFacets = ({ aggs, buildUID, appName }) => {
-
+export const SearchAppFacets = ({ aggs, appName }) => {
+  const buildOverridableUID = (element) => buildUID(element, "", appName);
   return (
-    <Overridable id={buildUID("SearchApp.facets", "", appName)} aggs={aggs}>
+    <Overridable
+      id={buildOverridableUID("SearchApp.facets", "", appName)}
+      aggs={aggs}
+    >
       <>
         {aggs.map((agg) => (
           <BucketAggregation key={agg.title} title={agg.title} agg={agg.agg} />
@@ -25,4 +25,3 @@ export const SearchAppFacets = ({ aggs, buildUID, appName }) => {
     </Overridable>
   );
 };
-
