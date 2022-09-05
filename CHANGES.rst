@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.1.8 (released 2022-09-05)
+
+- search app: fix buildUID function resolution
+
 Version 2.1.7 (released 2022-09-05)
 
 - layout: adopt to full width when no facets available
