@@ -8,9 +8,14 @@
 Changes
 =======
 
+Version 2.1.7 (released 2022-09-05)
+
+- layout: adopt to full width when no facets available
+- ux: add label to sort
+
 Version 2.1.6 (released 2022-08-03)
 
-- multi-opion searchbar: fix options fixed to option 1
+- multi-option searchbar: fix search options resolution
 
 Version 2.1.5 (released 2022-08-02)
 
