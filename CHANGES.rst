@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.1.9 (released 2022-09-06)
+
+- search app: fix display statement
+
 Version 2.1.8 (released 2022-09-05)
 
 - search app: fix buildUID function resolution
