@@ -21,3 +21,8 @@ export { SearchAppFacets } from "./SearchAppFacets";
 export { SearchAppResultsPane } from "./SearchAppResultsPane";
 export { DropdownSort, DropdownFilter } from "./SearchDropdowns";
 export { SearchFilters } from "./SearchFilters";
+export {
+  ContribSearchAppFacets,
+  ContribBucketAggregationElement,
+  ContribBucketAggregationValuesElement,
+} from "./common/facets";
