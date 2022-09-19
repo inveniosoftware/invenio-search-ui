@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.1.10 (released 2022-09-19)
+
+- add contrib search app components
+
 Version 2.1.9 (released 2022-09-06)
 
 - search app: fix display statement
