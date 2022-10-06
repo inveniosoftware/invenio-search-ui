@@ -9,8 +9,39 @@
 import React, { Component } from "react";
 import { Dropdown, Icon } from "semantic-ui-react";
 import PropTypes from "prop-types";
+import _find from "lodash/find";
 
 export class DropdownSort extends Component {
+  parsedOptions = () => {
+    const {
+      options,
+      currentSortBy,
+      onValueChange,
+      ariaLabel,
+      selectOnNavigation,
+      ...uiProps
+    } = this.props;
+
+    return options.map((option) => {
+
+      const selected = currentSortBy === option.sortBy;
+
+      return {
+        key: option.value,
+        text: option.text,
+        value: option.value,
+        disabled: selected,
+        selected: selected
+      };
+    });
+  };
+
+  getCurrentlySelectedOption = (options) => {
+    return options.find(option => {
+      return option.selected === true;
+    })
+  }
+
   render() {
     const {
       options,
@@ -21,15 +52,7 @@ export class DropdownSort extends Component {
       ...uiProps
     } = this.props;
 
-    const optionsWithDisabled = options.map((option) => {
-      const disabled = currentSortBy === option.sortBy;
-      return {
-        key: option.value,
-        text: option.text,
-        value: option.value,
-        disabled: disabled,
-      };
-    });
+    const parsedOptions = this.parsedOptions()
     return (
       <Dropdown
         icon="sort"
@@ -37,12 +60,12 @@ export class DropdownSort extends Component {
         labeled
         item
         trigger={
-          <span className='capitalize'>
-            {currentSortBy}
-            <Icon name='dropdown'/>
+          <span>
+            {this.getCurrentlySelectedOption(parsedOptions).text}
+            <Icon name="dropdown" />
           </span>
         }
-        options={optionsWithDisabled}
+        options={parsedOptions}
         value={currentSortBy}
         onChange={(_, { value }) => onValueChange(value)}
         aria-label={ariaLabel}
@@ -103,7 +126,7 @@ export class DropdownFilter extends Component {
         trigger={
           <span>
             {filterLabel}
-            <Icon name='dropdown'/>
+            <Icon name="dropdown" />
           </span>
         }
         options={options}
