@@ -2,13 +2,13 @@
 #
 # This file is part of Invenio.
 # Copyright (C) 2015-2018 CERN.
+# Copyright (C) 2022 Graz University of Technology.
 #
 # Invenio is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 
 
-# Transifex integration
-#
+# Translate python strings
 # 1) Create message catalog:
 #    $ python setup.py extract_messages
 #    $ python setup.py init_catalog -l <lang>
@@ -33,8 +33,35 @@ source_file = invenio_search_ui/translations/messages.pot
 source_lang = en
 type = PO
 
+# Translate JavaScript strings
+# 1) Navigate to the invenio_search_ui/assets/semantic-ui/translations/invenio_search_ui/ folder
+# 2) Install i18n dev dependencies
+#    npm install
+# 3) Add a new language
+#    npm run init_catalog lang <lang>
+# 4) Extract translation keys/values
+#    $ npm run extract_messages
+# 5) Update the ./messages/index.js file
+#    import TRANSLATE_<lang> from './<lang>/translations.json'
+#    export const translations = {
+#      ...rest,
+#      <lang>: { translation: TRANSLATE_<lang> }
+#    }
+# 6) Install the transifex-client
+#    $ pip install transifex-client
+# 7) Push source (.pot) and translations (.po) to Transifex
+#    $ tx push -s -t
+# 8) Pull translations for a single language from Transifex
+#    $ tx pull -l <lang>
+# 9) Pull translations for all languages from Transifex
+#    $ tx pull -a
+# 10) Compile .po files for all languages
+#    $ npm run compile_catalog
+# 11) Convert .po file for a single language
+#    $ npm run compile_catalog lang <lang>
+
 [invenio.invenio-search-ui-messages-js]
-file_filter = invenio_search_ui/translations/<lang>/LC_MESSAGES/messages-js.po
-source_file = invenio_search_ui/translations/messages-js.pot
+file_filter = invenio_search_ui/assets/semantic-ui/translations/invenio_search_ui/messages/<lang>/messages.po
+source_file = invenio_search_ui/assets/semantic-ui/translations/invenio_search_ui/translations.pot
 source_lang = en
 type = PO
