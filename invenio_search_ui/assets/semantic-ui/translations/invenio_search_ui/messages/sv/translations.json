@@ -1,6 +1,4 @@
 {
-  "Sort": "",
-  "Filter results": "",
   "filters": "",
   "Versions": "",
   "View all versions": "",
@@ -11,5 +9,7 @@
   "Clear": "",
   "Search records...": "",
   "All records": "",
-  "Sort by": ""
+  "Sort": "",
+  "Sort by": "",
+  "Filter results": ""
 }
