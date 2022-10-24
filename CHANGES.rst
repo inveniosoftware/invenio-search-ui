@@ -8,6 +8,11 @@
 Changes
 =======
 
+Version 2.2.0 (released 2022-10-24)
+
+- upgrade react-invenio-forms
+- use node 18
+
 Version 2.1.10 (released 2022-09-19)
 
 - add contrib search app components
