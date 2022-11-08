@@ -1,15 +1,15 @@
 {
-  "filters": "",
-  "Versions": "",
-  "View all versions": "",
-  "Help": "",
-  "Search guide": "",
-  "Show all sub facets of ": "",
-  "Clear selection": "",
-  "Clear": "",
-  "Search records...": "",
-  "All records": "",
-  "Sort": "",
-  "Sort by": "",
-  "Filter results": ""
+    "Sort": "Sortera",
+    "Filter results": "Filtrera resultat",
+    "filters": "filter",
+    "Versions": "Versioner",
+    "View all versions": "Se alla versioner",
+    "Help": "Hjälp",
+    "Search guide": "Sökguide",
+    "Show all sub facets of ": "Visa alla underfasetter av ",
+    "Clear selection": "Rensa markering",
+    "Clear": "Tömma",
+    "Search records...": "Sök rekord...",
+    "All records": "Alla rekord",
+    "Sort by": "Sortera efter"
 }
