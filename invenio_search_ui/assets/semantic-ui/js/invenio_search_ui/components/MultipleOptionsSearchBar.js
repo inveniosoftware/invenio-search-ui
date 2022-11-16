@@ -63,6 +63,7 @@ export class MultipleOptionsSearchBar extends Component {
         icon
         className="right-floated search"
         onClick={this.handleOnSearchClick}
+        aria-label={i18next.t("Search")}
       >
         <Icon name="search" />
       </Button>
@@ -132,6 +133,7 @@ export class MultipleOptionsSearchBarCmp extends Component {
         icon
         className="right-floated search"
         onClick={this.onBtnSearchClick}
+        aria-label={i18next.t("Search")}
       >
         <Icon name="search" />
       </Button>
