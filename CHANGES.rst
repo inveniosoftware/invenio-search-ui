@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.1.11 (released 2022-11-18)
+
+- add translations
+
 Version 2.1.10 (released 2022-09-19)
 
 - add contrib search app components
