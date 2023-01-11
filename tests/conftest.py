@@ -2,6 +2,7 @@
 #
 # This file is part of Invenio.
 # Copyright (C) 2015-2022 CERN.
+# Copyright (C) 2023 Graz University of Technology.
 #
 # Invenio is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
@@ -15,8 +16,8 @@ import tempfile
 import jinja2
 import pytest
 from flask import Flask
-from flask_babelex import Babel
 from invenio_assets import InvenioAssets
+from invenio_i18n import Babel
 
 from invenio_search_ui import InvenioSearchUI
 from invenio_search_ui.views import blueprint
