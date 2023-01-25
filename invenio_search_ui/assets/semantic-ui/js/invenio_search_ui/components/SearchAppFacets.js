@@ -16,6 +16,7 @@ export const SearchAppFacets = ({ aggs, appName }) => {
     <Overridable
       id={buildOverridableUID("SearchApp.facets", "", appName)}
       aggs={aggs}
+      appName={appName}
     >
       <>
         {aggs.map((agg) => (
