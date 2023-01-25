@@ -16,9 +16,9 @@ import {
 } from "semantic-ui-react";
 import Overridable from "react-overridable";
 import PropTypes from "prop-types";
-import { BucketAggregation, Toggle } from "react-searchkit";
+import { BucketAggregation, Toggle, buildUID } from "react-searchkit";
 
-export const ContribSearchAppFacets = ({ aggs, toogle, help }) => {
+export const ContribSearchAppFacets = ({ aggs, toogle, help, appName }) => {
   return (
     <aside aria-label={i18next.t("filters")} id="search-filters">
       {toogle && (
@@ -40,7 +40,7 @@ export const ContribSearchAppFacets = ({ aggs, toogle, help }) => {
         <Card className="borderless facet mt-0">
           <Card.Content>
             <Card.Header as="h2">{i18next.t("Help")}</Card.Header>
-            <ContribSearchHelpLinks />
+            <ContribSearchHelpLinks appName={appName}/>
           </Card.Content>
         </Card>
       )}
@@ -52,16 +52,19 @@ ContribSearchAppFacets.propTypes = {
   aggs: PropTypes.array.isRequired,
   toggle: PropTypes.bool,
   help: PropTypes.bool,
+  appName: PropTypes.string,
 };
 
 ContribSearchAppFacets.defaultProps = {
   toggle: false,
   help: true,
+  appName: "",
 };
 
-export const ContribSearchHelpLinks = () => {
+export const ContribSearchHelpLinks = (props) => {
+  const { appName } = props;
   return (
-    <Overridable id="RdmSearch.SearchHelpLinks">
+    <Overridable id={buildUID("SearchHelpLinks", "", appName)}>
       <List>
         <List.Item>
           <a href="/help/search">{i18next.t("Search guide")}</a>
@@ -69,6 +72,14 @@ export const ContribSearchHelpLinks = () => {
       </List>
     </Overridable>
   );
+};
+
+ContribSearchHelpLinks.propTypes = {
+  appName: PropTypes.string,
+};
+
+ContribSearchHelpLinks.defaultProps = {
+  appName: "",
 };
 
 export const ContribParentFacetValue = ({
@@ -83,7 +94,7 @@ export const ContribParentFacetValue = ({
   return (
     <Accordion>
       <Accordion.Title
-        onClick={() => {}}
+        onClick={() => { }}
         key={`panel-${bucket.label}`}
         active={isActive}
         className="facet-wrapper parent"
