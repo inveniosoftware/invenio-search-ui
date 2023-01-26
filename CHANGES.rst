@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.3.0 (released 2023-01-26)
+
+- assets: normalize overridable ids
+
 Version 2.2.0 (released 2022-10-24)
 
 - upgrade react-invenio-forms
