@@ -85,6 +85,7 @@ class SearchAppConfig:
         pagination_options=(10, 20, 50),
         default_size=10,
         default_page=1,
+        default_max_results=10000,
         facets=None,
         sort=None,
         initial_filters=[],
@@ -106,6 +107,7 @@ class SearchAppConfig:
         :param default_size: An integer setting the default number of results
             per page.
         :param default_page: An integer setting the default page.
+        :param default_max_results: An integer setting the default maximum total results.
         """
         options = deepcopy(self.default_options)
         options.update(configuration_options)
@@ -183,6 +185,7 @@ class SearchAppConfig:
                 for option in self.pagination_options
             ],
             "defaultValue": self.default_size,
+            "maxTotalResults": self.default_max_results,
         }
 
     @property
