@@ -9,6 +9,7 @@ import { Pagination, ResultsPerPage } from "react-searchkit";
 import { Grid } from "semantic-ui-react";
 
 export const InvenioSearchPagination = ({ paginationOptions }) => {
+  const { maxTotalResults, resultsPerPage } = paginationOptions;
   return (
     <Grid.Row verticalAlign="middle">
       <Grid.Column className="computer tablet only" width={4}></Grid.Column>
@@ -22,6 +23,7 @@ export const InvenioSearchPagination = ({ paginationOptions }) => {
             size: "mini",
             showFirst: false,
             showLast: false,
+            maxTotalResults,
           }}
         />
       </Grid.Column>
@@ -31,6 +33,7 @@ export const InvenioSearchPagination = ({ paginationOptions }) => {
             boundaryRangeCount: 0,
             showFirst: false,
             showLast: false,
+            maxTotalResults,
           }}
         />
       </Grid.Column>
@@ -40,13 +43,13 @@ export const InvenioSearchPagination = ({ paginationOptions }) => {
         width={4}
       >
         <ResultsPerPage
-          values={paginationOptions.resultsPerPage}
+          values={resultsPerPage}
           label={(cmp) => <> {cmp} results per page</>}
         />
       </Grid.Column>
       <Grid.Column className="mobile only mt-10" textAlign="center" width={16}>
         <ResultsPerPage
-          values={paginationOptions.resultsPerPage}
+          values={resultsPerPage}
           label={(cmp) => <> {cmp} results per page</>}
         />
       </Grid.Column>
