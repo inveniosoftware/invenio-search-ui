@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.4.1 (released 2023-04-06)
+
+- control maximum search results
+
 Version 2.4.0 (released 2023-03-02)
 
 - remove deprecated flask-babelex dependency and imports
