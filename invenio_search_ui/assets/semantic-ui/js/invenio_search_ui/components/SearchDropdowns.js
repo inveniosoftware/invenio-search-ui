@@ -60,7 +60,7 @@ export class DropdownSort extends Component {
         labeled
         item
         trigger={
-          <span>
+          <span className="flex align-items-center">
             {this.getCurrentlySelectedOption(parsedOptions).text}
             <Icon name="dropdown" />
           </span>
@@ -72,7 +72,7 @@ export class DropdownSort extends Component {
         selectOnNavigation={selectOnNavigation}
         selectOnBlur={false}
         size="large"
-        className="icon fluid-responsive"
+        className="icon fluid-mobile"
       />
     );
   }
@@ -124,7 +124,7 @@ export class DropdownFilter extends Component {
         item
         button
         trigger={
-          <span>
+          <span className="flex align-items-center">
             {filterLabel}
             <Icon name="dropdown" />
           </span>
@@ -134,7 +134,7 @@ export class DropdownFilter extends Component {
         selectOnBlur={false}
         value={null}
         loading={loading}
-        className="icon fluid-responsive"
+        className="icon fluid-mobile"
         {...uiProps}
       />
     );
