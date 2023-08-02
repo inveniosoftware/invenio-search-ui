@@ -8,6 +8,11 @@
 Changes
 =======
 
+Version 2.5.0 (released 2023-08-02)
+
+- search dropdown: add flex to button content
+- pull translations
+
 Version 2.4.1 (released 2023-04-06)
 
 - control maximum search results
