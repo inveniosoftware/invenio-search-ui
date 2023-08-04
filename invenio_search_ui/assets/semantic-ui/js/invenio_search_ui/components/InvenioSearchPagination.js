@@ -5,14 +5,24 @@
 // under the terms of the MIT License; see LICENSE file for more details.
 
 import React from "react";
-import { Pagination, ResultsPerPage } from "react-searchkit";
+import { i18next } from "@translations/invenio_search_ui/i18next";
+import { Trans } from "react-i18next";
+import { Pagination, ResultsPerPage, Count } from "react-searchkit";
 import { Grid } from "semantic-ui-react";
 
-export const InvenioSearchPagination = ({ paginationOptions }) => {
+export const InvenioSearchPagination = ({ paginationOptions, total }) => {
   const { maxTotalResults, resultsPerPage } = paginationOptions;
   return (
     <Grid.Row verticalAlign="middle">
-      <Grid.Column className="computer tablet only" width={4}></Grid.Column>
+      <Grid.Column className="computer tablet only" width={4}>
+        {total && <Count
+          label={() => (
+            <Trans>
+              <b>{{ total }}</b> results found
+            </Trans>
+          )}
+        />}
+      </Grid.Column>
       <Grid.Column
         className="computer tablet only"
         width={8}
@@ -44,13 +54,30 @@ export const InvenioSearchPagination = ({ paginationOptions }) => {
       >
         <ResultsPerPage
           values={resultsPerPage}
-          label={(cmp) => <> {cmp} results per page</>}
+          label={(cmp) => (
+            <Trans>
+              {cmp} {i18next.t("results per page")}
+            </Trans>
+          )}
         />
       </Grid.Column>
-      <Grid.Column className="mobile only mt-10" textAlign="center" width={16}>
+      <Grid.Column className="mobile only rel-mt-2" textAlign="center" width={16}>
+        {total && <Count
+          label={() => (
+            <span className="rel-mr-2">
+              <Trans>
+                <b>{{ total }}</b> results found
+              </Trans>
+            </span>
+          )}
+        />}
         <ResultsPerPage
           values={resultsPerPage}
-          label={(cmp) => <> {cmp} results per page</>}
+          label={(cmp) => (
+            <Trans>
+              {cmp} {i18next.t("results per page")}
+            </Trans>
+          )}
         />
       </Grid.Column>
     </Grid.Row>
