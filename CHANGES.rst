@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.6.1 (released 2023-09-08)
+
+- assets: fix typo on prop name in facets component
+
 Version 2.6.0 (released 2023-08-09)
 
 - pagination: add possibility to show number of results next to it
