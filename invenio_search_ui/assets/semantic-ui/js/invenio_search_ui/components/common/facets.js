@@ -18,10 +18,10 @@ import Overridable from "react-overridable";
 import PropTypes from "prop-types";
 import { BucketAggregation, Toggle, buildUID } from "react-searchkit";
 
-export const ContribSearchAppFacets = ({ aggs, toogle, help, appName }) => {
+export const ContribSearchAppFacets = ({ aggs, toggle, help, appName }) => {
   return (
     <aside aria-label={i18next.t("filters")} id="search-filters">
-      {toogle && (
+      {toggle && (
         <Toggle
           title={i18next.t("Versions")}
           label={i18next.t("View all versions")}
