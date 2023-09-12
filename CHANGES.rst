@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.7.0 (released 2023-09-12)
+
+- facets: convert number to locale, a11y improvements
+
 Version 2.6.1 (released 2023-09-08)
 
 - assets: fix typo on prop name in facets component
