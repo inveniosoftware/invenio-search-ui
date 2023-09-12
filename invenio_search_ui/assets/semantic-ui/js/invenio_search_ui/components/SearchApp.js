@@ -133,6 +133,7 @@ export const SearchApp = ({ config, appName }) => {
                 <Grid.Row columns={columnsAmount}>
                   {facetsAvailable && (
                     <GridResponsiveSidebarColumn
+                      ariaLabel={i18next.t("Search filters")}
                       mobile={4}
                       tablet={4}
                       computer={4}
@@ -145,7 +146,11 @@ export const SearchApp = ({ config, appName }) => {
                     </GridResponsiveSidebarColumn>
                   )}
 
-                  <Grid.Column {...resultsPaneLayout}>
+                  <Grid.Column
+                    as="section"
+                    aria-label={i18next.t("Search results")}
+                    {...resultsPaneLayout}
+                  >
                     <SearchAppResultsPane
                       layoutOptions={config.layoutOptions} appName={appName} buildUID={buildUID}
                     />
