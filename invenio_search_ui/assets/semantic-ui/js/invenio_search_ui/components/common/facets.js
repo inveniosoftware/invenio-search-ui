@@ -20,7 +20,7 @@ import { BucketAggregation, Toggle, buildUID } from "react-searchkit";
 
 export const ContribSearchAppFacets = ({ aggs, toggle, help, appName }) => {
   return (
-    <aside aria-label={i18next.t("filters")} id="search-filters">
+    <>
       {toggle && (
         <Toggle
           title={i18next.t("Versions")}
@@ -44,7 +44,7 @@ export const ContribSearchAppFacets = ({ aggs, toggle, help, appName }) => {
           </Card.Content>
         </Card>
       )}
-    </aside>
+    </>
   );
 };
 
@@ -104,6 +104,7 @@ export const ContribParentFacetValue = ({
             icon="angle right"
             className="transparent"
             onClick={() => setIsActive(!isActive)}
+            aria-expanded={isActive}
             aria-label={
               i18next.t("Show all sub facets of ") + bucket.label || keyField
             }
@@ -111,13 +112,17 @@ export const ContribParentFacetValue = ({
           <Checkbox
             label={bucket.label || keyField}
             id={`${keyField}-facet-checkbox`}
-            aria-describedby={`${keyField}-count`}
             value={keyField}
             checked={isSelected}
             onClick={() => onFilterClicked(keyField)}
           />
-          <Label circular id={`${keyField}-count`} className="facet-count">
-            {bucket.doc_count}
+          <Label
+            circular
+            role="note"
+            aria-label={`${bucket.doc_count} results for ${bucket.label || keyField}`}
+            className="facet-count"
+          >
+            {bucket.doc_count.toLocaleString("en-US")}
           </Label>
         </List.Content>
       </Accordion.Title>
@@ -146,12 +151,16 @@ export const ContribFacetValue = ({
         onClick={() => onFilterClicked(keyField)}
         label={bucket.label || keyField}
         id={`${keyField}-facet-checkbox`}
-        aria-describedby={`${keyField}-count`}
         value={keyField}
         checked={isSelected}
       />
-      <Label circular id={`${keyField}-count`} className="facet-count">
-        {bucket.doc_count}
+      <Label
+        circular
+        role="note"
+        aria-label={`${bucket.doc_count} results for ${bucket.label || keyField}`}
+        className="facet-count"
+      >
+        {bucket.doc_count.toLocaleString("en-US")}
       </Label>
     </List.Content>
   );

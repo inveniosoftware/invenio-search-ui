@@ -18,7 +18,7 @@ export const InvenioSearchPagination = ({ paginationOptions, total }) => {
         {total && <Count
           label={() => (
             <Trans>
-              <b>{{ total }}</b> results found
+              <b>{total.toLocaleString("en-US")}</b> results found
             </Trans>
           )}
         />}
@@ -66,7 +66,7 @@ export const InvenioSearchPagination = ({ paginationOptions, total }) => {
           label={() => (
             <span className="rel-mr-2">
               <Trans>
-                <b>{{ total }}</b> results found
+                <b>{total.toLocaleString("en-US")}</b> results found
               </Trans>
             </span>
           )}
