@@ -55,6 +55,11 @@ export class MultipleOptionsSearchBar extends Component {
     this.setState({ queryString: value });
   };
 
+  handleFocus = (e) => {
+    e.persist();
+    if(e.target.nodeName === "BUTTON") this.handleOnSearchClick();
+  }
+
   render() {
     const { placeholder, options } = this.props;
     const { queryString } = this.state;
@@ -74,6 +79,7 @@ export class MultipleOptionsSearchBar extends Component {
         onResultSelect={this.handleOnResultSelect}
         onSearchChange={this.handleOnSearchChange}
         resultRenderer={(props) => resultRenderer(props, queryString)}
+        onFocus={this.handleFocus}
         results={options}
         value={queryString}
         placeholder={placeholder}
@@ -108,11 +114,11 @@ MultipleOptionsSearchBar.defaultProps = {
 export class MultipleOptionsSearchBarCmp extends Component {
   /** Multiple options searchbar to be wrapped with RSK context
    */
-  onBtnSearchClick = (e, { result }) => {
+  onBtnSearchClick = (e, data) => {
+    const { result } = data || {};
     const { queryString, updateQueryState, currentQueryState } = this.props;
     const { defaultOption } = this.props;
-    const { value: url } = result;
-    const destinationURL = url || defaultOption.value;
+    const destinationURL = result?.value || defaultOption.value;
 
     if (window.location.pathname === destinationURL) {
       updateQueryState({ ...currentQueryState, queryString });
@@ -125,6 +131,11 @@ export class MultipleOptionsSearchBarCmp extends Component {
     const { onInputChange } = this.props;
     onInputChange(value);
   };
+
+  handleFocus = (e) => {
+    e.persist();
+    if(e.target.nodeName === "BUTTON") this.onBtnSearchClick();
+  }
 
   render() {
     const { placeholder, queryString, options } = this.props;
@@ -145,6 +156,7 @@ export class MultipleOptionsSearchBarCmp extends Component {
         onResultSelect={this.onBtnSearchClick}
         onSearchChange={this.handleOnSearchChange}
         resultRenderer={(props) => resultRenderer(props, queryString)}
+        onFocus={this.handleFocus}
         results={options}
         value={queryString}
         placeholder={placeholder}
