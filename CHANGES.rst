@@ -8,6 +8,12 @@
 Changes
 =======
 
+Version 2.8.0 (released 2023-09-14)
+
+- search bar: add aria-label
+- facets: replace id with aria label
+- search bar: fix focus vs click bug and inactive button
+
 Version 2.7.0 (released 2023-09-12)
 
 - facets: convert number to locale, a11y improvements
