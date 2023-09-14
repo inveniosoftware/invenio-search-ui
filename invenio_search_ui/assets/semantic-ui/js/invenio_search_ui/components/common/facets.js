@@ -110,8 +110,8 @@ export const ContribParentFacetValue = ({
             }
           />
           <Checkbox
-            label={bucket.label || keyField}
-            id={`${keyField}-facet-checkbox`}
+            label={<label aria-hidden="true">{bucket.label || keyField}</label>}
+            aria-label={bucket.label || keyField}
             value={keyField}
             checked={isSelected}
             onClick={() => onFilterClicked(keyField)}
@@ -122,7 +122,9 @@ export const ContribParentFacetValue = ({
             aria-label={`${bucket.doc_count} results for ${bucket.label || keyField}`}
             className="facet-count"
           >
-            {bucket.doc_count.toLocaleString("en-US")}
+            <span aria-hidden="true">
+              {bucket.doc_count.toLocaleString("en-US")}
+            </span>
           </Label>
         </List.Content>
       </Accordion.Title>
@@ -149,8 +151,8 @@ export const ContribFacetValue = ({
     <List.Content className="facet-wrapper">
       <Checkbox
         onClick={() => onFilterClicked(keyField)}
-        label={bucket.label || keyField}
-        id={`${keyField}-facet-checkbox`}
+        label={<label aria-hidden="true">{bucket.label || keyField}</label>}
+        aria-label={bucket.label || keyField}
         value={keyField}
         checked={isSelected}
       />
@@ -160,7 +162,9 @@ export const ContribFacetValue = ({
         aria-label={`${bucket.doc_count} results for ${bucket.label || keyField}`}
         className="facet-count"
       >
-        {bucket.doc_count.toLocaleString("en-US")}
+        <span aria-hidden="true">
+          {bucket.doc_count.toLocaleString("en-US")}
+        </span>
       </Label>
     </List.Content>
   );
