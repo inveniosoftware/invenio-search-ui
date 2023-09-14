@@ -76,6 +76,7 @@ export class MultipleOptionsSearchBar extends Component {
     return (
       <Search
         fluid
+        aria-label={placeholder}
         onResultSelect={this.handleOnResultSelect}
         onSearchChange={this.handleOnSearchChange}
         resultRenderer={(props) => resultRenderer(props, queryString)}
@@ -153,6 +154,7 @@ export class MultipleOptionsSearchBarCmp extends Component {
     return (
       <Search
         fluid
+        aria-label={placeholder}
         onResultSelect={this.onBtnSearchClick}
         onSearchChange={this.handleOnSearchChange}
         resultRenderer={(props) => resultRenderer(props, queryString)}
