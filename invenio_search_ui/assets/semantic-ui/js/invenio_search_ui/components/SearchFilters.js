@@ -29,6 +29,7 @@ export class SearchFiltersComponent extends Component {
             key={filter[0]}
             filterKey={filter[0]}
             filterLabel={filter[1].label}
+            aria-label={filter[1].label}
             filterValues={filter[1].buckets}
             currentQueryState={currentQueryState}
             updateQueryState={updateQueryState}
