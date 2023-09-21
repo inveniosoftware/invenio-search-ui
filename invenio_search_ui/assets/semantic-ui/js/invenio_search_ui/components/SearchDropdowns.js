@@ -62,7 +62,7 @@ export class DropdownSort extends Component {
         trigger={
           <span className="flex align-items-center">
             {this.getCurrentlySelectedOption(parsedOptions).text}
-            <Icon name="dropdown" />
+            <Icon name="dropdown" role="option" />
           </span>
         }
         options={parsedOptions}
@@ -126,7 +126,7 @@ export class DropdownFilter extends Component {
         trigger={
           <span className="flex align-items-center">
             {filterLabel}
-            <Icon name="dropdown" />
+            <Icon name="dropdown" role="option" />
           </span>
         }
         options={options}
