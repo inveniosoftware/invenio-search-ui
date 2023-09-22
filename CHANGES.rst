@@ -8,6 +8,11 @@
 Changes
 =======
 
+Version 2.8.1 (released 2023-09-22)
+
+- a11y: fix icon roles
+- a11y: fix search filter name
+
 Version 2.8.0 (released 2023-09-14)
 
 - search bar: add aria-label
