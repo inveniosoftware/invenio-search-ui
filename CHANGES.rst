@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.8.2 (released 2023-09-29)
+
+- a11y: removed option role
+
 Version 2.8.1 (released 2023-09-22)
 
 - a11y: fix icon roles
