@@ -9,7 +9,7 @@
 """UI for Invenio-Search."""
 
 from . import config
-from .views import blueprint
+from .views import blueprint, search
 
 
 class InvenioSearchUI(object):
@@ -30,6 +30,9 @@ class InvenioSearchUI(object):
         """
         self.init_config(app)
         app.extensions["invenio-search-ui"] = self
+
+        search_view = app.config.get("SEARCH_UI_SEARCH_VIEW", search)
+        blueprint.add_url_rule("/search", "search", view_func=search_view)
 
     def init_config(self, app):
         """Initialize configuration.

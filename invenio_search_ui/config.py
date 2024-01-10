@@ -8,7 +8,10 @@
 
 """Configuration for Invenio-Search-UI."""
 
-from .views import SearchAppInvenioRestConfigHelper
+from .views import SearchAppInvenioRestConfigHelper, search
+
+SEARCH_UI_SEARCH_VIEW = search
+"""Default funtion to do the `search` route."""
 
 SEARCH_UI_SEARCH_TEMPLATE = "invenio_search_ui/search.html"
 """Configure the search page template."""
