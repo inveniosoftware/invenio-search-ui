@@ -20,9 +20,13 @@ blueprint = Blueprint(
 )
 
 
-@blueprint.route("/search")
 def search():
-    """Search page ui."""
+    """Default search page ui.
+
+    It can be overwritten with the configuration item SEARCH_UI_SEARCH_VIEW.
+    That's the reason why this function is not added to the blueprint here. Instead of that,
+    it will be added in the ext.py
+    """
     return render_template(current_app.config["SEARCH_UI_SEARCH_TEMPLATE"])
 
 
