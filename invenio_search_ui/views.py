@@ -40,9 +40,7 @@ def sorted_options(sort_options):
     return [
         {
             "title": v["title"],
-            "value": (
-                "-{0}".format(k) if v.get("default_order", "asc") == "desc" else k
-            ),
+            "value": "-{0}".format(k) if v.get("default_order", "asc") == "desc" else k,
         }
         for k, v in sorted(sort_options.items(), key=lambda x: x[1].get("order", 0))
     ]
@@ -243,7 +241,9 @@ class SearchAppInvenioRestConfigHelper(object):
             "aggs": generator_object.aggs,
             "layoutOptions": generator_object.layoutOptions,
             "paginationOptions": generator_object.paginationOptions,
-            "defaultSortingOnEmptyQueryString": generator_object.defaultSortingOnEmptyQueryString,
+            "defaultSortingOnEmptyQueryString": (
+                generator_object.defaultSortingOnEmptyQueryString
+            ),
         }
         config.update(kwargs)
         return config
