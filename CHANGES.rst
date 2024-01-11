@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.8.3 (released 2024-01-11)
+
+- search: add new config parameter for the default search view
+
 Version 2.8.2 (released 2023-09-29)
 
 - a11y: removed option role

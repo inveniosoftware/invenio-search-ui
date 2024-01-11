@@ -208,7 +208,9 @@ class SearchAppConfig:
             "layoutOptions": generator_object.layoutOptions,
             "sortOrderDisabled": True,
             "paginationOptions": generator_object.paginationOptions,
-            "defaultSortingOnEmptyQueryString": generator_object.defaultSortingOnEmptyQueryString,
+            "defaultSortingOnEmptyQueryString": (
+                generator_object.defaultSortingOnEmptyQueryString,
+            ),
         }
         config.update(kwargs)
         return config
