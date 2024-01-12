@@ -55,7 +55,7 @@ export class MultipleOptionsSearchBar extends Component {
     this.setState({ queryString: value });
   };
 
-  handleFocus = (e) => {
+  handleMouseDown = (e) => {
     e.persist();
     if(e.target.nodeName === "BUTTON") this.handleOnSearchClick();
   }
@@ -80,7 +80,7 @@ export class MultipleOptionsSearchBar extends Component {
         onResultSelect={this.handleOnResultSelect}
         onSearchChange={this.handleOnSearchChange}
         resultRenderer={(props) => resultRenderer(props, queryString)}
-        onFocus={this.handleFocus}
+        onMouseDown={this.handleMouseDown} // not onClick as button moves after focus
         results={options}
         value={queryString}
         placeholder={placeholder}
@@ -133,7 +133,7 @@ export class MultipleOptionsSearchBarCmp extends Component {
     onInputChange(value);
   };
 
-  handleFocus = (e) => {
+  handleMouseDown = (e) => {
     e.persist();
     if(e.target.nodeName === "BUTTON") this.onBtnSearchClick();
   }
@@ -158,7 +158,7 @@ export class MultipleOptionsSearchBarCmp extends Component {
         onResultSelect={this.onBtnSearchClick}
         onSearchChange={this.handleOnSearchChange}
         resultRenderer={(props) => resultRenderer(props, queryString)}
-        onFocus={this.handleFocus}
+        onMouseDown={this.handleMouseDown} // not onClick as button moves after focus
         results={options}
         value={queryString}
         placeholder={placeholder}
