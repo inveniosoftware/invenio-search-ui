@@ -55,11 +55,6 @@ export class MultipleOptionsSearchBar extends Component {
     this.setState({ queryString: value });
   };
 
-  handleMouseDown = (e) => {
-    e.persist();
-    if(e.target.nodeName === "BUTTON") this.handleOnSearchClick();
-  }
-
   render() {
     const { placeholder, options } = this.props;
     const { queryString } = this.state;
@@ -80,7 +75,7 @@ export class MultipleOptionsSearchBar extends Component {
         onResultSelect={this.handleOnResultSelect}
         onSearchChange={this.handleOnSearchChange}
         resultRenderer={(props) => resultRenderer(props, queryString)}
-        onMouseDown={this.handleMouseDown} // not onClick as button moves after focus
+        onMouseDown={this.handleOnSearchClick} // not onClick as button moves after focus
         results={options}
         value={queryString}
         placeholder={placeholder}
@@ -133,11 +128,6 @@ export class MultipleOptionsSearchBarCmp extends Component {
     onInputChange(value);
   };
 
-  handleMouseDown = (e) => {
-    e.persist();
-    if(e.target.nodeName === "BUTTON") this.onBtnSearchClick();
-  }
-
   render() {
     const { placeholder, queryString, options } = this.props;
     const button = (
@@ -158,7 +148,7 @@ export class MultipleOptionsSearchBarCmp extends Component {
         onResultSelect={this.onBtnSearchClick}
         onSearchChange={this.handleOnSearchChange}
         resultRenderer={(props) => resultRenderer(props, queryString)}
-        onMouseDown={this.handleMouseDown} // not onClick as button moves after focus
+        onMouseDown={this.handleOnSearchClick} // not onClick as button moves after focus
         results={options}
         value={queryString}
         placeholder={placeholder}
