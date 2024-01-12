@@ -62,6 +62,7 @@ export class MultipleOptionsSearchBar extends Component {
       <Button
         icon
         className="right-floated search"
+        onMouseDown={this.handleOnSearchClick} // not onClick as button moves after focus
         onClick={this.handleOnSearchClick}
         aria-label={i18next.t("Search")}
       >
@@ -75,7 +76,6 @@ export class MultipleOptionsSearchBar extends Component {
         onResultSelect={this.handleOnResultSelect}
         onSearchChange={this.handleOnSearchChange}
         resultRenderer={(props) => resultRenderer(props, queryString)}
-        onMouseDown={this.handleOnSearchClick} // not onClick as button moves after focus
         results={options}
         value={queryString}
         placeholder={placeholder}
@@ -134,6 +134,7 @@ export class MultipleOptionsSearchBarCmp extends Component {
       <Button
         icon
         className="right-floated search"
+        onMouseDown={this.handleOnSearchClick} // not onClick as button moves after focus
         onClick={this.onBtnSearchClick}
         aria-label={i18next.t("Search")}
       >
@@ -148,7 +149,6 @@ export class MultipleOptionsSearchBarCmp extends Component {
         onResultSelect={this.onBtnSearchClick}
         onSearchChange={this.handleOnSearchChange}
         resultRenderer={(props) => resultRenderer(props, queryString)}
-        onMouseDown={this.handleOnSearchClick} // not onClick as button moves after focus
         results={options}
         value={queryString}
         placeholder={placeholder}
