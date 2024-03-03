@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.8.4 (released 2024-03-04)
+
+- bump react-invenio-forms
+
 Version 2.8.3 (released 2024-01-11)
 
 - search: add new config parameter for the default search view
