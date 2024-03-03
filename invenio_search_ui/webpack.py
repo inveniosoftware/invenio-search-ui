@@ -41,7 +41,7 @@ search_ui = WebpackThemeBundle(
                 "redux": "^4.0.0",
                 "redux-thunk": "^2.3.0",
                 "react-searchkit": "^2.0.0",
-                "react-invenio-forms": "^1.0.0",
+                "react-invenio-forms": "^3.0.0",
                 "semantic-ui-css": "^2.4.0",
                 "semantic-ui-react": "^2.1.0",
                 "i18next": "^20.3.0",
