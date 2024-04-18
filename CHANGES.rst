@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.8.6
+
+- a11y: allow users to tab across the search button
+
 Version 2.8.5 (released 2024-03-04)
 
 - relax major upper pin of invenio-assets, as v3 only upgrades webpack to
