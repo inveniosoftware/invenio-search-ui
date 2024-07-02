@@ -21,6 +21,7 @@ import { Grid } from "semantic-ui-react";
 import { SearchConfigurationContext } from "./context";
 import { i18next } from "@translations/invenio_search_ui/i18next";
 import { InvenioSearchPagination } from "./InvenioSearchPagination";
+import { AppMedia } from "@js/invenio_theme/Media";
 
 export const Results = ({ currentResultsState = {} }) => {
   const { total } = currentResultsState.data;
@@ -58,6 +59,7 @@ export const Results = ({ currentResultsState = {} }) => {
 };
 
 export const ResultOptions = ({ currentResultsState = {} }) => {
+  const { MediaContextProvider, Media } = AppMedia;
   const { total } = currentResultsState.data;
   const {
     sortOptions,
@@ -68,49 +70,75 @@ export const ResultOptions = ({ currentResultsState = {} }) => {
   } = useContext(SearchConfigurationContext);
   const multipleLayouts = layoutOptions.listView && layoutOptions.gridView;
   return (
-    (total || null) && (
-      <Overridable
-        id={buildUID("SearchApp.resultOptions")}
-        {...{
-          currentResultsState,
-          sortOptions,
-          paginationOptions,
-          layoutOptions,
-        }}
-      >
-        <Grid>
-          <Grid.Row verticalAlign="middle">
-            <Grid.Column textAlign="left" width={multipleLayouts ? 5 : 8}>
-              <Count label={(cmp) => <>{cmp} result(s) found</>} />
-              <br />
-            </Grid.Column>
-            <Grid.Column width={8} textAlign="right">
-              {sortOptions && (
-                <Overridable
-                  id={buildUID("SearchApp.sort")}
-                  options={sortOptions}
-                >
-                  <Sort
-                    sortOrderDisabled={sortOrderDisabled || false}
-                    values={sortOptions}
-                    ariaLabel={i18next.t("Sort")}
-                    label={(cmp) => (
-                      <>
-                        <label className="mr-10">{i18next.t("Sort by")}</label>{cmp}
-                      </>
-                    )}
-                  />
-                </Overridable>
-              )}
-            </Grid.Column>
-            {multipleLayouts ? (
-              <Grid.Column width={3} textAlign="right">
-                <LayoutSwitcher />
+    <MediaContextProvider>
+      {(total || null) && (
+        <Overridable
+          id={buildUID("SearchApp.resultOptions")}
+          {...{
+            currentResultsState,
+            sortOptions,
+            paginationOptions,
+            layoutOptions,
+          }}
+        >
+          <Grid>
+            <Grid.Row verticalAlign="middle">
+               <Grid.Column
+                at="mobile"
+                as={Media}
+                textAlign="right"
+                width={16}
+                floated="right"
+                className="mb-10"
+              >
+                <Count label={(cmp) => <>{cmp} result(s) found</>} />
               </Grid.Column>
-            ) : null}
-          </Grid.Row>
-        </Grid>
-      </Overridable>
-    )
+              <Grid.Column
+                as={Media}
+                greaterThanOrEqual="tablet"
+                textAlign="left"
+                width={multipleLayouts ? 5 : 8}
+                className="mb-10"
+              >
+                <Count label={(cmp) => <>{cmp} result(s) found</>}/>
+              </Grid.Column>
+
+              <Grid.Column
+                computer={8}
+                tablet={8}
+                mobile={16}
+                textAlign="right"
+              >
+                {sortOptions && (
+                  <Overridable
+                    id={buildUID("SearchApp.sort")}
+                    options={sortOptions}
+                  >
+                    <Sort
+                      sortOrderDisabled={sortOrderDisabled || false}
+                      values={sortOptions}
+                      ariaLabel={i18next.t("Sort")}
+                      label={(cmp) => (
+                        <>
+                          <label className="mr-10">
+                            {i18next.t("Sort by")}
+                          </label>
+                          {cmp}
+                        </>
+                      )}
+                    />
+                  </Overridable>
+                )}
+              </Grid.Column>
+              {multipleLayouts ? (
+                <Grid.Column width={3} textAlign="right">
+                  <LayoutSwitcher />
+                </Grid.Column>
+              ) : null}
+            </Grid.Row>
+          </Grid>
+        </Overridable>
+      )}
+    </MediaContextProvider>
   );
 };
