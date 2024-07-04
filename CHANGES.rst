@@ -8,7 +8,11 @@
 Changes
 =======
 
-Version 2.8.6
+Version 2.8.7 (released 2024-07-04)
+
+- search options: fix responsiveness of search header (number of results + sort)
+
+Version 2.8.6 (released 2024-04-18)
 
 - a11y: allow users to tab across the search button
 
