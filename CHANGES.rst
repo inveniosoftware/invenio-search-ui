@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version v2.9.0 (released 2024-08-22)
+
+- package: bump react-invenio-forms
+
 Version 2.8.7 (released 2024-07-04)
 
 - search options: fix responsiveness of search header (number of results + sort)
