@@ -28,6 +28,10 @@ export const Results = ({ currentResultsState = {} }) => {
   const { sortOptions, layoutOptions, paginationOptions, buildUID } =
     useContext(SearchConfigurationContext);
   const multipleLayouts = layoutOptions.listView && layoutOptions.gridView;
+
+  const handleResultsRendered = () => {
+    window.invenio?.onSearchResultsRendered();
+  };
   return (
     (total || null) && (
       <Overridable
@@ -43,11 +47,11 @@ export const Results = ({ currentResultsState = {} }) => {
           <Grid.Row>
             <Grid.Column>
               {multipleLayouts ? (
-                <ResultsMultiLayout />
+                <ResultsMultiLayout onResultsRendered={handleResultsRendered}/>
               ) : layoutOptions.listView ? (
-                <ResultsList />
+                <ResultsList onResultsRendered={handleResultsRendered}/>
               ) : (
-                <ResultsGrid />
+                <ResultsGrid onResultsRendered={handleResultsRendered}/>
               )}
             </Grid.Column>
           </Grid.Row>
