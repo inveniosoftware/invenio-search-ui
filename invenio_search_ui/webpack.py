@@ -31,7 +31,7 @@ search_ui = WebpackThemeBundle(
             dependencies={
                 "@babel/runtime": "^7.9.0",
                 "@semantic-ui-react/css-patch": "^1.0.0",
-                "axios": "^0.21.0",
+                "axios": "^1.7.7",
                 "lodash": "^4.17.0",
                 "qs": "^6.8.0",
                 "react": "^16.13.0",
@@ -40,7 +40,7 @@ search_ui = WebpackThemeBundle(
                 "react-redux": "^7.2.0",
                 "redux": "^4.0.0",
                 "redux-thunk": "^2.3.0",
-                "react-searchkit": "^2.0.0",
+                "react-searchkit": "^3.0.0",
                 "react-invenio-forms": "^4.0.0",
                 "semantic-ui-css": "^2.4.0",
                 "semantic-ui-react": "^2.1.0",
