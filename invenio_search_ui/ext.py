@@ -2,6 +2,7 @@
 #
 # This file is part of Invenio.
 # Copyright (C) 2015-2022 CERN.
+# Copyright (C) 2024 Graz University of Technology.
 #
 # Invenio is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
@@ -9,7 +10,6 @@
 """UI for Invenio-Search."""
 
 from . import config
-from .views import blueprint, search
 
 
 class InvenioSearchUI(object):
@@ -30,9 +30,6 @@ class InvenioSearchUI(object):
         """
         self.init_config(app)
         app.extensions["invenio-search-ui"] = self
-
-        search_view = app.config.get("SEARCH_UI_SEARCH_VIEW", search)
-        blueprint.add_url_rule("/search", "search", view_func=search_view)
 
     def init_config(self, app):
         """Initialize configuration.
