@@ -2,7 +2,7 @@
 #
 # This file is part of Invenio.
 # Copyright (C) 2015-2022 CERN.
-# Copyright (C) 2023 Graz University of Technology.
+# Copyright (C) 2023-2024 Graz University of Technology.
 #
 # Invenio is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
@@ -20,7 +20,7 @@ from invenio_assets import InvenioAssets
 from invenio_i18n import Babel
 
 from invenio_search_ui import InvenioSearchUI
-from invenio_search_ui.views import blueprint
+from invenio_search_ui.views import create_blueprint
 
 
 @pytest.yield_fixture()
@@ -49,7 +49,8 @@ def app():
     def api():
         return {}
 
-    app.register_blueprint(blueprint)
+    app.register_blueprint(create_blueprint(app))
+
     # add extra test templates to the search app blueprint, to fake the
     # existence of `invenio-theme` base templates.
     test_templates_path = os.path.join(os.path.dirname(__file__), "templates")

@@ -2,6 +2,7 @@
 #
 # This file is part of Invenio.
 # Copyright (C) 2015-2022 CERN.
+# Copyright (C) 2024 Graz University of Technology.
 #
 # Invenio is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
@@ -12,12 +13,32 @@ from copy import deepcopy
 
 from flask import Blueprint, current_app, json, render_template
 
-blueprint = Blueprint(
-    "invenio_search_ui",
-    __name__,
-    template_folder="templates",
-    static_folder="static",
-)
+
+def create_blueprint(app):
+    """Create blueprint."""
+    blueprint = Blueprint(
+        "invenio_search_ui",
+        __name__,
+        template_folder="templates",
+        static_folder="static",
+    )
+
+    search_view = app.config.get("SEARCH_UI_SEARCH_VIEW", search)
+    blueprint.add_url_rule("/search", "search", view_func=search_view)
+
+    blueprint.add_app_template_filter(format_sortoptions, name="format_sortoptions")
+
+    @blueprint.app_context_processor
+    def search_app_helpers():
+        """Makes Invenio-Search-JS config generation available for Jinja."""
+        return {"search_app_helpers": current_app.config["SEARCH_UI_SEARCH_CONFIG_GEN"]}
+
+    return blueprint
+
+
+def format_sortoptions(sort_options):
+    """Create sort options JSON dump for Invenio-Search-JS."""
+    return json.dumps({"options": sorted_options(sort_options)})
 
 
 def search():
@@ -44,12 +65,6 @@ def sorted_options(sort_options):
         }
         for k, v in sorted(sort_options.items(), key=lambda x: x[1].get("order", 0))
     ]
-
-
-@blueprint.app_template_filter("format_sortoptions")
-def format_sortoptions(sort_options):
-    """Create sort options JSON dump for Invenio-Search-JS."""
-    return json.dumps({"options": sorted_options(sort_options)})
 
 
 class SearchAppInvenioRestConfigHelper(object):
@@ -247,9 +262,3 @@ class SearchAppInvenioRestConfigHelper(object):
         }
         config.update(kwargs)
         return config
-
-
-@blueprint.app_context_processor
-def search_app_helpers():
-    """Makes Invenio-Search-JS config generation available for Jinja."""
-    return {"search_app_helpers": current_app.config["SEARCH_UI_SEARCH_CONFIG_GEN"]}
