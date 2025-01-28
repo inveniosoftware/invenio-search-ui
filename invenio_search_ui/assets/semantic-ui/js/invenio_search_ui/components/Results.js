@@ -95,7 +95,7 @@ export const ResultOptions = ({ currentResultsState = {} }) => {
                 floated="right"
                 className="mb-10"
               >
-                <Count label={(cmp) => <>{cmp} result(s) found</>} />
+                <Count label={(cmp) => <>{cmp} {i18next.t('result(s) found')}</>} />
               </Grid.Column>
               <Grid.Column
                 as={Media}
@@ -104,7 +104,7 @@ export const ResultOptions = ({ currentResultsState = {} }) => {
                 width={multipleLayouts ? 5 : 8}
                 className="mb-10"
               >
-                <Count label={(cmp) => <>{cmp} result(s) found</>}/>
+                <Count label={(cmp) => <>{cmp} {i18next.t('result(s) found')}</>} />
               </Grid.Column>
 
               <Grid.Column
