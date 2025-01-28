@@ -98,7 +98,7 @@ export const ResultOptions = ({ currentResultsState = {} }) => {
         <Grid>
           <Grid.Row verticalAlign="middle">
             <Grid.Column textAlign="left" width={multipleLayouts ? 5 : 8}>
-              <Count label={(cmp) => <>{cmp} result(s) found</>} />
+            <Count label={(cmp) => <>{cmp} {i18next.t('result(s) found')}</>} />
               <br />
             </Grid.Column>
             <Grid.Column width={8} textAlign="right">
