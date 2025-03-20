@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.0.12 (released 2025-03-20)
+- i18n: mark missing strings for translations
+- i18n: fix entry point for translations
+
 Version 2.0.11 (released 2022-07-08)
 
 - Removes dependency on invenio-app-rdm
