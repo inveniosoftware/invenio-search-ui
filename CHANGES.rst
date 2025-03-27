@@ -8,6 +8,11 @@
 Changes
 =======
 
+Version 2.8.8 (released 2025-03-27)
+
+- i18n: mark missing strings for translations
+- i18n: fix entry point for translations
+
 Version 2.8.7 (released 2024-07-04)
 
 - search options: fix responsiveness of search header (number of results + sort)
