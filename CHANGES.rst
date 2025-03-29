@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version 2.8.9 (released 2025-03-29)
+
+- setup: fix mismatched blueprints entrypoint
+
 Version 2.8.8 (released 2025-03-27)
 
 - i18n: mark missing strings for translations
