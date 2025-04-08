@@ -5,18 +5,9 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2022-10-12T08:17:06.372Z\n"
-"PO-Revision-Date: 2022-10-12T08:17:06.372Z\n"
+"POT-Creation-Date: 2025-04-08T19:44:36.175Z\n"
+"PO-Revision-Date: 2025-04-08T19:44:36.175Z\n"
 "Language: en\n"
-
-msgid "Sort"
-msgstr "Sort"
-
-msgid "Filter results"
-msgstr "Filter results"
-
-msgid "filters"
-msgstr "filters"
 
 msgid "Versions"
 msgstr "Versions"
@@ -39,11 +30,38 @@ msgstr "Clear selection"
 msgid "Clear"
 msgstr "Clear"
 
+msgid "results per page"
+msgstr "results per page"
+
+msgid "<0></0> results found"
+msgstr "<0></0> results found"
+
+msgid " "
+msgstr " "
+
+msgid "Search"
+msgstr "Search"
+
 msgid "Search records..."
 msgstr "Search records..."
 
 msgid "All records"
 msgstr "All records"
 
+msgid "result(s) found"
+msgstr "result(s) found"
+
+msgid "Sort"
+msgstr "Sort"
+
 msgid "Sort by"
 msgstr "Sort by"
+
+msgid "Filter results"
+msgstr "Filter results"
+
+msgid "Search filters"
+msgstr "Search filters"
+
+msgid "Search results"
+msgstr "Search results"
