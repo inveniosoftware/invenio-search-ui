@@ -226,7 +226,7 @@ export const ContribBucketAggregationElement = ({
 }) => {
   const clearFacets = () => {
     if (containerCmp.props.selectedFilters.length) {
-      updateQueryFilters([agg.aggName, ""], containerCmp.props.selectedFilters);
+      updateQueryFilters([agg.aggName], containerCmp.props.selectedFilters);
     }
   };
 
