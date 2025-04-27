@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: InvenioRDM\n"
-"POT-Creation-Date: 2022-10-12T08:17:06.372Z\n"
+"POT-Creation-Date: 2025-04-08T19:44:36.175Z\n"
 "PO-Revision-Date: 2016-10-20 07:42+0000\n"
 "Last-Translator: Kalven Richie, 2022\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/inveniosoftware/invenio/language/zh_CN/)\n"
@@ -13,15 +13,6 @@ msgstr ""
 "Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "mime-version: 1.0\n"
-
-msgid "Sort"
-msgstr ""
-
-msgid "Filter results"
-msgstr "筛选结果"
-
-msgid "filters"
-msgstr "筛选"
 
 msgid "Versions"
 msgstr "版本"
@@ -44,11 +35,38 @@ msgstr "清除选择"
 msgid "Clear"
 msgstr "清除"
 
+msgid "results per page"
+msgstr "每页的结果"
+
+msgid "<0></0> results found"
+msgstr ""
+
+msgid " "
+msgstr " "
+
+msgid "Search"
+msgstr "搜索"
+
 msgid "Search records..."
 msgstr ""
 
 msgid "All records"
 msgstr ""
 
+msgid "result(s) found"
+msgstr "找到结果"
+
+msgid "Sort"
+msgstr ""
+
 msgid "Sort by"
 msgstr "排序方式"
+
+msgid "Filter results"
+msgstr "筛选结果"
+
+msgid "Search filters"
+msgstr ""
+
+msgid "Search results"
+msgstr "搜索结果"
