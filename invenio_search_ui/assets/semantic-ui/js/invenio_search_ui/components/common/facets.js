@@ -101,7 +101,7 @@ export const ContribParentFacetValue = ({
       >
         <List.Content className="facet-wrapper">
           <Button
-            icon="angle right"
+            icon={isActive ? "angle down" : "angle right"}
             className="transparent"
             onClick={() => setIsActive(!isActive)}
             aria-expanded={isActive}
