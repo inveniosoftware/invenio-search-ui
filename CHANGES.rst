@@ -8,6 +8,9 @@
 Changes
 =======
 
+Version 2.8.11 (released 2025-05-01)
+- i18n: remove deprecated language labels (#221)
+
 Version 2.8.10 (released 2025-04-30)
 
 - i18n:pulled translations
