@@ -8,6 +8,15 @@
 Changes
 =======
 
+Version 2.9.0 (released 2025-04-30)
+
+- i18n:pulled translations
+- fix clear facets
+- i18n:push translations
+- i18n: removed deprecated messages
+- fix: setuptools require underscores instead of dashes
+- chore: relock deps and update babel-runtime and axios
+
 Version 2.8.9 (released 2025-03-29)
 
 - setup: fix mismatched blueprints entrypoint
