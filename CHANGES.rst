@@ -8,7 +8,7 @@
 Changes
 =======
 
-Version 2.9.0 (released 2025-04-30)
+Version 2.8.10 (released 2025-04-30)
 
 - i18n:pulled translations
 - fix clear facets
