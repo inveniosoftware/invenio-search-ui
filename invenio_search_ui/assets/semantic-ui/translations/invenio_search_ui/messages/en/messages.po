@@ -1,11 +1,67 @@
-# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-10-12T07:25:02.203Z\n"
-"PO-Revision-Date: 2022-10-12 07:22+0000\n"
+"mime-version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"mime-version: 1.0\n"
+"POT-Creation-Date: 2025-05-08T20:48:58.625Z\n"
+"PO-Revision-Date: 2025-05-08T20:48:58.625Z\n"
+"Language: en\n"
+
+msgid "Versions"
+msgstr "Versions"
+
+msgid "View all versions"
+msgstr "View all versions"
+
+msgid "Help"
+msgstr "Help"
+
+msgid "Search guide"
+msgstr "Search guide"
+
+msgid "Show all sub facets of "
+msgstr "Show all sub facets of "
+
+msgid "Clear selection"
+msgstr "Clear selection"
+
+msgid "Clear"
+msgstr "Clear"
+
+msgid "results per page"
+msgstr "results per page"
+
+msgid "<0></0> results found"
+msgstr "<0></0> results found"
+
+msgid " "
+msgstr " "
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Search records..."
+msgstr "Search records..."
+
+msgid "All records"
+msgstr "All records"
+
+msgid "result(s) found"
+msgstr "result(s) found"
+
+msgid "Sort"
+msgstr "Sort"
+
+msgid "Sort by"
+msgstr "Sort by"
+
+msgid "Filter results"
+msgstr "Filter results"
+
+msgid "Search filters"
+msgstr "Search filters"
+
+msgid "Search results"
+msgstr "Search results"
