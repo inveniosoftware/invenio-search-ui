@@ -1,12 +1,20 @@
 ..
     This file is part of Invenio.
     Copyright (C) 2015-2023 CERN.
+    Copyright (C) 2025 KTH Royal Institute of Technology.
 
     Invenio is free software; you can redistribute it and/or modify it
     under the terms of the MIT License; see LICENSE file for more details.
 
 Changes
 =======
+
+Version 2.8.11 (released 2025-05-07)
+
+- i18n: refactor compile catalog scripts
+- i18n: compile js languages
+- i18n: remove unused JS translation files
+- i18n: Update commands for message extraction and compilation
 
 Version 2.8.10 (released 2025-04-30)
 

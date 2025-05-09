@@ -2,6 +2,7 @@
 #
 # This file is part of Invenio.
 # Copyright (C) 2015-2023 CERN.
+# Copyright (C) 2025 KTH Royal Institute of Technology.
 #
 # Invenio is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
@@ -327,6 +328,6 @@ of the record in a list by using the ``ng-repeat`` attribute and the
 
 from .ext import InvenioSearchUI
 
-__version__ = "2.8.10"
+__version__ = "2.8.11"
 
 __all__ = ("__version__", "InvenioSearchUI")
