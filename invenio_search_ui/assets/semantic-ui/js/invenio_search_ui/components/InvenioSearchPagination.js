@@ -1,12 +1,12 @@
 // This file is part of InvenioRequests
 // Copyright (C) 2022 CERN.
+// Copyright (C) 2025 KTH Royal Institute of Technology.
 //
 // Invenio RDM Records is free software; you can redistribute it and/or modify it
 // under the terms of the MIT License; see LICENSE file for more details.
 
 import React from "react";
 import { i18next } from "@translations/invenio_search_ui/i18next";
-import { Trans } from "react-i18next";
 import { Pagination, ResultsPerPage, Count } from "react-searchkit";
 import { Grid } from "semantic-ui-react";
 
@@ -17,9 +17,9 @@ export const InvenioSearchPagination = ({ paginationOptions, total }) => {
       <Grid.Column className="computer tablet only" width={4}>
         {total && <Count
           label={() => (
-            <Trans>
-              <b>{total.toLocaleString("en-US")}</b> results found
-            </Trans>
+            <>
+              <b>{total.toLocaleString("en-US")}</b> {i18next.t("results found")}
+            </>
           )}
         />}
       </Grid.Column>
@@ -55,9 +55,9 @@ export const InvenioSearchPagination = ({ paginationOptions, total }) => {
         <ResultsPerPage
           values={resultsPerPage}
           label={(cmp) => (
-            <Trans>
+            <>
               {cmp} {i18next.t("results per page")}
-            </Trans>
+            </>
           )}
         />
       </Grid.Column>
@@ -65,18 +65,18 @@ export const InvenioSearchPagination = ({ paginationOptions, total }) => {
         {total && <Count
           label={() => (
             <span className="rel-mr-2">
-              <Trans>
-                <b>{total.toLocaleString("en-US")}</b> results found
-              </Trans>
+              <>
+                <b>{total.toLocaleString("en-US")}</b> {i18next.t("results found")}
+              </>
             </span>
           )}
         />}
         <ResultsPerPage
           values={resultsPerPage}
           label={(cmp) => (
-            <Trans>
+            <>
               {cmp} {i18next.t("results per page")}
-            </Trans>
+            </>
           )}
         />
       </Grid.Column>
