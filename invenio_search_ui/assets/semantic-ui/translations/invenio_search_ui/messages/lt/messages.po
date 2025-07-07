@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: InvenioRDM\n"
-"POT-Creation-Date: 2022-10-12T08:17:06.372Z\n"
+"POT-Creation-Date: 2025-04-08T19:44:36.175Z\n"
 "PO-Revision-Date: 2016-10-20 07:42+0000\n"
 "Language-Team: Lithuanian (http://app.transifex.com/inveniosoftware/invenio/language/lt/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -11,15 +11,6 @@ msgstr ""
 "Language: lt\n"
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
 "mime-version: 1.0\n"
-
-msgid "Sort"
-msgstr ""
-
-msgid "Filter results"
-msgstr ""
-
-msgid "filters"
-msgstr ""
 
 msgid "Versions"
 msgstr ""
@@ -42,11 +33,38 @@ msgstr ""
 msgid "Clear"
 msgstr ""
 
+msgid "results per page"
+msgstr ""
+
+msgid "<0></0> results found"
+msgstr ""
+
+msgid " "
+msgstr ""
+
+msgid "Search"
+msgstr "Ieškoti"
+
 msgid "Search records..."
 msgstr ""
 
 msgid "All records"
 msgstr ""
 
+msgid "result(s) found"
+msgstr ""
+
+msgid "Sort"
+msgstr ""
+
 msgid "Sort by"
+msgstr ""
+
+msgid "Filter results"
+msgstr ""
+
+msgid "Search filters"
+msgstr ""
+
+msgid "Search results"
 msgstr ""
