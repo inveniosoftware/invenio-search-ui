@@ -1,13 +1,15 @@
 # 
 # Translators:
 # Adienne Karsten-Welker, 2025
+# Adienne Karsten-Welker, 2025
+# c960a0736ea0fb7507bb1c3555e7d33f_88b575f <3cef15c38ce2563e884ec389656c9161_1006830>, 2021
 # c960a0736ea0fb7507bb1c3555e7d33f_88b575f <3cef15c38ce2563e884ec389656c9161_1006830>, 2021
 # c960a0736ea0fb7507bb1c3555e7d33f_88b575f <3cef15c38ce2563e884ec389656c9161_1006830>, 2021
 # David Eckhard <dabombeeer@gmail.com>, 2023
 msgid ""
 msgstr ""
 "Project-Id-Version: InvenioRDM\n"
-"POT-Creation-Date: 2025-04-08T19:44:36.175Z\n"
+"POT-Creation-Date: 2025-07-08T19:58:08.716Z\n"
 "PO-Revision-Date: 2016-10-20 07:42+0000\n"
 "Last-Translator: Adienne Karsten-Welker, 2025\n"
 "Language-Team: German (http://app.transifex.com/inveniosoftware/invenio/language/de/)\n"
@@ -21,7 +23,7 @@ msgid "Versions"
 msgstr "Versionen"
 
 msgid "View all versions"
-msgstr "Alle Versionen ansehen"
+msgstr "Alle Versionen anzeigen"
 
 msgid "Help"
 msgstr "Hilfe"
@@ -30,7 +32,7 @@ msgid "Search guide"
 msgstr "Suchanleitung"
 
 msgid "Show all sub facets of "
-msgstr "Zeige alle Unterfacetten von"
+msgstr "Alle Unterfacetten von "
 
 msgid "Clear selection"
 msgstr "Auswahl löschen"
@@ -38,26 +40,23 @@ msgstr "Auswahl löschen"
 msgid "Clear"
 msgstr "Löschen"
 
+msgid "results found"
+msgstr "Treffer gefunden"
+
 msgid "results per page"
-msgstr "Ergebnisse pro Seite"
-
-msgid "<0></0> results found"
-msgstr "<0></0> Ergebnisse gefunden"
-
-msgid " "
-msgstr " "
+msgstr "Treffer pro Seite"
 
 msgid "Search"
 msgstr "Suchen"
 
 msgid "Search records..."
-msgstr "Einträge suchen ..."
+msgstr "Datensätze suchen ..."
 
 msgid "All records"
-msgstr "Alle Einträge"
+msgstr "Alle Datensätze"
 
 msgid "result(s) found"
-msgstr "Gefundene Ergebnisse"
+msgstr "Treffer gefunden"
 
 msgid "Sort"
 msgstr "Sortieren"

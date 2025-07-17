@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: InvenioRDM\n"
-"POT-Creation-Date: 2025-04-08T19:44:36.175Z\n"
+"POT-Creation-Date: 2025-07-08T19:58:08.716Z\n"
 "PO-Revision-Date: 2016-10-20 07:42+0000\n"
 "Last-Translator: Ignacio Estevo, 2024\n"
 "Language-Team: Spanish (http://app.transifex.com/inveniosoftware/invenio/language/es/)\n"
@@ -36,14 +36,11 @@ msgstr "Borrar selección"
 msgid "Clear"
 msgstr "Borrar"
 
+msgid "results found"
+msgstr ""
+
 msgid "results per page"
 msgstr "resultados por página"
-
-msgid "<0></0> results found"
-msgstr "<0></0>Resultados encontrados"
-
-msgid " "
-msgstr " "
 
 msgid "Search"
 msgstr "Buscar"
