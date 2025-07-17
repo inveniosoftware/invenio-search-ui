@@ -9,6 +9,25 @@
 Changes
 =======
 
+Version v4.1.0 (released 2025-07-17)
+
+- i18n: pulled translations
+- i18n: push translations
+- i18n: run js compile catalog
+- i18n: run js extract msgs
+- i18n: fix invenioSearchPagination results label
+- i18n: refactor compile catalog
+- i18n: force pull translations
+- i18n: run py extract msgs
+- component: ContribParentFacetValue
+- fix: add mint branch to tests
+- i18n: remove deprecated language labels
+- Fix clear facets
+- fix: setuptools require underscores instead of dashes
+- i18n: removed deprecated messages
+- i18n: fix translation entry point
+- i18n: translate ResultOptions Count element
+
 
 Version 4.0.0 (released 2024-12-05)
 
