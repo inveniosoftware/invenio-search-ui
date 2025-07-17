@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: InvenioRDM\n"
-"POT-Creation-Date: 2025-04-08T19:44:36.175Z\n"
+"POT-Creation-Date: 2025-07-08T19:58:08.716Z\n"
 "PO-Revision-Date: 2016-10-20 07:42+0000\n"
 "Last-Translator: Mart Jantson, 2022\n"
 "Language-Team: Estonian (http://app.transifex.com/inveniosoftware/invenio/language/et/)\n"
@@ -36,14 +36,11 @@ msgstr "Tühista valik"
 msgid "Clear"
 msgstr "Puhasta"
 
-msgid "results per page"
-msgstr "tulemust lehel"
-
-msgid "<0></0> results found"
+msgid "results found"
 msgstr ""
 
-msgid " "
-msgstr "A"
+msgid "results per page"
+msgstr "tulemust lehel"
 
 msgid "Search"
 msgstr "Otsi"

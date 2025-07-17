@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: InvenioRDM\n"
-"POT-Creation-Date: 2025-04-08T19:44:36.175Z\n"
+"POT-Creation-Date: 2025-07-08T19:58:08.716Z\n"
 "PO-Revision-Date: 2016-10-20 07:42+0000\n"
 "Last-Translator: Vasyl Ostrovskyi <vasyusya@yahoo.com>, 2023\n"
 "Language-Team: Ukrainian (http://app.transifex.com/inveniosoftware/invenio/language/uk/)\n"
@@ -35,14 +35,11 @@ msgstr "Очистити вибір"
 msgid "Clear"
 msgstr ""
 
+msgid "results found"
+msgstr ""
+
 msgid "results per page"
 msgstr "результатів на сторінку"
-
-msgid "<0></0> results found"
-msgstr ""
-
-msgid " "
-msgstr ""
 
 msgid "Search"
 msgstr "Пошук"

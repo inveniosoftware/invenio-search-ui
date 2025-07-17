@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: InvenioRDM\n"
-"POT-Creation-Date: 2025-04-08T19:44:36.175Z\n"
+"POT-Creation-Date: 2025-07-08T19:58:08.716Z\n"
 "PO-Revision-Date: 2016-10-20 07:42+0000\n"
 "Last-Translator: Salaheddine Ben Ali <salaheddine.benali@cnudst.tn>, 2022,2025\n"
 "Language-Team: Arabic (http://app.transifex.com/inveniosoftware/invenio/language/ar/)\n"
@@ -36,14 +36,11 @@ msgstr "مسح التحدبد"
 msgid "Clear"
 msgstr "مسح"
 
+msgid "results found"
+msgstr ""
+
 msgid "results per page"
 msgstr "عدد النتائج في الصّفحة"
-
-msgid "<0></0> results found"
-msgstr "<0></0> النتائج"
-
-msgid " "
-msgstr " "
 
 msgid "Search"
 msgstr "بحث"
