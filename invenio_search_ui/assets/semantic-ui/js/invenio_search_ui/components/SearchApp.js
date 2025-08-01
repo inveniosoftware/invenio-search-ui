@@ -89,11 +89,12 @@ export const SearchApp = ({ config, appName }) => {
             <Container fluid>
               <Overridable
                 id={buildUID("SearchApp.searchbarContainer", "", appName)}
+                config={config}
               >
                 <Grid relaxed padded>
                   <Grid.Row>
                     <Grid.Column width={12} floated="right">
-                      <SearchBar buildUID={buildUID} appName={appName}/>
+                      <SearchBar buildUID={buildUID} appName={appName} />
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
