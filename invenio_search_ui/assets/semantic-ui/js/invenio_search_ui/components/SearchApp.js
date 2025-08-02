@@ -104,7 +104,7 @@ export const SearchApp = ({ config, appName }) => {
                 <Grid.Row
                   textAlign="right"
                   columns={columnsAmount}
-                  className="result-options rel-mt-2"
+                  className="result-options"
                 >
                   {facetsAvailable && (
                     <Grid.Column
