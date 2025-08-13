@@ -9,6 +9,11 @@
 Changes
 =======
 
+Version v4.1.1 (released 2025-08-13)
+
+- ui: remove unnecessary spacing
+- overridable: pass config to searchbarContainer
+
 Version v4.1.0 (released 2025-07-17)
 
 - i18n: pulled translations
