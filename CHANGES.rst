@@ -9,6 +9,10 @@
 Changes
 =======
 
+Version v4.1.2 (released 2025-09-22)
+
+- chore: bump major version of react-overridable
+
 Version v4.1.1 (released 2025-08-13)
 
 - ui: remove unnecessary spacing
