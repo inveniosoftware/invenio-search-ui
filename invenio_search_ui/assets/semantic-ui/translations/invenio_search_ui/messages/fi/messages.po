@@ -1,0 +1,67 @@
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: InvenioRDM\n"
+"POT-Creation-Date: 2025-07-08T19:58:08.716Z\n"
+"PO-Revision-Date: 2016-10-20 07:42+0000\n"
+"Language-Team: Finnish (http://app.transifex.com/inveniosoftware/invenio/language/fi/)\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fi\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"mime-version: 1.0\n"
+
+msgid "Versions"
+msgstr "Versiot"
+
+msgid "View all versions"
+msgstr "Näytä kaikki versiot"
+
+msgid "Help"
+msgstr "Ohje"
+
+msgid "Search guide"
+msgstr "Hakuopas"
+
+msgid "Show all sub facets of "
+msgstr "Näytä kaikki alisuodattimet kohteesta "
+
+msgid "Clear selection"
+msgstr "Tyhjennä valinta"
+
+msgid "Clear"
+msgstr "Tyhjennä"
+
+msgid "results found"
+msgstr "tulosta löytyi"
+
+msgid "results per page"
+msgstr "tulosta per sivu"
+
+msgid "Search"
+msgstr "Haku"
+
+msgid "Search records..."
+msgstr "Hae tietueita..."
+
+msgid "All records"
+msgstr "Kaikki tietueet"
+
+msgid "result(s) found"
+msgstr "tulos(ta) löytyi"
+
+msgid "Sort"
+msgstr "Lajittele"
+
+msgid "Sort by"
+msgstr "Lajittele"
+
+msgid "Filter results"
+msgstr "Suodata tuloksia"
+
+msgid "Search filters"
+msgstr "Hakusuodattimet"
+
+msgid "Search results"
+msgstr "Hakutulokset"
