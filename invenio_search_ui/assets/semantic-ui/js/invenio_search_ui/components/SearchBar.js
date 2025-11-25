@@ -7,7 +7,10 @@
  */
 
 import React from "react";
-import { SearchBar as ReactSearchKitSearchBar } from "react-searchkit";
+import {
+  SearchBar as ReactSearchKitSearchBar,
+  buildUID,
+} from "react-searchkit";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import Overridable from "react-overridable";
@@ -31,4 +34,5 @@ SearchBar.propTypes = {
 
 SearchBar.defaultProps = {
   elementId: "header-search-bar",
+  buildUID: buildUID,
 };
