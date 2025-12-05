@@ -2,12 +2,13 @@
 # Translators:
 # BEN TERCÜME, 2024
 # Ben Translation and Interpreting Services <info@bentercume.com>, 2021
+# Eylül-1 -, 2025
 msgid ""
 msgstr ""
 "Project-Id-Version: InvenioRDM\n"
 "POT-Creation-Date: 2025-07-08T19:58:08.716Z\n"
 "PO-Revision-Date: 2016-10-20 07:42+0000\n"
-"Last-Translator: BEN TERCÜME, 2024\n"
+"Last-Translator: Eylül-1 -, 2025\n"
 "Language-Team: Turkish (http://app.transifex.com/inveniosoftware/invenio/language/tr/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,7 +38,7 @@ msgid "Clear"
 msgstr "Temizle"
 
 msgid "results found"
-msgstr ""
+msgstr "sonuç bulundu"
 
 msgid "results per page"
 msgstr "sayfa başına sonuç sayısı"
