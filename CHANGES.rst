@@ -10,6 +10,10 @@
 Changes
 =======
 
+Version v4.1.5 (released 2025-12-09)
+
+- i18n: pulled translations
+
 Version v4.1.4 (released 2025-11-30)
 
 - fix: fixed searchbar crashing
