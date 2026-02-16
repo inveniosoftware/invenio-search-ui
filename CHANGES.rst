@@ -10,6 +10,12 @@
 Changes
 =======
 
+Version v4.2.0 (released 2026-02-16)
+
+- fix: pass agg config to BucketAggregation
+- feat: add range facets for date aggregations
+- search-ui: correct arrow icon in nested facets
+
 Version v4.1.5 (released 2025-12-09)
 
 - i18n: pulled translations
