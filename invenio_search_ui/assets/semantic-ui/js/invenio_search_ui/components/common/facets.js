@@ -43,9 +43,9 @@ export const ContribSearchAppFacets = ({ aggs, toggle, help, appName }) => {
                 agg={agg}
                 rangeSeparator={agg.separator || ".."}
                 defaultRanges={[
+                  { label: i18next.t("Last 6 months"), type: "months", value: 6 },
                   { label: i18next.t("Last 1 year"), type: "years", value: 1 },
                   { label: i18next.t("Last 5 years"), type: "years", value: 5 },
-                  { label: i18next.t("Last 6 months"), type: "months", value: 6 },
                 ]}
                 enableCustomRange={true}
                 dateRangeToLabel={i18next.t("to")}
