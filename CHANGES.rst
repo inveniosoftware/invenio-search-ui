@@ -10,6 +10,11 @@
 Changes
 =======
 
+Version v4.2.1 (released 2026-04-13)
+
+- fix(facets): order date facet filter options by duration
+- build(deps-dev): bump minimatch
+
 Version v4.2.0 (released 2026-02-16)
 
 - fix: pass agg config to BucketAggregation
