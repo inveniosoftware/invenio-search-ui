@@ -27,3 +27,4 @@ export {
   ContribBucketAggregationValuesElement,
   ContribRangeFacetElement,
 } from "./common/facets";
+export { SearchResultsBox } from "./SearchResultsBox";
