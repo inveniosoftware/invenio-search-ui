@@ -5,7 +5,6 @@
 
 import _get from "lodash/get";
 import _truncate from "lodash/truncate";
-import React from "react";
 import { Item, Label } from "semantic-ui-react";
 
 export const ResultsListItem = ({ result }) => {

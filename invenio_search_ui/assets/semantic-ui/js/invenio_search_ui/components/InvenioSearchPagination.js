@@ -4,7 +4,6 @@
  * SPDX-License-Identifier: MIT
  */
 
-import React from "react";
 import { i18next } from "@translations/invenio_search_ui/i18next";
 import { Pagination, ResultsPerPage, Count } from "react-searchkit";
 import { Grid } from "semantic-ui-react";

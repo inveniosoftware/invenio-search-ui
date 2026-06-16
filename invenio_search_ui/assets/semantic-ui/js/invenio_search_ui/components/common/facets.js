@@ -4,7 +4,7 @@
  */
 
 import { i18next } from "@translations/invenio_search_ui/i18next";
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Accordion,
   Button,
@@ -22,7 +22,12 @@ import {
   RangeFacet,
 } from "react-searchkit";
 
-export const ContribSearchAppFacets = ({ aggs, toggle, help, appName }) => {
+export const ContribSearchAppFacets = ({
+  aggs,
+  toggle = false,
+  help = true,
+  appName = "",
+}) => {
   return (
     <>
       {toggle && (
@@ -42,14 +47,22 @@ export const ContribSearchAppFacets = ({ aggs, toggle, help, appName }) => {
                 agg={agg}
                 rangeSeparator={agg.separator || ".."}
                 defaultRanges={[
-                  { label: i18next.t("Last 6 months"), type: "months", value: 6 },
+                  {
+                    label: i18next.t("Last 6 months"),
+                    type: "months",
+                    value: 6,
+                  },
                   { label: i18next.t("Last 1 year"), type: "years", value: 1 },
                   { label: i18next.t("Last 5 years"), type: "years", value: 5 },
                 ]}
                 enableCustomRange={true}
                 dateRangeToLabel={i18next.t("to")}
                 customDatesLabel={i18next.t("Custom Dates")}
-                datePlaceholders={{ YYYY: i18next.t("YYYY"), MM: i18next.t("MM"), DD: i18next.t("DD") }}
+                datePlaceholders={{
+                  YYYY: i18next.t("YYYY"),
+                  MM: i18next.t("MM"),
+                  DD: i18next.t("DD"),
+                }}
               />
             ) : (
               <BucketAggregation title={agg.title} agg={agg} />
@@ -61,7 +74,7 @@ export const ContribSearchAppFacets = ({ aggs, toggle, help, appName }) => {
         <Card className="borderless facet mt-0">
           <Card.Content>
             <Card.Header as="h2">{i18next.t("Help")}</Card.Header>
-            <ContribSearchHelpLinks appName={appName}/>
+            <ContribSearchHelpLinks appName={appName} />
           </Card.Content>
         </Card>
       )}
@@ -76,13 +89,12 @@ ContribSearchAppFacets.propTypes = {
   appName: PropTypes.string,
 };
 
-ContribSearchAppFacets.defaultProps = {
-  toggle: false,
-  help: true,
-  appName: "",
-};
-
 export const ContribSearchHelpLinks = (props) => {
+  props = {
+    ...props,
+    appName: typeof props.appName === "undefined" ? "" : props.appName,
+  };
+
   const { appName } = props;
   return (
     <Overridable id={buildUID("SearchHelpLinks", "", appName)}>
@@ -99,10 +111,6 @@ ContribSearchHelpLinks.propTypes = {
   appName: PropTypes.string,
 };
 
-ContribSearchHelpLinks.defaultProps = {
-  appName: "",
-};
-
 export const ContribParentFacetValue = ({
   bucket,
   keyField,
@@ -115,7 +123,7 @@ export const ContribParentFacetValue = ({
   return (
     <Accordion>
       <Accordion.Title
-        onClick={() => { }}
+        onClick={() => {}}
         key={`panel-${bucket.label}`}
         active={isActive}
         className="facet-wrapper parent"
@@ -140,7 +148,9 @@ export const ContribParentFacetValue = ({
           <Label
             circular
             role="note"
-            aria-label={`${bucket.doc_count} results for ${bucket.label || keyField}`}
+            aria-label={`${bucket.doc_count} results for ${
+              bucket.label || keyField
+            }`}
             className="facet-count"
           >
             <span aria-hidden="true">
@@ -156,7 +166,8 @@ export const ContribParentFacetValue = ({
 
 ContribParentFacetValue.propTypes = {
   bucket: PropTypes.object.isRequired,
-  keyField: PropTypes.string.isRequired,
+  keyField: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
   isSelected: PropTypes.bool.isRequired,
   childAggCmps: PropTypes.node.isRequired,
   onFilterClicked: PropTypes.func.isRequired,
@@ -180,7 +191,9 @@ export const ContribFacetValue = ({
       <Label
         circular
         role="note"
-        aria-label={`${bucket.doc_count} results for ${bucket.label || keyField}`}
+        aria-label={`${bucket.doc_count} results for ${
+          bucket.label || keyField
+        }`}
         className="facet-count"
       >
         <span aria-hidden="true">
@@ -193,7 +206,8 @@ export const ContribFacetValue = ({
 
 ContribFacetValue.propTypes = {
   bucket: PropTypes.object.isRequired,
-  keyField: PropTypes.string.isRequired,
+  keyField: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
   isSelected: PropTypes.bool.isRequired,
   onFilterClicked: PropTypes.func.isRequired,
 };
@@ -202,7 +216,7 @@ export const ContribBucketAggregationValuesElement = ({
   bucket,
   isSelected,
   onFilterClicked,
-  childAggCmps,
+  childAggCmps = null,
 }) => {
   const hasChildren = childAggCmps && childAggCmps.props.buckets.length > 0;
   const keyField = bucket.key_as_string ? bucket.key_as_string : bucket.key;
@@ -235,14 +249,10 @@ ContribBucketAggregationValuesElement.propTypes = {
   onFilterClicked: PropTypes.func.isRequired,
 };
 
-ContribBucketAggregationValuesElement.defaultProps = {
-  childAggCmps: null,
-};
-
 export const ContribBucketAggregationElement = ({
   agg,
   title,
-  containerCmp,
+  containerCmp = null,
   updateQueryFilters,
 }) => {
   const clearFacets = () => {
@@ -288,13 +298,9 @@ ContribBucketAggregationElement.propTypes = {
   updateQueryFilters: PropTypes.func.isRequired,
 };
 
-ContribBucketAggregationElement.defaultProps = {
-  containerCmp: null,
-};
-
 export const ContribRangeFacetElement = ({
   title,
-  containerCmp,
+  containerCmp = null,
   hasActiveFilter,
   onClear,
 }) => {
@@ -330,8 +336,4 @@ ContribRangeFacetElement.propTypes = {
   containerCmp: PropTypes.node,
   hasActiveFilter: PropTypes.bool.isRequired,
   onClear: PropTypes.func.isRequired,
-};
-
-ContribRangeFacetElement.defaultProps = {
-  containerCmp: null,
 };
