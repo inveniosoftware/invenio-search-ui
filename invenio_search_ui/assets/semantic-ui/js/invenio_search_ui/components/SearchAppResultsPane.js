@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: MIT
  */
 import { Results } from "./Results";
-import React from "react";
 import {
   EmptyResults,
   Error,

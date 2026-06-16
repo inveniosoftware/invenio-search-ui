@@ -3,12 +3,21 @@
  * SPDX-License-Identifier: MIT
  */
 
-import React, { Component } from "react";
+import { Component } from "react";
 import { withState } from "react-searchkit";
 import { Search, Label, Button, Icon } from "semantic-ui-react";
 import { i18next } from "@translations/invenio_search_ui/i18next";
 import _isEmpty from "lodash/isEmpty";
 import PropTypes from "prop-types";
+
+const defaultOption = {
+  key: "records",
+  text: i18next.t("All records"),
+  value: "/search",
+};
+
+const optionsAsResults = (options) =>
+  (options || []).map((option) => ({ title: option.text, ...option }));
 
 const resultRenderer = ({ text }, queryString) => {
   let searchOption = "...";
@@ -35,9 +44,10 @@ export class MultipleOptionsSearchBar extends Component {
   }
 
   handleOnSearchClick = () => {
-    const { options, defaultOption } = this.props;
+    const { options, defaultOption: selectedDefaultOption = defaultOption } =
+      this.props;
     const { queryString } = this.state;
-    let destinationURL = options[0]?.value || defaultOption.value;
+    let destinationURL = options[0]?.value || selectedDefaultOption.value;
 
     window.location = `${destinationURL}?q=${queryString}`;
   };
@@ -53,7 +63,8 @@ export class MultipleOptionsSearchBar extends Component {
   };
 
   render() {
-    const { placeholder, options } = this.props;
+    const { placeholder = i18next.t("Search records..."), options } =
+      this.props;
     const { queryString } = this.state;
     const button = (
       <Button
@@ -73,7 +84,7 @@ export class MultipleOptionsSearchBar extends Component {
         onResultSelect={this.handleOnResultSelect}
         onSearchChange={this.handleOnSearchChange}
         resultRenderer={(props) => resultRenderer(props, queryString)}
-        results={options}
+        results={optionsAsResults(options)}
         value={queryString}
         placeholder={placeholder}
         minCharacters={0}
@@ -95,23 +106,14 @@ MultipleOptionsSearchBar.propTypes = {
   }),
 };
 
-MultipleOptionsSearchBar.defaultProps = {
-  placeholder: i18next.t("Search records..."),
-  defaultOption: {
-    key: "records",
-    text: i18next.t("All records"),
-    value: "/search",
-  },
-};
-
 export class MultipleOptionsSearchBarCmp extends Component {
   /** Multiple options searchbar to be wrapped with RSK context
    */
   onBtnSearchClick = (e, data) => {
     const { result } = data || {};
     const { queryString, updateQueryState, currentQueryState } = this.props;
-    const { defaultOption } = this.props;
-    const destinationURL = result?.value || defaultOption.value;
+    const { defaultOption: selectedDefaultOption = defaultOption } = this.props;
+    const destinationURL = result?.value || selectedDefaultOption.value;
 
     if (window.location.pathname === destinationURL) {
       updateQueryState({ ...currentQueryState, queryString });
@@ -126,7 +128,11 @@ export class MultipleOptionsSearchBarCmp extends Component {
   };
 
   render() {
-    const { placeholder, queryString, options } = this.props;
+    const {
+      placeholder = i18next.t("Search records..."),
+      queryString,
+      options,
+    } = this.props;
     const button = (
       <Button
         icon
@@ -146,7 +152,7 @@ export class MultipleOptionsSearchBarCmp extends Component {
         onResultSelect={this.onBtnSearchClick}
         onSearchChange={this.handleOnSearchChange}
         resultRenderer={(props) => resultRenderer(props, queryString)}
-        results={options}
+        results={optionsAsResults(options)}
         value={queryString}
         placeholder={placeholder}
         className="right-angle-search-content"
@@ -169,15 +175,6 @@ MultipleOptionsSearchBarCmp.propTypes = {
     text: PropTypes.string,
     value: PropTypes.string,
   }),
-};
-
-MultipleOptionsSearchBarCmp.defaultProps = {
-  placeholder: i18next.t("Search records..."),
-  defaultOption: {
-    key: "records",
-    text: i18next.t("All records"),
-    value: "/search",
-  },
 };
 
 export const MultipleOptionsSearchBarRSK = withState(

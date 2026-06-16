@@ -5,7 +5,7 @@
 
 import { DropdownFilter } from "@js/invenio_search_ui/components";
 import PropTypes from "prop-types";
-import React, { Component } from "react";
+import { Component } from "react";
 import { withState } from "react-searchkit";
 
 export class SearchFiltersComponent extends Component {
@@ -14,7 +14,7 @@ export class SearchFiltersComponent extends Component {
       currentQueryState,
       updateQueryState,
       currentResultsState,
-      customFilters,
+      customFilters = undefined,
     } = this.props;
     const filters = customFilters
       ? customFilters
@@ -43,10 +43,6 @@ SearchFiltersComponent.propTypes = {
   updateQueryState: PropTypes.func.isRequired,
   currentQueryState: PropTypes.object.isRequired,
   customFilters: PropTypes.object,
-};
-
-SearchFiltersComponent.defaultProps = {
-  customFilters: undefined,
 };
 
 export const SearchFilters = withState(SearchFiltersComponent);

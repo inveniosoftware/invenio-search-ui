@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import React, { Component } from "react";
+import { Component } from "react";
 import { Dropdown, Icon } from "semantic-ui-react";
 import PropTypes from "prop-types";
 import _find from "lodash/find";
@@ -95,7 +95,7 @@ export class DropdownFilter extends Component {
     const {
       filterKey,
       filterValues,
-      filterLabel,
+      filterLabel = "",
       currentQueryState,
       updateQueryState,
       loading,
@@ -144,8 +144,4 @@ DropdownFilter.propTypes = {
   filterKey: PropTypes.string.isRequired,
   filterValues: PropTypes.array.isRequired,
   filterLabel: PropTypes.string.isRequired,
-};
-
-DropdownFilter.defaultProps = {
-  filterLabel: "",
 };

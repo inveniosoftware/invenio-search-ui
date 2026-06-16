@@ -5,7 +5,6 @@
 
 import _get from "lodash/get";
 import _truncate from "lodash/truncate";
-import React from "react";
 import { Card, Label } from "semantic-ui-react";
 
 export const ResultsGridItem = ({ result }) => {
