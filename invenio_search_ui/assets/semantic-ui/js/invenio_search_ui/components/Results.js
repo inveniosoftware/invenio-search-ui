@@ -5,7 +5,7 @@
  */
 
 import Overridable from "react-overridable";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import {
   Count,
   LayoutSwitcher,

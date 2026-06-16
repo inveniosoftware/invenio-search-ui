@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: MIT
  */
 
-import React from "react";
 import { BucketAggregation, RangeFacet, buildUID } from "react-searchkit";
 import Overridable from "react-overridable";
 
