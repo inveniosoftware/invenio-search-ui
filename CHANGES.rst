@@ -7,6 +7,10 @@
 Changes
 =======
 
+Version v5.0.1 (released 2026-06-22)
+
+- chore(licenses): add missing beginnings of HTML comments for license headers
+
 Version v5.0.0 (released 2026-06-16)
 
 - chore(setup): bump dependencies

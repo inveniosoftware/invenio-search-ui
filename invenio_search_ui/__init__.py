@@ -324,6 +324,6 @@ of the record in a list by using the ``ng-repeat`` attribute and the
 
 from .ext import InvenioSearchUI
 
-__version__ = "5.0.0"
+__version__ = "5.0.1"
 
 __all__ = ("__version__", "InvenioSearchUI")
