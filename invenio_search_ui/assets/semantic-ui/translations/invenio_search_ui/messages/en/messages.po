@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-07-08T19:58:08.781Z\n"
-"PO-Revision-Date: 2025-07-08T19:58:08.781Z\n"
+"POT-Creation-Date: 2026-06-22T20:31:49.009Z\n"
+"PO-Revision-Date: 2026-06-22T20:31:49.009Z\n"
 "Language: en\n"
 
 msgid "Versions"
@@ -62,3 +62,27 @@ msgstr "Search filters"
 
 msgid "Search results"
 msgstr "Search results"
+
+msgid "Last 6 months"
+msgstr "Last 6 months"
+
+msgid "Last 1 year"
+msgstr "Last 1 year"
+
+msgid "Last 5 years"
+msgstr "Last 5 years"
+
+msgid "to"
+msgstr "to"
+
+msgid "Custom Dates"
+msgstr "Custom Dates"
+
+msgid "YYYY"
+msgstr "YYYY"
+
+msgid "MM"
+msgstr "MM"
+
+msgid "DD"
+msgstr "DD"
