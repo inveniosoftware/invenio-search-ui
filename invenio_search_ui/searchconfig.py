@@ -239,7 +239,7 @@ def search_app_config(
     endpoint,
     headers,
     overrides=None,
-    **kwargs
+    **kwargs,
 ):
     """Search app config.
 
