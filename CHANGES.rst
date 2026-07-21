@@ -7,6 +7,13 @@
 Changes
 =======
 
+Version v4.2.2 (released 2026-07-21)
+
+- chore(setup): migrate from setuptools to hatchling
+- chore(cleanup): remove outdated and unnecessary file
+- chore(format): reformat with black
+- chore(licenses): update license headers to use SPDX
+
 Version v4.2.1 (released 2026-04-13)
 
 - fix(facets): order date facet filter options by duration
