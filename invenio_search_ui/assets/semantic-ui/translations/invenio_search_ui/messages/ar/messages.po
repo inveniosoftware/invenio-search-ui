@@ -1,13 +1,13 @@
 # 
 # Translators:
 # Bessem Aamira <bessemamira@gmail.com>, 2022
-# Salaheddine Ben Ali <salaheddine.benali@cnudst.tn>, 2022,2025
+# Salaheddine Ben Ali <salaheddine.benali@cnudst.tn>, 2022,2025-2026
 msgid ""
 msgstr ""
 "Project-Id-Version: InvenioRDM\n"
-"POT-Creation-Date: 2025-07-08T19:58:08.716Z\n"
+"POT-Creation-Date: 2026-06-22T20:31:48.945Z\n"
 "PO-Revision-Date: 2016-10-20 07:42+0000\n"
-"Last-Translator: Salaheddine Ben Ali <salaheddine.benali@cnudst.tn>, 2022,2025\n"
+"Last-Translator: Salaheddine Ben Ali <salaheddine.benali@cnudst.tn>, 2022,2025-2026\n"
 "Language-Team: Arabic (http://app.transifex.com/inveniosoftware/invenio/language/ar/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,7 +37,7 @@ msgid "Clear"
 msgstr "مسح"
 
 msgid "results found"
-msgstr ""
+msgstr "تم العثور على النتائج"
 
 msgid "results per page"
 msgstr "عدد النتائج في الصّفحة"
@@ -68,3 +68,27 @@ msgstr "فلتر البحث"
 
 msgid "Search results"
 msgstr "نتائج البحث"
+
+msgid "Last 6 months"
+msgstr "آخر 6 أشهر"
+
+msgid "Last 1 year"
+msgstr " سنة 1 الماضية"
+
+msgid "Last 5 years"
+msgstr " السنوات 5 الماضية"
+
+msgid "to"
+msgstr "إلى"
+
+msgid "Custom Dates"
+msgstr "حدّد التواريخ"
+
+msgid "YYYY"
+msgstr "YYYY"
+
+msgid "MM"
+msgstr "MM"
+
+msgid "DD"
+msgstr "DD"

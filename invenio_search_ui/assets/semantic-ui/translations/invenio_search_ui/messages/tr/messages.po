@@ -2,13 +2,15 @@
 # Translators:
 # BEN TERCÜME, 2024
 # Ben Translation and Interpreting Services <info@bentercume.com>, 2021
+# Cansu SAZOĞLU, 2026
 # Eylül-1 -, 2025
+# Furkan Kalkan <furkan.kalkan3@gmail.com>, 2026
 msgid ""
 msgstr ""
 "Project-Id-Version: InvenioRDM\n"
-"POT-Creation-Date: 2025-07-08T19:58:08.716Z\n"
+"POT-Creation-Date: 2026-06-22T20:31:48.945Z\n"
 "PO-Revision-Date: 2016-10-20 07:42+0000\n"
-"Last-Translator: Eylül-1 -, 2025\n"
+"Last-Translator: Cansu SAZOĞLU, 2026\n"
 "Language-Team: Turkish (http://app.transifex.com/inveniosoftware/invenio/language/tr/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -69,3 +71,27 @@ msgstr "Arama filtreleri"
 
 msgid "Search results"
 msgstr "Arama Sonuçları"
+
+msgid "Last 6 months"
+msgstr "Son 6 ay"
+
+msgid "Last 1 year"
+msgstr "Son 1 yıl"
+
+msgid "Last 5 years"
+msgstr "Son 5 yıl"
+
+msgid "to"
+msgstr "ila"
+
+msgid "Custom Dates"
+msgstr "Özel Tarihler"
+
+msgid "YYYY"
+msgstr "YYYY"
+
+msgid "MM"
+msgstr "AA"
+
+msgid "DD"
+msgstr "GG"

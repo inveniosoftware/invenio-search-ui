@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: InvenioRDM\n"
-"POT-Creation-Date: 2025-07-08T19:58:08.716Z\n"
+"POT-Creation-Date: 2026-06-22T20:31:48.945Z\n"
 "PO-Revision-Date: 2016-10-20 07:42+0000\n"
 "Language-Team: Korean (http://app.transifex.com/inveniosoftware/invenio/language/ko/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,55 +13,79 @@ msgstr ""
 "mime-version: 1.0\n"
 
 msgid "Versions"
-msgstr ""
+msgstr "버전"
 
 msgid "View all versions"
-msgstr ""
+msgstr "모든 버전 보기"
 
 msgid "Help"
-msgstr ""
+msgstr "도움말"
 
 msgid "Search guide"
-msgstr ""
+msgstr "검색 가이드"
 
 msgid "Show all sub facets of "
-msgstr ""
+msgstr "다음의 모든 하위 패싯 표시: "
 
 msgid "Clear selection"
-msgstr ""
+msgstr "선택 해제"
 
 msgid "Clear"
-msgstr ""
+msgstr "지우기"
 
 msgid "results found"
-msgstr ""
+msgstr "개 결과를 찾았습니다"
 
 msgid "results per page"
-msgstr ""
+msgstr "페이지당 결과 수"
 
 msgid "Search"
 msgstr "검색"
 
 msgid "Search records..."
-msgstr ""
+msgstr "레코드 검색..."
 
 msgid "All records"
-msgstr ""
+msgstr "모든 레코드"
 
 msgid "result(s) found"
-msgstr ""
+msgstr "개 결과를 찾았습니다"
 
 msgid "Sort"
-msgstr ""
+msgstr "정렬"
 
 msgid "Sort by"
-msgstr ""
+msgstr "정렬 기준"
 
 msgid "Filter results"
-msgstr ""
+msgstr "결과 필터링"
 
 msgid "Search filters"
-msgstr ""
+msgstr "검색 필터"
 
 msgid "Search results"
-msgstr ""
+msgstr "검색 결과"
+
+msgid "Last 6 months"
+msgstr "지난 6개월"
+
+msgid "Last 1 year"
+msgstr "지난 1년"
+
+msgid "Last 5 years"
+msgstr "지난 5년"
+
+msgid "to"
+msgstr "~"
+
+msgid "Custom Dates"
+msgstr "사용자 지정 날짜"
+
+msgid "YYYY"
+msgstr "YYYY"
+
+msgid "MM"
+msgstr "MM"
+
+msgid "DD"
+msgstr "DD"

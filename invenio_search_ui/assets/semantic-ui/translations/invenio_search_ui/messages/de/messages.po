@@ -1,7 +1,7 @@
 # 
 # Translators:
 # Adienne Karsten-Welker, 2025
-# Adienne Karsten-Welker, 2025
+# Adienne Karsten-Welker, 2025-2026
 # c960a0736ea0fb7507bb1c3555e7d33f_88b575f <3cef15c38ce2563e884ec389656c9161_1006830>, 2021
 # c960a0736ea0fb7507bb1c3555e7d33f_88b575f <3cef15c38ce2563e884ec389656c9161_1006830>, 2021
 # c960a0736ea0fb7507bb1c3555e7d33f_88b575f <3cef15c38ce2563e884ec389656c9161_1006830>, 2021
@@ -9,9 +9,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: InvenioRDM\n"
-"POT-Creation-Date: 2025-07-08T19:58:08.716Z\n"
+"POT-Creation-Date: 2026-06-22T20:31:48.945Z\n"
 "PO-Revision-Date: 2016-10-20 07:42+0000\n"
-"Last-Translator: Adienne Karsten-Welker, 2025\n"
+"Last-Translator: Adienne Karsten-Welker, 2025-2026\n"
 "Language-Team: German (http://app.transifex.com/inveniosoftware/invenio/language/de/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,22 +32,22 @@ msgid "Search guide"
 msgstr "Suchanleitung"
 
 msgid "Show all sub facets of "
-msgstr "Alle Unterfacetten von "
+msgstr "Alle Unter-Facetten anzeigen von"
 
 msgid "Clear selection"
-msgstr "Auswahl löschen"
+msgstr "Auswahl aufheben"
 
 msgid "Clear"
-msgstr "Löschen"
+msgstr "Zurücksetzen"
 
 msgid "results found"
-msgstr "Treffer gefunden"
+msgstr "Ergebnisse gefunden"
 
 msgid "results per page"
-msgstr "Treffer pro Seite"
+msgstr "Ergebnisse pro Seite"
 
 msgid "Search"
-msgstr "Suchen"
+msgstr "Suche"
 
 msgid "Search records..."
 msgstr "Datensätze suchen ..."
@@ -56,7 +56,7 @@ msgid "All records"
 msgstr "Alle Datensätze"
 
 msgid "result(s) found"
-msgstr "Treffer gefunden"
+msgstr "Ergebnis(se) gefunden"
 
 msgid "Sort"
 msgstr "Sortieren"
@@ -72,3 +72,27 @@ msgstr "Suchfilter"
 
 msgid "Search results"
 msgstr "Suchergebnisse"
+
+msgid "Last 6 months"
+msgstr "Letzte 6 Monate"
+
+msgid "Last 1 year"
+msgstr "Letztes Jahr"
+
+msgid "Last 5 years"
+msgstr "Letzte 5 Jahre"
+
+msgid "to"
+msgstr "bis"
+
+msgid "Custom Dates"
+msgstr "Benutzerdefinierte Daten"
+
+msgid "YYYY"
+msgstr "JJJJ"
+
+msgid "MM"
+msgstr "MM"
+
+msgid "DD"
+msgstr "TT"

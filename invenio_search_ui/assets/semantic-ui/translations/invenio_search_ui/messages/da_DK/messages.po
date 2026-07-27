@@ -1,73 +1,70 @@
 # 
 # Translators:
-# Ignacio Estevo, 2024
-# Jesús Martín <jesusmartin@sallep.net>, 2017,2022
 msgid ""
 msgstr ""
 "Project-Id-Version: InvenioRDM\n"
 "POT-Creation-Date: 2026-06-22T20:31:48.945Z\n"
 "PO-Revision-Date: 2016-10-20 07:42+0000\n"
-"Last-Translator: Ignacio Estevo, 2024\n"
-"Language-Team: Spanish (http://app.transifex.com/inveniosoftware/invenio/language/es/)\n"
+"Language-Team: Danish (Denmark) (http://app.transifex.com/inveniosoftware/invenio/language/da_DK/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Language: da_DK\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "mime-version: 1.0\n"
 
 msgid "Versions"
-msgstr "Versiones"
+msgstr ""
 
 msgid "View all versions"
-msgstr "Ver todas las versiones"
+msgstr ""
 
 msgid "Help"
-msgstr "Ayuda"
+msgstr ""
 
 msgid "Search guide"
-msgstr "Guía de búsqueda"
+msgstr ""
 
 msgid "Show all sub facets of "
-msgstr "Mostrar todas las subfacetas de"
+msgstr ""
 
 msgid "Clear selection"
-msgstr "Borrar selección"
+msgstr ""
 
 msgid "Clear"
-msgstr "Borrar"
+msgstr ""
 
 msgid "results found"
 msgstr ""
 
 msgid "results per page"
-msgstr "resultados por página"
+msgstr ""
 
 msgid "Search"
-msgstr "Buscar"
+msgstr ""
 
 msgid "Search records..."
-msgstr "Buscar registros..."
+msgstr ""
 
 msgid "All records"
-msgstr "Todos los registros"
+msgstr ""
 
 msgid "result(s) found"
-msgstr "resultado(s) encontrado(s)"
+msgstr ""
 
 msgid "Sort"
-msgstr "Ordenar"
+msgstr ""
 
 msgid "Sort by"
-msgstr "Ordenado por"
+msgstr ""
 
 msgid "Filter results"
-msgstr "Filtrar Resultados"
+msgstr ""
 
 msgid "Search filters"
-msgstr "Filtros de búsqueda"
+msgstr ""
 
 msgid "Search results"
-msgstr "Resultados de la búsqueda"
+msgstr ""
 
 msgid "Last 6 months"
 msgstr ""

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: InvenioRDM\n"
-"POT-Creation-Date: 2025-07-08T19:58:08.716Z\n"
+"POT-Creation-Date: 2026-06-22T20:31:48.945Z\n"
 "PO-Revision-Date: 2016-10-20 07:42+0000\n"
 "Last-Translator: Nicolaie Constantinescu, 2024\n"
 "Language-Team: Romanian (http://app.transifex.com/inveniosoftware/invenio/language/ro/)\n"
@@ -67,3 +67,27 @@ msgstr ""
 
 msgid "Search results"
 msgstr "Rezultatele căutării"
+
+msgid "Last 6 months"
+msgstr ""
+
+msgid "Last 1 year"
+msgstr ""
+
+msgid "Last 5 years"
+msgstr ""
+
+msgid "to"
+msgstr ""
+
+msgid "Custom Dates"
+msgstr ""
+
+msgid "YYYY"
+msgstr ""
+
+msgid "MM"
+msgstr ""
+
+msgid "DD"
+msgstr ""
