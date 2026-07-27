@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: InvenioRDM\n"
-"POT-Creation-Date: 2025-07-08T19:58:08.716Z\n"
+"POT-Creation-Date: 2026-06-22T20:31:48.945Z\n"
 "PO-Revision-Date: 2016-10-20 07:42+0000\n"
 "Last-Translator: yyones, 2023\n"
 "Language-Team: Swedish (http://app.transifex.com/inveniosoftware/invenio/language/sv/)\n"
@@ -75,3 +75,27 @@ msgstr "Sökfilter"
 
 msgid "Search results"
 msgstr "Sökresultat"
+
+msgid "Last 6 months"
+msgstr "Senaste 6 månaderna"
+
+msgid "Last 1 year"
+msgstr "Senaste året"
+
+msgid "Last 5 years"
+msgstr "Senaste 5 åren"
+
+msgid "to"
+msgstr "till"
+
+msgid "Custom Dates"
+msgstr "Anpassade datum"
+
+msgid "YYYY"
+msgstr "ÅÅÅÅ"
+
+msgid "MM"
+msgstr "MM"
+
+msgid "DD"
+msgstr "DD"
