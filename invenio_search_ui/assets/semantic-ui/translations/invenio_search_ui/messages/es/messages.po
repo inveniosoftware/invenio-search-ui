@@ -1,13 +1,13 @@
 # 
 # Translators:
 # Ignacio Estevo, 2024
-# Jesús Martín <jesusmartin@sallep.net>, 2017,2022
+# Jesús Martín <jesusmartin@sallep.net>, 2017,2022,2026
 msgid ""
 msgstr ""
 "Project-Id-Version: InvenioRDM\n"
 "POT-Creation-Date: 2026-06-22T20:31:48.945Z\n"
 "PO-Revision-Date: 2016-10-20 07:42+0000\n"
-"Last-Translator: Ignacio Estevo, 2024\n"
+"Last-Translator: Jesús Martín <jesusmartin@sallep.net>, 2017,2022,2026\n"
 "Language-Team: Spanish (http://app.transifex.com/inveniosoftware/invenio/language/es/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,7 +37,7 @@ msgid "Clear"
 msgstr "Borrar"
 
 msgid "results found"
-msgstr ""
+msgstr "resultados encontrados"
 
 msgid "results per page"
 msgstr "resultados por página"
@@ -70,25 +70,25 @@ msgid "Search results"
 msgstr "Resultados de la búsqueda"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "Últimos 6 meses"
 
 msgid "Last 1 year"
-msgstr ""
+msgstr "Último año"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "Últimos 5 años"
 
 msgid "to"
-msgstr ""
+msgstr "a"
 
 msgid "Custom Dates"
-msgstr ""
+msgstr "Fechas personalizadas"
 
 msgid "YYYY"
-msgstr ""
+msgstr "AAAA"
 
 msgid "MM"
-msgstr ""
+msgstr "MM"
 
 msgid "DD"
-msgstr ""
+msgstr "DD"
