@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2015-2026 CERN.
 # SPDX-FileCopyrightText: 2024-2026 Graz University of Technology.
-# SPDX-FileCopyrightText: 2025 KTH Royal Institute of Technology.
+# SPDX-FileCopyrightText: 2025-2026 KTH Royal Institute of Technology.
 # SPDX-License-Identifier: MIT
 
 r"""UI for Invenio-Search.
@@ -324,6 +324,6 @@ of the record in a list by using the ``ng-repeat`` attribute and the
 
 from .ext import InvenioSearchUI
 
-__version__ = "4.3.0"
+__version__ = "4.3.1"
 
 __all__ = ("__version__", "InvenioSearchUI")
