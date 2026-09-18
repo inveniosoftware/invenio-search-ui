@@ -4,7 +4,7 @@
  */
 
 import PropTypes from "prop-types";
-import React from "react";
+import { useState } from "react";
 import Overridable, {
   OverridableContext,
   overrideStore,
@@ -27,8 +27,24 @@ import { SearchAppResultsPane } from "./SearchAppResultsPane";
 
 const ResultOptionsWithState = withState(ResultOptions);
 
-export const SearchApp = ({ config, appName }) => {
-  const [sidebarVisible, setSidebarVisible] = React.useState(false);
+const searchAppDefaultPropConfig = {
+    searchApi: {
+      url: "",
+      withCredentials: false,
+      headers: {},
+    },
+    initialQueryState: {},
+    aggs: [],
+    sortOptions: [],
+    paginationOptions: {},
+    layoutOptions: {
+      listView: true,
+      gridView: false,
+    },
+    defaultSortingOnEmptyQueryString: {},
+  };
+export const SearchApp = ({ config = searchAppDefaultPropConfig, appName = null }) => {
+  const [sidebarVisible, setSidebarVisible] = useState(false);
   const searchApi = new InvenioSearchApi(config.searchApi);
   const context = {
     appName,
@@ -210,22 +226,3 @@ SearchApp.propTypes = {
   appName: PropTypes.string,
 };
 
-SearchApp.defaultProps = {
-  config: {
-    searchApi: {
-      url: "",
-      withCredentials: false,
-      headers: {},
-    },
-    initialQueryState: {},
-    aggs: [],
-    sortOptions: [],
-    paginationOptions: {},
-    layoutOptions: {
-      listView: true,
-      gridView: false,
-    },
-    defaultSortingOnEmptyQueryString: {},
-  },
-  appName: null,
-};
