@@ -8,6 +8,10 @@
 Changes
 =======
 
+Version v6.0.0 (released 2026-11-10)
+
+- feat: react 18 upgrade
+
 Version v5.0.3 (released 2026-08-04)
 
 - fix(build): include mo files
