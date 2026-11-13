@@ -7,7 +7,6 @@
 # Translators:
 # Kalven Richie, 2022
 # 
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: invenio-search-ui 4.0.0\n"

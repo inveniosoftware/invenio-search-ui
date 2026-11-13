@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-07-08T19:58:08.781Z\n"
-"PO-Revision-Date: 2025-07-08T19:58:08.781Z\n"
+"POT-Creation-Date: 2026-11-13T22:43:32.546Z\n"
+"PO-Revision-Date: 2026-11-13T22:43:32.547Z\n"
 "Language: en\n"
 
 msgid "Versions"
@@ -30,12 +30,6 @@ msgstr "Clear selection"
 msgid "Clear"
 msgstr "Clear"
 
-msgid "results found"
-msgstr "results found"
-
-msgid "results per page"
-msgstr "results per page"
-
 msgid "Search"
 msgstr "Search"
 
@@ -44,9 +38,6 @@ msgstr "Search records..."
 
 msgid "All records"
 msgstr "All records"
-
-msgid "result(s) found"
-msgstr "result(s) found"
 
 msgid "Sort"
 msgstr "Sort"
@@ -62,3 +53,38 @@ msgstr "Search filters"
 
 msgid "Search results"
 msgstr "Search results"
+
+msgid "Last 6 months"
+msgstr "Last 6 months"
+
+msgid "Last 1 year"
+msgstr "Last 1 year"
+
+msgid "Last 5 years"
+msgstr "Last 5 years"
+
+msgid "to"
+msgstr "to"
+
+msgid "Custom Dates"
+msgstr "Custom Dates"
+
+msgid "YYYY"
+msgstr "YYYY"
+
+msgid "MM"
+msgstr "MM"
+
+msgid "DD"
+msgstr "DD"
+
+msgid "<bold>{{count}}</bold> results found"
+msgid_plural "<bold>{{count}}</bold> results found"
+msgstr[0] "<bold>{{count}}</bold> results found"
+msgstr[1] "<bold>{{count}}</bold> results found"
+
+msgid "<pageSize/> results per page"
+msgstr "<pageSize/> results per page"
+
+msgid "<resultCount/> result(s) found"
+msgstr "<resultCount/> result(s) found"

@@ -7,8 +7,6 @@
   "Clear selection": "Tühista valik",
   "Clear": "Puhasta",
   "results per page": "tulemust lehel",
-  "<0></0> results found": "",
-  " ": "A",
   "Search": "Otsi",
   "Search records...": "Otsi kirjeid...",
   "All records": "Kõik kirjed",
@@ -16,6 +14,5 @@
   "Sort": "Sorteeri",
   "Sort by": "Sorteeri",
   "Filter results": "Filtreeri tulemusi",
-  "Search filters": "",
   "Search results": "Otsingu tulemused"
 }

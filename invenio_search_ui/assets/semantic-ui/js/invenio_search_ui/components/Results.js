@@ -1,9 +1,11 @@
 /*
  * SPDX-FileCopyrightText: 2020 CERN.
  * SPDX-FileCopyrightText: 2021 Graz University of Technology.
+ * SPDX-FileCopyrightText: 2026 KTH Royal Institute of Technology.
  * SPDX-License-Identifier: MIT
  */
 
+import { Trans } from "react-i18next";
 import Overridable from "react-overridable";
 import { useContext } from "react";
 import {
@@ -22,8 +24,9 @@ import { AppMedia } from "@js/invenio_theme/Media";
 
 export const Results = ({ currentResultsState = {} }) => {
   const { total } = currentResultsState.data;
-  const { sortOptions, layoutOptions, paginationOptions, buildUID } =
-    useContext(SearchConfigurationContext);
+  const { sortOptions, layoutOptions, paginationOptions, buildUID } = useContext(
+    SearchConfigurationContext
+  );
   const multipleLayouts = layoutOptions.listView && layoutOptions.gridView;
 
   const handleResultsRendered = () => {
@@ -44,11 +47,11 @@ export const Results = ({ currentResultsState = {} }) => {
           <Grid.Row>
             <Grid.Column>
               {multipleLayouts ? (
-                <ResultsMultiLayout onResultsRendered={handleResultsRendered}/>
+                <ResultsMultiLayout onResultsRendered={handleResultsRendered} />
               ) : layoutOptions.listView ? (
-                <ResultsList onResultsRendered={handleResultsRendered}/>
+                <ResultsList onResultsRendered={handleResultsRendered} />
               ) : (
-                <ResultsGrid onResultsRendered={handleResultsRendered}/>
+                <ResultsGrid onResultsRendered={handleResultsRendered} />
               )}
             </Grid.Column>
           </Grid.Row>
@@ -62,13 +65,8 @@ export const Results = ({ currentResultsState = {} }) => {
 export const ResultOptions = ({ currentResultsState = {} }) => {
   const { MediaContextProvider, Media } = AppMedia;
   const { total } = currentResultsState.data;
-  const {
-    sortOptions,
-    paginationOptions,
-    sortOrderDisabled,
-    layoutOptions,
-    buildUID,
-  } = useContext(SearchConfigurationContext);
+  const { sortOptions, paginationOptions, sortOrderDisabled, layoutOptions, buildUID } =
+    useContext(SearchConfigurationContext);
   const multipleLayouts = layoutOptions.listView && layoutOptions.gridView;
   return (
     <MediaContextProvider>
@@ -84,7 +82,7 @@ export const ResultOptions = ({ currentResultsState = {} }) => {
         >
           <Grid>
             <Grid.Row verticalAlign="middle">
-               <Grid.Column
+              <Grid.Column
                 at="mobile"
                 as={Media}
                 textAlign="right"
@@ -92,7 +90,15 @@ export const ResultOptions = ({ currentResultsState = {} }) => {
                 floated="right"
                 className="mb-10"
               >
-                <Count label={(cmp) => <>{cmp} {i18next.t('result(s) found')}</>} />
+                <Count
+                  label={(cmp) => (
+                    <Trans
+                      i18n={i18next}
+                      defaults={"<resultCount/> result(s) found"}
+                      components={{ resultCount: cmp }}
+                    />
+                  )}
+                />
               </Grid.Column>
               <Grid.Column
                 as={Media}
@@ -101,29 +107,27 @@ export const ResultOptions = ({ currentResultsState = {} }) => {
                 width={multipleLayouts ? 5 : 8}
                 className="mb-10"
               >
-                <Count label={(cmp) => <>{cmp} {i18next.t('result(s) found')}</>} />
+                <Count
+                  label={(cmp) => (
+                    <Trans
+                      i18n={i18next}
+                      defaults={"<resultCount/> result(s) found"}
+                      components={{ resultCount: cmp }}
+                    />
+                  )}
+                />
               </Grid.Column>
 
-              <Grid.Column
-                computer={8}
-                tablet={8}
-                mobile={16}
-                textAlign="right"
-              >
+              <Grid.Column computer={8} tablet={8} mobile={16} textAlign="right">
                 {sortOptions && (
-                  <Overridable
-                    id={buildUID("SearchApp.sort")}
-                    options={sortOptions}
-                  >
+                  <Overridable id={buildUID("SearchApp.sort")} options={sortOptions}>
                     <Sort
                       sortOrderDisabled={sortOrderDisabled || false}
                       values={sortOptions}
                       ariaLabel={i18next.t("Sort")}
                       label={(cmp) => (
                         <>
-                          <label className="mr-10">
-                            {i18next.t("Sort by")}
-                          </label>
+                          <label className="mr-10">{i18next.t("Sort by")}</label>
                           {cmp}
                         </>
                       )}
