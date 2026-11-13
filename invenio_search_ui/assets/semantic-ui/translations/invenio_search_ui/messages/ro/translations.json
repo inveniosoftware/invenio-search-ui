@@ -7,8 +7,6 @@
   "Clear selection": "Șterge selecția",
   "Clear": "Șterge",
   "results per page": "rezultate per pagină",
-  "<0></0> results found": "",
-  " ": " ",
   "Search": "Caută",
   "Search records...": "Caută înregistrările...",
   "All records": "Toate înregistrările",
@@ -16,6 +14,5 @@
   "Sort": "Sortează",
   "Sort by": "Sortează după",
   "Filter results": "Rezultate de filtrare",
-  "Search filters": "",
   "Search results": "Rezultatele căutării"
 }
