@@ -1,55 +1,36 @@
 /*
  * SPDX-FileCopyrightText: 2022 CERN.
+ * SPDX-FileCopyrightText: 2026 KTH Royal Institute of Technology.
  * SPDX-License-Identifier: MIT
  */
 
 import { Component } from "react";
 import { Dropdown, Icon } from "semantic-ui-react";
 import PropTypes from "prop-types";
-import _find from "lodash/find";
 
 export class DropdownSort extends Component {
-  parsedOptions = () => {
-    const {
-      options,
-      currentSortBy,
-      onValueChange,
-      ariaLabel,
-      selectOnNavigation,
-      ...uiProps
-    } = this.props;
-
-    return options.map((option) => {
-
-      const selected = currentSortBy === option.sortBy;
-
-      return {
-        key: option.value,
-        text: option.text,
-        value: option.value,
-        disabled: selected,
-        selected: selected
-      };
-    });
-  };
-
-  getCurrentlySelectedOption = (options) => {
-    return options.find(option => {
-      return option.selected === true;
-    })
-  }
-
   render() {
     const {
       options,
       currentSortBy,
+      currentSortOrder,
       onValueChange,
       ariaLabel,
       selectOnNavigation,
-      ...uiProps
     } = this.props;
 
-    const parsedOptions = this.parsedOptions()
+    const sortBy = Array.isArray(currentSortBy) ? currentSortBy[0] : currentSortBy;
+    const selectedOption = options.find(
+      (option) =>
+        option.sortBy === sortBy &&
+        (!option.sortOrder || !currentSortOrder || option.sortOrder === currentSortOrder)
+    );
+    const selectedValue = selectedOption?.value;
+    const parsedOptions = options.map(({ value, text }) => {
+      const selected = value === selectedValue;
+      return { key: value, text, value, disabled: selected, selected };
+    });
+
     return (
       <Dropdown
         icon="sort"
@@ -58,12 +39,12 @@ export class DropdownSort extends Component {
         item
         trigger={
           <span className="flex align-items-center">
-            {this.getCurrentlySelectedOption(parsedOptions).text}
+            {selectedOption?.text ?? ariaLabel}
             <Icon name="dropdown" />
           </span>
         }
         options={parsedOptions}
-        value={currentSortBy}
+        value={selectedValue ?? ""}
         onChange={(_, { value }) => onValueChange(value)}
         aria-label={ariaLabel}
         selectOnNavigation={selectOnNavigation}
@@ -77,7 +58,11 @@ export class DropdownSort extends Component {
 
 DropdownSort.propTypes = {
   options: PropTypes.array.isRequired,
-  currentSortBy: PropTypes.string,
+  currentSortBy: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
+  ]),
+  currentSortOrder: PropTypes.string,
   overridableId: PropTypes.string,
   ariaLabel: PropTypes.string,
   selectOnNavigation: PropTypes.bool,
