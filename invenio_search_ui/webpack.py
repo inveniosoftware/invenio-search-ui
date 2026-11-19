@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2015-2024 CERN.
+# SPDX-FileCopyrightText: 2026 KTH Royal Institute of Technology.
 # SPDX-License-Identifier: MIT
 
 """JS/CSS bundles for search-ui.
@@ -39,9 +40,9 @@ search_ui = WebpackThemeBundle(
                 "react-invenio-forms": "^5.0.0",
                 "semantic-ui-css": "^2.5.0",
                 "semantic-ui-react": "^3.0.0-beta.2",
-                "i18next": "^20.3.0",
-                "i18next-browser-languagedetector": "^6.1.0",
-                "react-i18next": "^11.11.0",
+                "i18next": "^27.1.1",
+                "i18next-browser-languagedetector": "^8.3.0",
+                "react-i18next": "^18.0.1",
                 "@visx/scale": "^3.12.0",
                 "@visx/shape": "^3.12.0",
                 "@visx/responsive": "^3.12.0",

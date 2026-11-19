@@ -6,12 +6,9 @@
   "Show all sub facets of ": "Show all sub facets of ",
   "Clear selection": "Clear selection",
   "Clear": "Clear",
-  "results found": "results found",
-  "results per page": "results per page",
   "Search": "Search",
   "Search records...": "Search records...",
   "All records": "All records",
-  "result(s) found": "result(s) found",
   "Sort": "Sort",
   "Sort by": "Sort by",
   "Filter results": "Filter results",
@@ -24,5 +21,9 @@
   "Custom Dates": "Custom Dates",
   "YYYY": "YYYY",
   "MM": "MM",
-  "DD": "DD"
+  "DD": "DD",
+  "<bold>{{count}}</bold> results found_one": "<bold>{{count}}</bold> results found",
+  "<bold>{{count}}</bold> results found_other": "<bold>{{count}}</bold> results found",
+  "<pageSize/> results per page": "<pageSize/> results per page",
+  "<resultCount/> result(s) found": "<resultCount/> result(s) found"
 }

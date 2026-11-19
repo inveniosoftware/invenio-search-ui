@@ -7,7 +7,6 @@
 # Translators:
 # Ivan Masár <helix84@centrum.sk>, 2022
 # 
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: invenio-search-ui 4.0.0\n"
