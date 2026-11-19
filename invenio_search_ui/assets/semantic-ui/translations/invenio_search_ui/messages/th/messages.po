@@ -1,0 +1,93 @@
+# 
+# Translators:
+# Suthep Yonphimai <tomztt@gmail.com>, 2026
+msgid ""
+msgstr ""
+"Project-Id-Version: InvenioRDM\n"
+"POT-Creation-Date: 2026-06-22T20:31:48.945Z\n"
+"PO-Revision-Date: 2016-10-20 07:42+0000\n"
+"Last-Translator: Suthep Yonphimai <tomztt@gmail.com>, 2026\n"
+"Language-Team: Thai (http://app.transifex.com/inveniosoftware/invenio/language/th/)\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: th\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"mime-version: 1.0\n"
+
+msgid "Versions"
+msgstr "เวอร์ชัน"
+
+msgid "View all versions"
+msgstr "ดูทุกเวอร์ชัน"
+
+msgid "Help"
+msgstr "ช่วยเหลือ"
+
+msgid "Search guide"
+msgstr "คู่มือการค้นหา"
+
+msgid "Show all sub facets of "
+msgstr "แสดงแง่มุมย่อยทั้งหมดของ"
+
+msgid "Clear selection"
+msgstr "ล้างค่าที่เลือก"
+
+msgid "Clear"
+msgstr "ล้างค่า"
+
+msgid "results found"
+msgstr "พบผลลัพธ์"
+
+msgid "results per page"
+msgstr "ผลลัพธ์ต่อหน้า"
+
+msgid "Search"
+msgstr "ค้นหา"
+
+msgid "Search records..."
+msgstr "ค้นหาระเบียน..."
+
+msgid "All records"
+msgstr "ระเบียนทั้งหมด"
+
+msgid "result(s) found"
+msgstr "พบผลลัพธ์"
+
+msgid "Sort"
+msgstr "จัดเรียง"
+
+msgid "Sort by"
+msgstr "เรียงตาม"
+
+msgid "Filter results"
+msgstr "กรองผลลัพธ์"
+
+msgid "Search filters"
+msgstr "ตัวกรองการค้นหา"
+
+msgid "Search results"
+msgstr "ผลการค้นหา"
+
+msgid "Last 6 months"
+msgstr "6 เดือนที่ผ่านมา"
+
+msgid "Last 1 year"
+msgstr "1 ปีที่ผ่านมา"
+
+msgid "Last 5 years"
+msgstr "5 ปีที่ผ่านมา"
+
+msgid "to"
+msgstr "ถึง"
+
+msgid "Custom Dates"
+msgstr "วันที่กำหนดเอง"
+
+msgid "YYYY"
+msgstr "ปปปป"
+
+msgid "MM"
+msgstr "ดด"
+
+msgid "DD"
+msgstr "วว"
